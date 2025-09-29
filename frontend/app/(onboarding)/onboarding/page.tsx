@@ -85,7 +85,7 @@ export default function OnboardingPage() {
         return (
           <Step4Confirmation
             formData={form.getValues()}
-            setFormData={(d: Record<string, unknown>)=>{Object.entries(d).forEach(([k,v])=>form.setValue(k as keyof typeof d,v));}}
+            setFormData={(d: Partial<OnboardingValues>)=>{Object.entries(d).forEach(([k,v])=>form.setValue(k as keyof OnboardingValues,v));}}
             goToStep={(step: number) => setCurrentStep(step)}
           />
         );
