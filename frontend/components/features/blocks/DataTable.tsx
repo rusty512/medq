@@ -415,7 +415,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "patientName",
     header: "Patient",
     cell: ({ row, table }) => {
-      const [isModalOpen, setIsModalOpen] = React.useState(false)
+      // Note: This should be refactored to use a proper component for the modal
       
       const handleAssociate = (patient: { name: string; nam: string }) => {
         // Update the data in the table

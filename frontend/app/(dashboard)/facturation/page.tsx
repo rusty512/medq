@@ -80,7 +80,7 @@ export default function FacturationPage() {
       }
 
     } catch (err) {
-      setError('Erreur lors de l\'exportation vers RAMQ');
+      setError('Erreur lors de l&apos;exportation vers RAMQ');
     } finally {
       setExporting(false);
     }
@@ -187,7 +187,7 @@ export default function FacturationPage() {
       {exportResults && (
         <div className="mt-6 p-4 bg-gray-50 rounded-lg border">
           <div className="flex items-center gap-4 mb-3">
-            <h3 className="font-semibold text-lg">Résultats de l'export RAMQ</h3>
+            <h3 className="font-semibold text-lg">Résultats de l&apos;export RAMQ</h3>
             <div className="flex items-center gap-2">
               {exportResults.success > 0 && (
                 <div className="flex items-center gap-1 text-green-600">

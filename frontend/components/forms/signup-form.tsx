@@ -29,10 +29,10 @@ export function SignupForm({
             <div className="grid gap-6">
               <div className="flex flex-col gap-4">
                 <Button variant="outline" className="w-full">
-                  S'inscrire avec Apple
+                  S&apos;inscrire avec Apple
                 </Button>
                 <Button variant="outline" className="w-full">
-                  S'inscrire avec Google
+                  S&apos;inscrire avec Google
                 </Button>
               </div>
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
@@ -59,7 +59,7 @@ export function SignupForm({
                   <Input id="confirm-password" type="password" placeholder="••••••••" required />
                 </div>
                 <Button type="submit" className="w-full">
-                  S'inscrire
+                  S&apos;inscrire
                 </Button>
               </div>
               <div className="text-center text-sm">

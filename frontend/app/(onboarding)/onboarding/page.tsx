@@ -25,7 +25,7 @@ export default function OnboardingPage() {
 
   const handleNext = async () => {
     const fields = stepFieldMap[currentStep];
-    const valid = await form.trigger(fields as any, { shouldFocus: true });
+    const valid = await form.trigger(fields as (keyof typeof form.formState.defaultValues)[], { shouldFocus: true });
     if (!valid) return;
     if (currentStep < totalSteps) setCurrentStep(currentStep + 1);
   };
@@ -85,7 +85,7 @@ export default function OnboardingPage() {
         return (
           <Step4Confirmation
             formData={form.getValues()}
-            setFormData={(d:any)=>{Object.entries(d).forEach(([k,v])=>form.setValue(k as any,v as any));}}
+            setFormData={(d: Record<string, unknown>)=>{Object.entries(d).forEach(([k,v])=>form.setValue(k as keyof typeof d,v));}}
             goToStep={(step: number) => setCurrentStep(step)}
           />
         );
