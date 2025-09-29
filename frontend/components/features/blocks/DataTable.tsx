@@ -276,7 +276,7 @@ function PatientSearchModal({
   const [selectedPatient, setSelectedPatient] = React.useState<{ name: string; nam: string } | null>(null)
 
   // TODO: Connect to real patient search API
-  const filteredPatients = React.useMemo(() => {
+  const filteredPatients = React.useMemo((): Array<{ id: string; name: string; nam: string }> => {
     // Placeholder for real patient search
     return []
   }, [searchValue])
