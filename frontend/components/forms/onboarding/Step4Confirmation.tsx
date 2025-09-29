@@ -89,7 +89,7 @@ export function Step4Confirmation({ goToStep, formData }: Step4ConfirmationProps
                 </FormControl>
                 <div className="space-y-1">
                   <Label htmlFor="terms" className="text-sm">
-                    Je confirme que les informations sont exactes et j'accepte les conditions d'utilisation
+                    Je confirme que les informations sont exactes et j&apos;accepte les conditions d&apos;utilisation
                   </Label>
                   {fieldState.error && (
                     <p className="text-xs text-destructive">Veuillez cocher pour continuer</p>

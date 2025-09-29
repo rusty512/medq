@@ -34,6 +34,7 @@ import {
 } from "@tanstack/react-table"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { toast } from "sonner"
+import { useSortable } from "@dnd-kit/sortable"
 import { z } from "zod"
 
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -450,8 +451,8 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "establishment",
     header: "Établissement",
     cell: ({ row }) => (
-      <div className="truncate text-sm text-foreground whitespace-nowrap" title={row.original.establishment}>
-        {row.original.establishment}
+      <div className="truncate text-sm text-foreground whitespace-nowrap" title={row.original.type}>
+        {row.original.type}
       </div>
     ),
     size: 0,
@@ -467,7 +468,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row, table }) => {
       return (
         <DayCell 
-          act={row.original.lun} 
+          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
           dayName="Lun" 
           cellId=""
           isSelected={false}
@@ -491,7 +492,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row, table }) => {
       return (
         <DayCell 
-          act={row.original.mar} 
+          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
           dayName="Mar" 
           cellId=""
           isSelected={false}
@@ -515,7 +516,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row, table }) => {
       return (
         <DayCell 
-          act={row.original.mer} 
+          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
           dayName="Mer" 
           cellId=""
           isSelected={false}
@@ -539,7 +540,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row, table }) => {
       return (
         <DayCell 
-          act={row.original.jeu} 
+          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
           dayName="Jeu" 
           cellId=""
           isSelected={false}
@@ -563,7 +564,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row, table }) => {
       return (
         <DayCell 
-          act={row.original.ven} 
+          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
           dayName="Ven" 
           cellId=""
           isSelected={false}
@@ -587,7 +588,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row, table }) => {
       return (
         <DayCell 
-          act={row.original.sam} 
+          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
           dayName="Sam" 
           cellId=""
           isSelected={false}
@@ -611,7 +612,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     cell: ({ row, table }) => {
       return (
         <DayCell 
-          act={row.original.dim} 
+          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
           dayName="Dim" 
           cellId=""
           isSelected={false}
@@ -664,7 +665,7 @@ function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
       ref={setNodeRef}
       className="relative z-0 data-[dragging=true]:z-10 data-[dragging=true]:opacity-80"
       style={{
-        transform: CSS.Transform.toString(transform),
+        transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
         transition: transition,
       }}
     >
@@ -1380,10 +1381,6 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
                     tickMargin={8}
                     tickFormatter={(value) => value.slice(0, 3)}
                     hide
-                  />
-                  <ChartTooltip
-                    cursor={false}
-                    content={<ChartTooltipContent />}
                   />
                   <Area
                     dataKey="mobile"

@@ -85,7 +85,7 @@ export class RAMQService {
       if (!token) {
         return {
           success: false,
-          error: 'Authentication failed - unable to get token'
+          message: 'Authentication failed - unable to get token'
         };
       }
 
@@ -106,7 +106,7 @@ export class RAMQService {
       if (!response.ok) {
         return {
           success: false,
-          error: result.error || 'Failed to submit to RAMQ',
+          message: result.error || 'Failed to submit to RAMQ',
           data: result.data
         };
       }
@@ -119,7 +119,7 @@ export class RAMQService {
     } catch (error) {
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Network error'
+        message: error instanceof Error ? error.message : 'Network error'
       };
     }
   }
