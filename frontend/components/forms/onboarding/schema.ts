@@ -19,17 +19,17 @@ export const establishmentsSchema = z.object({
       z.object({
         id: z.string(),
         name: z.string(),
-        address: z.string().optional().default(""),
-        type: z.string().optional().default("") ,
-        isDefault: z.boolean().optional().default(false),
+        address: z.string(),
+        type: z.string(),
+        isDefault: z.boolean(),
       })
     )
     .default([]),
 });
 
 export const confirmationSchema = z.object({
-  termsAccepted: z.literal(true, {
-    errorMap: () => ({ message: "Vous devez accepter les conditions" }),
+  termsAccepted: z.boolean().refine(val => val === true, {
+    message: "Vous devez accepter les conditions"
   }),
 });
 
