@@ -431,39 +431,14 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       }
 
       return (
-        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogTrigger asChild>
-            <button 
-              className="text-left hover:underline cursor-pointer group whitespace-nowrap"
-              onClick={(e) => {
-                e.stopPropagation()
-                setIsModalOpen(true)
-              }}
-            >
-              <div className="space-y-0.5">
-                <div className="font-medium text-foreground group-hover:text-foreground/80 transition-colors text-sm whitespace-nowrap">
-                  {row.original.patientName}
-                </div>
-                <div className="text-xs text-muted-foreground whitespace-nowrap">
-                  {row.original.nam}
-                </div>
-              </div>
-            </button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Associer un patient</DialogTitle>
-              <DialogDescription>
-                Recherchez et sélectionnez le bon patient dans la base de données RAMQ
-              </DialogDescription>
-            </DialogHeader>
-            <PatientSearchModal
-              currentPatient={row.original}
-              onAssociate={handleAssociate}
-              onClose={() => setIsModalOpen(false)}
-            />
-          </DialogContent>
-        </Dialog>
+        <div className="space-y-0.5">
+          <div className="font-medium text-foreground transition-colors text-sm whitespace-nowrap">
+            {row.original.patientName || "Non associé"}
+          </div>
+          <div className="text-xs text-muted-foreground whitespace-nowrap">
+            {row.original.nam || "N/A"}
+          </div>
+        </div>
       )
     },
     enableHiding: false,
