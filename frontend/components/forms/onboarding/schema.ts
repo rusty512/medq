@@ -24,7 +24,7 @@ export const establishmentsSchema = z.object({
         isDefault: z.boolean(),
       })
     )
-    .default([]),
+    .min(1, "Au moins un établissement est requis"),
 });
 
 export const confirmationSchema = z.object({
@@ -38,7 +38,21 @@ export const onboardingSchema = identitySchema
   .merge(establishmentsSchema)
   .merge(confirmationSchema);
 
-export type OnboardingValues = z.infer<typeof onboardingSchema>;
+export type OnboardingValues = {
+  firstName: string;
+  lastName: string;
+  phone?: string;
+  speciality: string;
+  ramqId: string;
+  establishments: Array<{
+    id: string;
+    name: string;
+    address: string;
+    type: string;
+    isDefault: boolean;
+  }>;
+  termsAccepted: boolean;
+};
 
 export const defaultValues: OnboardingValues = {
   firstName: "",
