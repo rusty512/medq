@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon --watch src --ext js --signal SIGTERM src/server.js",
+    "build": "prisma generate",
     "start": "node src/server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
