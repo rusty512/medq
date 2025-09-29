@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Test</title>
+</head>
+<body>
+    <h1>CSP Test Page</h1>
+    <p id="result">Testing JavaScript execution...</p>
+    
+    <script>
+        console.log('🚀 JavaScript is executing!');
+        document.getElementById('result').textContent = 'JavaScript is working!';
+        
+        // Test fetch to backend
+        fetch('http://localhost:3001/api/auth/test')
+            .then(response => response.json())
+            .then(data => {
+                console.log('✅ Backend connection successful:', data);
+                document.getElementById('result').textContent = 'Backend connected: ' + data.message;
+            })
+            .catch(error => {
+                console.error('❌ Backend connection failed:', error);
+                document.getElementById('result').textContent = 'Backend connection failed: ' + error.message;
+            });
+    </script>
+</body>
+</html>

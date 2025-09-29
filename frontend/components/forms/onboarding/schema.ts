@@ -1,0 +1,60 @@
+import { z } from "zod";
+
+export const identitySchema = z.object({
+  firstName: z.string().min(1, "Prénom requis"),
+  lastName: z.string().min(1, "Nom requis"),
+  phone: z.string().optional(),
+});
+
+export const professionalSchema = z.object({
+  speciality: z.string().min(1, "Spécialité requise"),
+  ramqId: z
+    .string()
+    .regex(/^\d{10}$/,{ message: "Identifiant RAMQ (10 chiffres)" }),
+});
+
+export const establishmentsSchema = z.object({
+  establishments: z
+    .array(
+      z.object({
+        id: z.string(),
+        name: z.string(),
+        address: z.string().optional().default(""),
+        type: z.string().optional().default("") ,
+        isDefault: z.boolean().optional().default(false),
+      })
+    )
+    .default([]),
+});
+
+export const confirmationSchema = z.object({
+  termsAccepted: z.literal(true, {
+    errorMap: () => ({ message: "Vous devez accepter les conditions" }),
+  }),
+});
+
+export const onboardingSchema = identitySchema
+  .merge(professionalSchema)
+  .merge(establishmentsSchema)
+  .merge(confirmationSchema);
+
+export type OnboardingValues = z.infer<typeof onboardingSchema>;
+
+export const defaultValues: OnboardingValues = {
+  firstName: "",
+  lastName: "",
+  phone: "",
+  speciality: "",
+  ramqId: "",
+  establishments: [],
+  termsAccepted: false,
+};
+
+export const stepFieldMap: Record<number, (keyof OnboardingValues)[]> = {
+  1: ["firstName", "lastName", "phone"],
+  2: ["speciality", "ramqId"],
+  3: ["establishments"],
+  4: ["termsAccepted"],
+};
+
+

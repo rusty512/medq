@@ -1,0 +1,33 @@
+// Prisma schema for Supabase Postgres
+// Models: User, Establishment
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                      Int           @id @default(autoincrement())
+  supabase_uid            String        @unique
+  first_name              String?
+  last_name               String?
+  specialty               String?
+  default_establishment_id Int?
+  default_establishment   Establishment? @relation(fields: [default_establishment_id], references: [id])
+  created_at              DateTime      @default(now())
+  updated_at              DateTime      @updatedAt
+}
+
+model Establishment {
+  id         Int       @id @default(autoincrement())
+  name       String
+  users      User[]
+  created_at DateTime  @default(now())
+  updated_at DateTime  @updatedAt
+}
+
+
