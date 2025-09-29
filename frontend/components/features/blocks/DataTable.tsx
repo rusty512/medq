@@ -433,10 +433,10 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return (
         <div className="space-y-0.5">
           <div className="font-medium text-foreground transition-colors text-sm whitespace-nowrap">
-            {row.original.patientName || "Non associé"}
+            {row.original.reviewer || "Non associé"}
           </div>
           <div className="text-xs text-muted-foreground whitespace-nowrap">
-            {row.original.nam || "N/A"}
+            {row.original.target || "N/A"}
           </div>
         </div>
       )
