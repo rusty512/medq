@@ -23,6 +23,8 @@ export function Step3Establishments() {
   const [offset, setOffset] = useState(0)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [canLoadMoreVisible, setCanLoadMoreVisible] = useState(false)
+  const [hasMore, setHasMore] = useState(true)
+  const PAGE_SIZE = 100
 
   useEffect(() => {
     const controller = new AbortController();
@@ -51,8 +53,12 @@ export function Step3Establishments() {
     const controller = new AbortController();
     const load = async () => {
       try {
-        const res = await fetch(`/api/establishments?offset=0&limit=100`, { signal: controller.signal })
-        if (res.ok) setResults(await res.json())
+        const res = await fetch(`/api/establishments?offset=0&limit=${PAGE_SIZE}`, { signal: controller.signal })
+        if (res.ok) {
+          const data = await res.json()
+          setResults(data)
+          setHasMore(Array.isArray(data) && data.length === PAGE_SIZE)
+        }
       } catch (err: any) {
         if (err?.name !== 'AbortError') {
           // ignore other errors silently for now
@@ -88,6 +94,23 @@ export function Step3Establishments() {
     const updated = establishments.map((e: any) => ({ ...e, isDefault: e.id === id }));
     setValue("establishments", updated);
   };
+
+  const loadMore = async () => {
+    if (isLoadingMore || !hasMore) return
+    try {
+      setIsLoadingMore(true)
+      const next = offset + PAGE_SIZE
+      const res = await fetch(`/api/establishments?offset=${next}&limit=${PAGE_SIZE}`)
+      if (res.ok) {
+        const more = await res.json()
+        setResults(prev => [...prev, ...(more || [])])
+        setOffset(next)
+        setHasMore(Array.isArray(more) && more.length === PAGE_SIZE)
+      }
+    } finally {
+      setIsLoadingMore(false)
+    }
+  }
 
   // Skip handled by parent page footer to match global layout
 
@@ -126,6 +149,9 @@ export function Step3Establishments() {
                       const el = e.currentTarget
                       const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 8
                       setCanLoadMoreVisible(atBottom)
+                      if (atBottom) {
+                        void loadMore()
+                      }
                     }}
                   >
                     <CommandEmpty>Aucun établissement trouvé.</CommandEmpty>
@@ -165,29 +191,12 @@ export function Step3Establishments() {
                       ))}
                     </CommandGroup>
                   </CommandList>
-                  <div className="p-2 border-t bg-background sticky bottom-0">
-                    <Button
-                      variant="ghost"
-                      className="w-full"
-                      onClick={async () => {
-                        try {
-                          setIsLoadingMore(true)
-                          const next = offset + 100
-                          const res = await fetch(`/api/establishments?offset=${next}&limit=100`)
-                          if (res.ok) {
-                            const more = await res.json()
-                            setResults(prev => [...prev, ...(more || [])])
-                            setOffset(next)
-                          }
-                        } finally {
-                          setIsLoadingMore(false)
-                        }
-                      }}
-                      disabled={!canLoadMoreVisible}
-                    >
-                      {isLoadingMore ? 'Chargement…' : canLoadMoreVisible ? 'Charger plus' : 'Faites défiler pour plus'}
-                    </Button>
-                  </div>
+                  {/* Optional tiny status row at bottom to show loading */}
+                  {isLoadingMore && (
+                    <div className="p-2 text-center text-xs text-muted-foreground">
+                      Chargement…
+                    </div>
+                  )}
                 </div>
               </Command>
             </PopoverContent>
