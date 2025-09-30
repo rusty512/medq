@@ -74,8 +74,11 @@ export function Step3Establishments() {
   const filteredEstablishments = results;
 
   const handleAddEstablishment = (establishment: any) => {
+    console.log('Adding establishment:', establishment.name);
     if (!establishments.find((est: any) => est.id === establishment.id)) {
-      setValue("establishments", [...establishments, { ...establishment, isDefault: false }]);
+      const newEstablishments = [...establishments, { ...establishment, isDefault: false }];
+      console.log('Setting establishments:', newEstablishments);
+      setValue("establishments", newEstablishments);
     }
     setSearchValue("");
     setOpen(false);
@@ -161,16 +164,22 @@ export function Step3Establishments() {
                           key={establishment.id}
                           value={establishment.name}
                           onSelect={() => {
+                            console.log('onSelect triggered for:', establishment.name);
                             handleAddEstablishment(establishment)
-                            setOpen(false)
                           }}
                           onClick={(ev) => {
+                            console.log('onClick triggered for:', establishment.name);
                             ev.preventDefault()
                             ev.stopPropagation()
                             handleAddEstablishment(establishment)
-                            setOpen(false)
                           }}
-                          className="py-1 px-1 cursor-pointer hover:bg-accent"
+                          onMouseDown={(ev) => {
+                            console.log('onMouseDown triggered for:', establishment.name);
+                            ev.preventDefault()
+                            ev.stopPropagation()
+                            handleAddEstablishment(establishment)
+                          }}
+                          className="py-1 px-1 cursor-pointer hover:bg-accent active:bg-accent"
                         >
                         <div className="flex w-full items-start justify-between gap-3">
                           <div className="min-w-0">
