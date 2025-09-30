@@ -123,7 +123,7 @@ export function Step3Establishments() {
         {/* Establishment Combobox */}
         <div className="space-y-2">
           <Label>Rechercher un établissement</Label>
-          <Popover open={open} onOpenChange={setOpen}>
+          <Popover open={open} onOpenChange={setOpen} modal={false}>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
@@ -138,7 +138,14 @@ export function Step3Establishments() {
                 <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent side="bottom" align="start" avoidCollisions={false} className="z-50 w-full p-0">
+            <PopoverContent
+              side="bottom"
+              align="start"
+              avoidCollisions={false}
+              onOpenAutoFocus={(e) => e.preventDefault()}
+              onCloseAutoFocus={(e) => e.preventDefault()}
+              className="z-50 w-full p-0"
+            >
               <Command>
                 <CommandInput 
                   placeholder="Rechercher par nom, adresse ou code..." 
@@ -163,6 +170,7 @@ export function Step3Establishments() {
                         <CommandItem
                           key={establishment.id}
                           value={establishment.name}
+                          disabled={false}
                           onSelect={() => {
                             console.log('onSelect triggered for:', establishment.name);
                             handleAddEstablishment(establishment)
