@@ -158,21 +158,24 @@ export function Step3Establishments() {
                     <CommandGroup>
                       {filteredEstablishments.map((establishment) => (
                         <CommandItem
-                        key={establishment.id}
-                        value={establishment.name}
-                          onMouseDown={(ev) => {
-                            ev.preventDefault()
-                            ev.stopPropagation()
-                            setSearchValue(establishment.name)
+                          key={establishment.id}
+                          value={establishment.name}
+                          onSelect={() => {
                             handleAddEstablishment(establishment)
                             setOpen(false)
                           }}
-                        className="py-1 px-1"
-                      >
+                          onClick={(ev) => {
+                            ev.preventDefault()
+                            ev.stopPropagation()
+                            handleAddEstablishment(establishment)
+                            setOpen(false)
+                          }}
+                          className="py-1 px-1 cursor-pointer hover:bg-accent"
+                        >
                         <div className="flex w-full items-start justify-between gap-3">
                           <div className="min-w-0">
                             <div className="flex items-center">
-                              {searchValue === establishment.name && (
+                              {establishments.find((e: any) => e.id === establishment.id) && (
                                 <Check className="mr-2 h-4 w-4 shrink-0" />
                               )}
                               <span className="font-medium truncate">{establishment.name}</span>
