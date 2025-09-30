@@ -34,21 +34,35 @@ export function Step3Establishments() {
         if (!res.ok) return;
         const data = await res.json();
         setResults(data || []);
-      } catch {}
+      } catch (err: any) {
+        if (err?.name !== 'AbortError') {
+          // swallow network errors silently for this UX
+        }
+      }
     };
     fetchData();
-    return () => controller.abort();
+    return () => {
+      if (!controller.signal.aborted) controller.abort();
+    };
   }, [searchValue]);
 
   // initial load all (paged)
   useEffect(() => {
     const controller = new AbortController();
     const load = async () => {
-      const res = await fetch(`/api/establishments?offset=0&limit=100`, { signal: controller.signal })
-      if (res.ok) setResults(await res.json())
+      try {
+        const res = await fetch(`/api/establishments?offset=0&limit=100`, { signal: controller.signal })
+        if (res.ok) setResults(await res.json())
+      } catch (err: any) {
+        if (err?.name !== 'AbortError') {
+          // ignore other errors silently for now
+        }
+      }
     }
     load()
-    return () => controller.abort()
+    return () => {
+      if (!controller.signal.aborted) controller.abort()
+    }
   }, [])
 
   const filteredEstablishments = results;
