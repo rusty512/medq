@@ -181,7 +181,17 @@ export function Step3Establishments() {
                           }}
                           className="py-1 px-1 cursor-pointer hover:bg-accent active:bg-accent"
                         >
-                        <div className="flex w-full items-start justify-between gap-3">
+                        <button
+                          type="button"
+                          className="flex w-full items-start justify-between gap-3 text-left"
+                          onPointerDown={(ev) => {
+                            // Pointer-level handler fires before Radix dismiss layer
+                            ev.preventDefault()
+                            ev.stopPropagation()
+                            handleAddEstablishment(establishment)
+                            setOpen(false)
+                          }}
+                        >
                           <div className="min-w-0">
                             <div className="flex items-center">
                               {establishments.find((e: any) => e.id === establishment.id) && (
@@ -198,7 +208,7 @@ export function Step3Establishments() {
                               ))}
                             </div>
                           </div>
-                        </div>
+                        </button>
                         </CommandItem>
                       ))}
                     </CommandGroup>
