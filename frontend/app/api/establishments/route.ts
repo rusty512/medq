@@ -18,8 +18,9 @@ export async function GET(request: Request) {
       const to = offset + limit - 1
 
       // Select shape expected by the UI
+      // NOTE: Supabase table is named with capital 'E' (Establishment)
       let query = supabase
-        .from('establishments')
+        .from('Establishment')
         .select(
           'id, code, name, address, category, establishment_type, region_code, region_name, municipality, postal_code, is_active, codes'
         )
@@ -40,22 +41,24 @@ export async function GET(request: Request) {
           headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-data-source': 'supabase' },
         })
       }
-      // If Supabase errors, fall back to backend proxy below
-    } catch {
-      // Fall back to backend proxy
+      if (error) {
+        return new Response(JSON.stringify({ error: error.message }), {
+          status: 500,
+          headers: { 'content-type': 'application/json', 'x-data-source': 'supabase', 'x-error': 'supabase-query-failed' },
+        })
+      }
+    } catch (e: any) {
+      return new Response(JSON.stringify({ error: e?.message || 'Unexpected error' }), {
+        status: 500,
+        headers: { 'content-type': 'application/json', 'x-data-source': 'supabase', 'x-error': 'supabase-exception' },
+      })
     }
   }
 
-  // Backend fallback (existing behavior)
-  const backend = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4001'
-  const qs = new URLSearchParams()
-  if (search) qs.set('search', search)
-  qs.set('offset', String(offset))
-  qs.set('limit', String(limit))
-  const url = `${backend}/establishments${qs.toString() ? `?${qs.toString()}` : ''}`
-  const res = await fetch(url, { cache: 'no-store' })
-  const headers: Record<string, string> = { 'x-data-source': 'backend' }
-  const body = await res.text()
-  return new Response(body, { status: res.status, headers })
+  // No Supabase config; explicitly return an error instead of localhost fallback on Vercel
+  return new Response(JSON.stringify({ error: 'Supabase not configured and no backend available' }), {
+    status: 500,
+    headers: { 'content-type': 'application/json', 'x-data-source': 'none' },
+  })
 }
 
