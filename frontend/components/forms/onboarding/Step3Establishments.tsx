@@ -15,9 +15,9 @@ import { cn } from "@/lib/utils";
 export function Step3Establishments() {
   const [open, setOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const { getValues, setValue } = useFormContext();
-  const formData = getValues();
-  const [defaultEstablishmentId, setDefaultEstablishmentId] = useState<string | null>((formData.establishments.find((e: any) => e.isDefault) || null)?.id || null);
+  const { watch, setValue } = useFormContext();
+  const establishments = watch("establishments") || [];
+  const [defaultEstablishmentId, setDefaultEstablishmentId] = useState<string | null>((establishments.find((e: any) => e.isDefault) || null)?.id || null);
 
   const [results, setResults] = useState<any[]>([]);
   const [offset, setOffset] = useState(0)
@@ -53,15 +53,15 @@ export function Step3Establishments() {
   const filteredEstablishments = results;
 
   const handleAddEstablishment = (establishment: any) => {
-    if (!formData.establishments.find((est: any) => est.id === establishment.id)) {
-      setValue("establishments", [...formData.establishments, { ...establishment, isDefault: false }]);
+    if (!establishments.find((est: any) => est.id === establishment.id)) {
+      setValue("establishments", [...establishments, { ...establishment, isDefault: false }]);
     }
     setSearchValue("");
     setOpen(false);
   };
 
   const handleRemoveEstablishment = (id: string) => {
-    const updatedEstablishments = formData.establishments.filter((est: any) => est.id !== id);
+    const updatedEstablishments = establishments.filter((est: any) => est.id !== id);
     setValue("establishments", updatedEstablishments);
     if (defaultEstablishmentId === id) {
       setDefaultEstablishmentId(null);
@@ -70,7 +70,7 @@ export function Step3Establishments() {
 
   const handleSetDefault = (id: string) => {
     setDefaultEstablishmentId(id);
-    const updated = formData.establishments.map((e: any) => ({ ...e, isDefault: e.id === id }));
+    const updated = establishments.map((e: any) => ({ ...e, isDefault: e.id === id }));
     setValue("establishments", updated);
   };
 
@@ -104,11 +104,12 @@ export function Step3Establishments() {
                   value={searchValue}
                   onValueChange={setSearchValue}
                 />
-                <CommandList>
-                  <CommandEmpty>Aucun établissement trouvé.</CommandEmpty>
-                  <CommandGroup>
-                    {filteredEstablishments.map((establishment) => (
-                      <CommandItem
+                <div className="max-h-96 flex flex-col">
+                  <CommandList className="flex-1 overflow-auto">
+                    <CommandEmpty>Aucun établissement trouvé.</CommandEmpty>
+                    <CommandGroup>
+                      {filteredEstablishments.map((establishment) => (
+                        <CommandItem
                         key={establishment.id}
                         value={establishment.name}
                         onSelect={(currentValue) => {
@@ -136,43 +137,44 @@ export function Step3Establishments() {
                             </div>
                           </div>
                         </div>
-                      </CommandItem>
-                    ))}
-                    <div className="p-2">
-                      <Button
-                        variant="ghost"
-                        className="w-full"
-                        onClick={async () => {
-                          try {
-                            setIsLoadingMore(true)
-                            const next = offset + 100
-                            const res = await fetch(`/api/establishments?offset=${next}&limit=100`)
-                            if (res.ok) {
-                              const more = await res.json()
-                              setResults(prev => [...prev, ...(more || [])])
-                              setOffset(next)
-                            }
-                          } finally {
-                            setIsLoadingMore(false)
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                  <div className="p-2 border-t bg-background sticky bottom-0">
+                    <Button
+                      variant="ghost"
+                      className="w-full"
+                      onClick={async () => {
+                        try {
+                          setIsLoadingMore(true)
+                          const next = offset + 100
+                          const res = await fetch(`/api/establishments?offset=${next}&limit=100`)
+                          if (res.ok) {
+                            const more = await res.json()
+                            setResults(prev => [...prev, ...(more || [])])
+                            setOffset(next)
                           }
-                        }}
-                      >
-                        {isLoadingMore ? 'Chargement…' : 'Charger plus'}
-                      </Button>
-                    </div>
-                  </CommandGroup>
-                </CommandList>
+                        } finally {
+                          setIsLoadingMore(false)
+                        }
+                      }}
+                    >
+                      {isLoadingMore ? 'Chargement…' : 'Charger plus'}
+                    </Button>
+                  </div>
+                </div>
               </Command>
             </PopoverContent>
           </Popover>
         </div>
         
         {/* Selected establishments */}
-        {formData.establishments.length > 0 && (
+        {establishments.length > 0 && (
           <div className="space-y-2">
             <Label>Établissements sélectionnés</Label>
             <div className="rounded-md border divide-y">
-              {formData.establishments.map((establishment: any) => (
+              {establishments.map((establishment: any) => (
                 <div key={establishment.id} className="flex items-start justify-between px-4 py-3 hover:bg-muted/50">
                   <div className="min-w-0">
                     <div className="truncate font-semibold text-sm">{establishment.name}</div>
