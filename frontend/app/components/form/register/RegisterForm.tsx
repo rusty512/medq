@@ -13,17 +13,28 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { supabase } from "@/lib/supabase-client";
+import { useRouter } from "next/navigation";
 
 export function RegisterForm() {
+  const router = useRouter();
 
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
     defaultValues: { email: "", password: "", password_confirmation: "" },
   });
 
-  const onSubmit = (values: RegisterFormValues) => {
-    console.log("Register form submitted:", values); // after API remove
-    // create an API
+  const onSubmit = async (values: RegisterFormValues) => {
+    const { error } = await supabase.auth.signUp({
+      email: values.email,
+      password: values.password,
+    });
+    if (error) {
+      // eslint-disable-next-line no-alert
+      alert(error.message);
+      return;
+    }
+    router.push("/onboarding");
   };
 
   return (

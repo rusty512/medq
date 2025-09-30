@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase-client";
 import { useRouter } from "next/navigation";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001/api";
@@ -31,28 +32,22 @@ export function LoginForm() {
   const onSubmit = async (values: LoginFormValues) => {
     setIsLoading(true);
     setError(null);
-    
     try {
-      const res = await fetch(`${API_BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: values.email, password: values.password })
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
       });
-      const data = await res.json();
-
-      if (!res.ok || !data?.token) {
-        setError(data?.error || 'Invalid credentials');
+      if (error || !data.session?.access_token) {
+        setError(error?.message || 'Invalid credentials');
         return;
       }
-
-      // Store JWT for authenticated API calls
+      const token = data.session.access_token;
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem('auth_token', data.token);
+        window.localStorage.setItem('auth_token', token);
       }
-
-      // Redirect after successful login
+      await fetch('/api/me', { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
       router.push('/dashboard');
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred');
     } finally {
       setIsLoading(false);

@@ -12,8 +12,10 @@ import { Step3Establishments } from "@/components/forms/onboarding/Step3Establis
 import { Step4Confirmation } from "@/components/forms/onboarding/Step4Confirmation";
 import { Form } from "@/components/ui/form";
 import { defaultValues, onboardingSchema, type OnboardingValues, stepFieldMap } from "@/components/forms/onboarding/schema";
+import { useRouter } from "next/navigation";
 
 export default function OnboardingPage() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const form = useForm<OnboardingValues>({
     resolver: zodResolver(onboardingSchema),
@@ -41,9 +43,9 @@ export default function OnboardingPage() {
     if (currentStep === 3) setCurrentStep(4);
   };
 
-  const onSubmit = (values: OnboardingValues) => {
-    console.log("Onboarding completed with data:", values);
-    alert("Onboarding terminé ! Voir la console pour les données.");
+  const onSubmit = async (_values: OnboardingValues) => {
+    // After onboarding, move to dashboard; backend /me will upsert on first call
+    router.push("/dashboard");
   };
 
   const getStepInfo = () => {

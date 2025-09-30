@@ -1,0 +1,41 @@
+{
+  "version": "2025-06-13T12-04-06",
+  "paths": {
+    "soap": "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/soap-response.xml",
+    "zip": "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/helpfiles.zip"
+  },
+  "files": [
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/[Content_Types].xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeDiagnostic_V311_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeFacturation_ChirurgienBuccal_V263_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeFacturation_ChirurgienDentiste_V260_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeFacturation_Denturologiste_V255_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeFacturation_Omnipraticien_V334_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeFacturation_Optometriste_V255_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeFacturation_Specialiste_V363_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/codeLocalite_V453_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/combinaisonSurfaceDent_V254_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/denominationCommuneMedicament_V254_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/elementContexte_ChirurgienBuccal_V261_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/elementContexte_ChirurgienDentiste_V260_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/elementContexte_Denturologiste_V257_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/elementContexte_Omnipraticien_V335_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/elementContexte_Optometriste_V260_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/elementContexte_Specialiste_V351_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/infoEtablissement_V444_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/messageExplicatif_ChirurgienBuccal_V403_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/messageExplicatif_ChirurgienDentiste_V405_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/messageExplicatif_Denturologiste_V401_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/messageExplicatif_Omnipraticien_V448_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/messageExplicatif_Optometriste_V402_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/messageExplicatif_Specialiste_V447_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/numeroDent_V254_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/raisonTraitementDenta_V254_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/secteurActivite_ChirurgienBuccal_V255_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/secteurActivite_ChirurgienDentiste_V255_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/secteurActivite_Omnipraticien_V258_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/secteurActivite_Optometriste_V254_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/secteurActivite_Specialiste_V257_20250613.xml",
+    "/Users/louisgagnon-rousseau/RAMQ SCAN/ramq-scan-app/backend/ramq-helpfiles/2025-06-13T12-04-06/xml/siteTraitementDenta_V254_20250613.xml"
+  ]
+}

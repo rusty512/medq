@@ -43,4 +43,27 @@ router.get('/me', requireAuth, async (req, res) => {
 
 export default router
 
+// PUT /me/default-establishment
+router.put('/me/default-establishment', requireAuth, async (req, res) => {
+  try {
+    const user = req.supabaseUser
+    const supabaseUid = user.id
+    const { establishmentId } = req.body || {}
+
+    if (!establishmentId) {
+      return res.status(400).json({ error: 'establishmentId is required' })
+    }
+
+    const updated = await prisma.user.update({
+      where: { supabase_uid: supabaseUid },
+      data: { default_establishment_id: establishmentId },
+      select: { id: true, default_establishment_id: true }
+    })
+
+    return res.json(updated)
+  } catch (err) {
+    return res.status(500).json({ error: 'Failed to set default establishment' })
+  }
+})
+
 

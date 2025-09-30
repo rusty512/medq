@@ -4,6 +4,11 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   
+  // Always allow API routes and Next.js internals to pass through
+  if (pathname.startsWith('/api') || pathname.startsWith('/_next')) {
+    return NextResponse.next()
+  }
+
   // Define public routes that don't require authentication
   const publicRoutes = ['/', '/login', '/register', '/health']
   const isPublicRoute = publicRoutes.includes(pathname)
@@ -20,7 +25,8 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!.+\.[\\w]+$|_next).*)', '/', '/(api)(.*)'],
+  // Match all routes except static files; API is handled early-return above
+  matcher: ['/((?!.+\.[\\w]+$|_next).*)', '/'],
 }
 
 

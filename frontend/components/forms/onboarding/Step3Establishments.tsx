@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -19,24 +19,38 @@ export function Step3Establishments() {
   const formData = getValues();
   const [defaultEstablishmentId, setDefaultEstablishmentId] = useState<string | null>((formData.establishments.find((e: any) => e.isDefault) || null)?.id || null);
 
-  // Mock RAMQ establishments list with codes - in real app, this would come from API
-  const ramqEstablishments = [
-    { id: "1", name: "Hôpital Notre-Dame", address: "1560 Rue Sherbrooke E, Montréal, QC", codes: ["HND001", "HND-MTL", "HND-1560"] },
-    { id: "2", name: "CHU Sainte-Justine", address: "3175 Chemin de la Côte-Sainte-Catherine, Montréal, QC", codes: ["CHUSJ001", "CHUSJ-MTL", "CHUSJ-3175"] },
-    { id: "3", name: "Institut de Cardiologie de Montréal", address: "5000 Rue Bélanger, Montréal, QC", codes: ["ICM001", "ICM-MTL", "ICM-5000"] },
-    { id: "4", name: "Clinique médicale Saint-Luc", address: "123 Rue de la Santé, Montréal, QC", codes: ["CMSL001", "CMSL-MTL", "CMSL-123"] },
-    { id: "5", name: "Centre hospitalier de l'Université de Montréal", address: "1058 Rue Saint-Denis, Montréal, QC", codes: ["CHUM001", "CHUM-MTL", "CHUM-1058"] },
-    { id: "6", name: "Hôpital général de Montréal", address: "1650 Rue Cedar, Montréal, QC", codes: ["HGM001", "HGM-MTL", "HGM-1650"] },
-    { id: "7", name: "Clinique externe de pédiatrie", address: "456 Avenue du Parc, Montréal, QC", codes: ["CEP001", "CEP-MTL", "CEP-456"] },
-    { id: "8", name: "Centre de santé communautaire", address: "789 Boulevard Saint-Laurent, Montréal, QC", codes: ["CSC001", "CSC-MTL", "CSC-789"] },
-  ];
+  const [results, setResults] = useState<any[]>([]);
+  const [offset, setOffset] = useState(0)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
 
-  const filteredEstablishments = ramqEstablishments.filter(est => {
-    const matchesSearch = est.name.toLowerCase().includes(searchValue.toLowerCase()) ||
-      est.address.toLowerCase().includes(searchValue.toLowerCase()) ||
-      est.codes.some(code => code.toLowerCase().includes(searchValue.toLowerCase()));
-    return matchesSearch;
-  });
+  useEffect(() => {
+    const controller = new AbortController();
+    const q = searchValue.trim();
+    const fetchData = async () => {
+      try {
+        const params = q ? `?search=${encodeURIComponent(q)}` : '';
+        const res = await fetch(`/api/establishments${params}`, { signal: controller.signal });
+        if (!res.ok) return;
+        const data = await res.json();
+        setResults(data || []);
+      } catch {}
+    };
+    fetchData();
+    return () => controller.abort();
+  }, [searchValue]);
+
+  // initial load all (paged)
+  useEffect(() => {
+    const controller = new AbortController();
+    const load = async () => {
+      const res = await fetch(`/api/establishments?offset=0&limit=100`, { signal: controller.signal })
+      if (res.ok) setResults(await res.json())
+    }
+    load()
+    return () => controller.abort()
+  }, [])
+
+  const filteredEstablishments = results;
 
   const handleAddEstablishment = (establishment: any) => {
     if (!formData.establishments.find((est: any) => est.id === establishment.id)) {
@@ -77,7 +91,7 @@ export function Step3Establishments() {
                 className="w-full justify-between px-3"
               >
                 {searchValue ? 
-                  ramqEstablishments.find((est) => est.name === searchValue)?.name || "Sélectionner un établissement..."
+                  filteredEstablishments.find((est) => est.name === searchValue)?.name || "Sélectionner un établissement..."
                   : "Sélectionner un établissement..."
                 }
                 <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -114,7 +128,7 @@ export function Step3Establishments() {
                             </div>
                             <span className="text-xs text-muted-foreground block truncate">{establishment.address}</span>
                             <div className="flex gap-1 mt-1">
-                              {establishment.codes.map((code, index) => (
+                              {establishment.codes?.map((code: string, index: number) => (
                                 <Badge key={index} variant="outline" className="text-[10px] px-1 py-0">
                                   {code}
                                 </Badge>
@@ -124,6 +138,28 @@ export function Step3Establishments() {
                         </div>
                       </CommandItem>
                     ))}
+                    <div className="p-2">
+                      <Button
+                        variant="ghost"
+                        className="w-full"
+                        onClick={async () => {
+                          try {
+                            setIsLoadingMore(true)
+                            const next = offset + 100
+                            const res = await fetch(`/api/establishments?offset=${next}&limit=100`)
+                            if (res.ok) {
+                              const more = await res.json()
+                              setResults(prev => [...prev, ...(more || [])])
+                              setOffset(next)
+                            }
+                          } finally {
+                            setIsLoadingMore(false)
+                          }
+                        }}
+                      >
+                        {isLoadingMore ? 'Chargement…' : 'Charger plus'}
+                      </Button>
+                    </div>
                   </CommandGroup>
                 </CommandList>
               </Command>

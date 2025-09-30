@@ -1,0 +1,2316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<msg_expl xmlns="urn:ramq-gouv-qc-ca:RFP">
+  <cod_fich_ext_aide_sais>12</cod_fich_ext_aide_sais>
+  <no_versi_fich>405</no_versi_fich>
+  <dat_extr>2025-06-20</dat_extr>
+  <no_enten>4</no_enten>
+  <val_msg_expl>
+    <cod_msg_expl>2212</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La présence d'une ligne de frais de transport ou l'un des éléments de contexte suivants: ''Demande de remboursement des frais de transport déjà transmise'' ou ''Temps d'attente imprévu'' est requis pour l'utilisation du code de facturation 09992.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-19</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1086</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Une facture liée à une demande de remboursement ayant fait l'objet d'un appariement ne peut être {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1088</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date-heure début d'intervention d'un autre médecin est obligatoire avec l'utilisation de l'élément de contexte 110.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1090</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation "09990" ne peut être utilisé pour une facture associée à une demande de remboursement.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1091</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les éléments de contexte {0} et {1} au niveau d'une {2} sont mutuellement exclusifs.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1095</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La présence d'un numéro de transmission valide est requise pour l'identifiant connecté pour transmettre une demande.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1097</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Avec le type de lieu en référence utilisé, tous les lieux doivent être des lieux {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1098</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour le moyen de transport spécifié, le nombre de kilomètres pour l'aller est obligatoire et doit être supérieur à zéro (0).]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1099</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Toutes les dates de service doivent être postérieures ou égales au {0}]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-17</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1082</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Il n'est pas permis d'avoir plus d'une ligne de facture lorsque le code de facturation 09990 est utilisé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-17</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1084</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les informations du répondant ne peuvent être saisies pour le type de situation sélectionnée.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-17</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2072</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Code de facturation est inexistant à la date de service]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2014-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2116</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, le déplacement facturé est incohérent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2119</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, le temps de déplacement est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1108</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'utilisation du code de facturation {0} nécessite l'emploi de l'élément de contexte {1} au niveau de la ligne.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-03-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1109</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'expéditeur de la demande n'est pas autorisé à facturer dans le nouveau système de rémunération à l'acte.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-03-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1110</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'expéditeur de la demande n'est pas autorisé à facturer pour le compte du professionnel.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-03-18</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1111</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le montant demandé est supérieur au montant maximum permis.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-03-18</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1113</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour un enfant âgé de moins d'un an, tous les éléments suivants sont obligatoires : Nom, date de naissance, et sexe ainsi qu'un répondant (mère ou père).]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-03-29</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1116</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre d'heure d'attente saisi excède la limite permise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-03-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1114</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le montant saisi excède la limite permise pour des frais de séjour.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-03-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1115</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre d'heure de déplacement saisi excède la limite permise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-03-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1117</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre de KM aller saisi excède la limite permise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-03-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2931</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Consécutivement à une appréciation particulière d’ordre administratif et selon les renseignements fournis.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2019-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1472</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facture a été révisée par la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1085</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les informations de la facture ne permettent pas de calculer un montant.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-09-18</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9025</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre d'heures de déplacement et d'attente saisi excède la limite permise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1015</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code diagnostic {0} n'existe pas dans le système de classification utilisé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1016</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Dans une demande de modification de facture, il n'est pas permis de modifier l'élément {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1019</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'utilisation de l'élément de contexte {0} en date du {1} nécessite la présence d'un code de facturation lié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1021</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date et l'heure de fin doivent être supérieures ou égales à la date et l'heure de début de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1022</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande de modification ne peut être effectuée, car le numéro de la facture n'existe pas dans le système.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1023</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande de modification ne peut être effectuée, car la facture a été annulée.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1024</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande d'annulation ne peut être effectuée, car la facture numéro {0} n'existe pas dans le système.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1025</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande d'annulation de la facture {0} ne peut être effectuée, car le délai d'annulation est expiré pour au moins une de ses lignes.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1026</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Il est impossible d'annuler la facture {0}, car elle est déjà annulée.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1027</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande de modification ne peut être traitée, car aucun élément n'a été modifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1029</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date de naissance {0} doit être antérieure ou égale à chacune des dates de service présentes sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1030</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour une facture qui n'est pas liée à une demande de remboursement, aucune ligne ne pourra contenir de montant perçu.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1031</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Dans une demande {0}, le professionnel demandeur doit être le même que celui de la demande d'origine.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-09-25</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1032</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La ligne de la facture est non recevable car le délai de facturation est expiré.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1033</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'expéditeur n'a pas les droits requis pour transmettre une demande au nom de ce professionnel demandeur.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1036</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Il n'y a pas d'association entre le professionnel et le numéro de compte administratif spécifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1037</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le compte utilisé n'est pas permis pour facturer les frais de déplacement.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1041</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de transmission fourni n'est pas associé au professionnel de la facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1042</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La présence d'un professionnel en référence est obligatoire pour les éléments de contexte utilisés.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1043</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le format {0} n'est pas valide.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1044</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Aucune ligne n'a été vérifiée car la facture est non recevable.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1045</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facture est non recevable, car au moins une de ses lignes est non recevable.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1046</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Aucune facture n'a été traitée car la demande est non recevable.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1047</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro d'autorisation fourni n'est plus en vigueur.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1048</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facture ne peut être annulée ni modifiée. Transmettre une demande de révision, si requis.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1049</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande est non recevable, car aucune des factures n'a pu être annulée.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1050</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le jeton de communication ne correspond pas à celui de la dernière version inscrite à nos registres pour cette facture. Veuillez prendre connaissance de la version la plus à jour fournie pour resoumettre votre demande de modification avec le bon jeton.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1051</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les nom et prénom ne doivent pas contenir de caractères spéciaux.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1052</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Dans une demande {0}, "l'expéditeur différent du demandeur" doit être le même que celui qui a effectué la demande d'origine.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1055</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date du service doit être antérieure ou égale à la date de réception de la demande.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1061</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date de début du quart de travail du professionnel doit être antérieure ou égale à chacune des dates de service de la facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1081</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le professionnel dispensateur doit être le demandeur.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-12</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1077</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Une même facture ne peut avoir un patient et une personne autre.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1078</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date d'obtention du permis du professionnel est postérieure à au moins une des dates de service présentes sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-12</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1079</cod_msg_expl>
+    <txt_msg_expl><![CDATA[{0} est décédé en date du {1}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-12</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1080</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation {0} n'est pas permis avec ce type de facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-12</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1064</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre de KM aller est obligatoire.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2015-05-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1065</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date d'évènement doit être antérieure ou égale à chacune des dates de service.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-06</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1066</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre d'heures de déplacement est obligatoire et doit être strictement supérieur à zéro (0) pour le moyen de transport spécifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2015-05-06</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1067</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date et l'heure du lieu de départ doit être antérieure à la date et l'heure du lieu d'arrivée.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2015-05-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1069</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date d'hospitalisation doit être antérieure ou égale à chacune des dates de service de la facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1070</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date du service doit être comprise entre la date de début et la date de fin de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1071</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date de début de la période de travail du professionnel doit être inférieure ou égale à la date de début de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-08</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1073</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date d'hospitalisation doit être antérieure ou égale à la date de début de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-08</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1075</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de compte administratif doit être saisi.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1076</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'âge du patient déterminé à partir de la date de naissance et de chacune des dates du service présentes sur la facture ne correspond pas au type de situation considérée.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2416</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Service révisé à la suite de l'analyse de votre facturation par la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2566</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code facturé ne peut vous être payé puisque vous étiez inadmissible à recevoir un paiement de la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2035</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Vos honoraires ont été rectifiés selon l'information inscrite dans les pièces justificatives pour correspondre aux dispositions relatives aux frais de déplacement et de séjour de votre entente.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2018-06-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1120</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La RAMQ ne peut accorder un CRSS à l'acte non tarifé de la facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2018-04-06</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1118</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre de KM retour n'est pas supporté.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1119</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Il ne peut y avoir deux lignes de facture possédant l'élément de contexte {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-28</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1040</cod_msg_expl>
+    <txt_msg_expl><![CDATA[{0} {1} n'existe pas dans les fichiers de la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1094</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de précision du lieu n'est pas supporté à la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2064</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Service réévalué par la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2201</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les informations présentes sur la facture génèrent un montant calculé supérieur à la limite autorisée. Veuillez modifier les données de votre facture ou contacter la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-06-23</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2200</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date prévue de l'accouchement doit être au plus tôt un mois avant chacune des {0} et au plus tard 10 mois après cette même date {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-06-14</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1057</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Des frais de stationnement ne peuvent être réclamés pour le moyen de transport spécifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1059</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date d'hospitalisation doit être antérieure ou égale à la date de sortie de l'établissement.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1068</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Des frais de location d'un véhicule ne peuvent être réclamés pour le moyen de transport spécifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2280</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Lorsque {0} est présente sur la demande, la présence {1} est requise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-08-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1017</cod_msg_expl>
+    <txt_msg_expl><![CDATA[{0} n'existe pas dans les registres de la RAMQ en date du {1}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1058</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Des frais d'essence ne peuvent être facturés pour le moyen de transport spécifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-01-25</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1020</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le secteur d'activité présent ne peut être utilisé avec le lieu de dispensation.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1018</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La durée de l'élément facturé excède la limite permise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1092</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code CRSS ne pourra être utilisé que si le code de facturation '09990' est présent sur la ligne de facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1054</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Il est impossible de modifier la facture car le délai est expiré pour cette ligne.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1063</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande d'annulation ne peut être traitée car le lien d'affaire avec l'expéditeur différent du demandeur de la demande d'origine est encore actif.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2202</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour une facture qui est liée à une demande de remboursement, seul le patient de type "personne patient" est permis.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-08-25</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2147</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code facturé vous a déjà été payé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2205</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Une facture qui est liée à une demande de remboursement doit avoir un et un seul patient (section personne objet facture).]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-02</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2207</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le montant perçu ne peut être différent de celui de la version précédente.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-08</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2208</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date-heure de début intervention autre médecin doit être antérieure ou égale à la date-heure de début de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-08</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3004</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facture a été modifiée afin de correspondre aux dispositions de votre entente.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2019-02-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2841</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 1.12 Supplément pour l’asepsie, le maximum est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2018-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2912</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facture est refusée, car le remboursement des frais de déplacement doit être demandé selon un autre mode de rémunération qu’à l’acte.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2018-12-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2215</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Dans une facture liée à une demande de remboursement, la date de service doit être la même pour chacun des codes facturés.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2210</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour une facture liée à une demande de remboursement, le nombre maximum de lignes pouvant être soumises est de cinq (5).]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-19</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1776</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le secteur d'activité présent ne peut être utilisé avec le lieu {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-11-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9000</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre de patients ne correspond pas à la valeur de l'élément mesurable.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-11-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9002</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de lieu en référence inscrit ne peut être utilisé avec le type de facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-11-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9004</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date-heure de demande de consultation ({0}) doit être antérieure à la date de service ({1}).]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-11-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1056</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande de paiement est non recevable car aucune des factures n'est recevable.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2262</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Facturation non conforme aux limitations de votre permis de pratique.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1203</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'annexe XIV concernant la rémunération de la garde en disponibilité, le code facturé ne peut vous être payé en raison du lieu de dispensation non désigné pour la garde locale.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2609</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Loi sur l'assurance maladie, le patient n'est pas admissible au régime d'assurance maladie à la date du service.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3251</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Un nouveau calcul est effectué puisque la valeur de mesure maximale permise est atteinte. La facturation est acceptée partiellement.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2019-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3252</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 6.4, le code facturé est payé à 50 %.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9013</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de situation {0} nécessite la présence {1}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9014</cod_msg_expl>
+    <txt_msg_expl><![CDATA[{0} doit être antérieure à {1}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9015</cod_msg_expl>
+    <txt_msg_expl><![CDATA[{0} est obligatoire.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9017</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de ligne {0} a déjà été utlisé dans une version antérieure de la facture et par conséquent ne peut être réutilisé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9018</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le jeton de communication ne correspond pas au jeton de communication de la dernière version inscrite à nos registres pour cette facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2415</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Consécutivement à une appréciation particulière d'ordre administratif.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2047</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au Règlement d'application de la Loi sur l'assurance maladie, le service n'est pas assuré selon l'âge du patient.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2485</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de facture n'est pas cohérent avec l'entente du professionnel demandeur.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2486</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La ligne de facture ne contient pas tous les éléments mesurables liés à l'acte à unité.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2487</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le nombre minimum donnant droit au tarif de base n'est pas atteint.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2489</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation n'est pas associé au rôle présent sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2488</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est inexistant à la date de service pour l’entente du professionnel demandeur.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2490</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation n'est pas associé au type du lieu présent sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1204</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'annexe XIV concernant la rémunération de la garde en disponibilité pour la garde multi-établissements, le code facturé ne peut vous être payé en raison du lieu en référence non désigné.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1959</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Code de facturation ou rôle révisé pour correspondre à ce qui est indiqué sur la demande de remboursement.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2776</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Consécutivement à une appréciation particulière d’ordre médical.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-09-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1728</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour faire suite aux communications antérieures.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1112</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'indice de masse corporelle saisi excède la valeur maximale permise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-03-23</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2209</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'ajout ou le retrait de ligne n'est pas permis pour une demande de remboursement appariée.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-08</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2594</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Loi sur l'assurance maladie, le patient n'est pas admissible parce qu'il est soumis au délai de carence à la date du service. S'il s'agit d'une des situations particulières prévues, facturez le service rendu en identifiant la situation qui s'applique.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1089</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'utilisation d'un lieu de dispensation de catégorie 'CH' nécessite la présence du secteur d'activité.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9020</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type identifiant le site de traitement n'est pas cohérent avec l'identification du site.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2206</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date d'événement doit être postérieure à la date de naissance du patient (personne objet facture).]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-02</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2413</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Consécutivement à une évaluation médicale et selon les renseignements fournis.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2414</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Honoraires modifiés pour correspondre à ceux prévus pour le lieu de traitement indiqué sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2417</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Facture révisée et modifiée selon les renseignements fournis dans votre demande de révision.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1783</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro d'établissement 99996 ne peut pas être utilisé. Veuillez utiliser un numéro d'établissement valide.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2203</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Une facture qui est liée à une demande de remboursement ne peut avoir qu'un seul patient avec identifiant et avec le type de situation 1.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-08-25</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2025</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le rôle est absent ou invraisemblable.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-06-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2807</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 1.12, le code de facturation ne peut vous être payé puisque, selon votre facturation, aucun code de facturation prérequis n’a été facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9001</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La présence du secteur d'activité est requise pour le type de lieu en référence utilisé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-11-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3180</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'élément de contexte est incohérent avec la spécialité indiquée à la section « Professionnel en référence » de la facture de services médicaux.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3006</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de situation ne peut pas être utilisé pour une facture qui n’est pas liée à une demande de remboursement.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1443</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'accord 9 relatif au mode de rémunération, vous ne détenez pas l'autorisation des parties négociantes qui vous autorise à facturer à l'acte dans ce lieu. S'il s'agit d'un remplacement, le professionnel que vous remplacez doit détenir l'autorisation au préalable pour que vous puissiez facturer selon le mode de rémunération à l'acte.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2639</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le niveau de la dent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9010</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de compte administratif ne peut être égal à zéro (0)]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-02-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1398</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'accord 5 relatif au mode de rémunération, vous ne détenez pas l'autorisation des parties négociantes qui vous autorise à facturer à l'acte dans ce lieu.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1395</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation 93202, le code facturé ne peut vous être payé en raison du lieu de dispensation non désigné.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2640</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec la localisation de la dent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2641</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le type de dent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2642</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le nombre de surfaces.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2643</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le type de dentition.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2644</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec la surface de dent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2646</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec la spécialité.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2651</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le NAM est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2386</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Facture annulée suite à votre demande.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1770</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le diagnostic est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1781</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de professionnel 1-11111 ne peut pas être utilisé pour le professionnel référent. Veuillez plutôt inscrire la profession, le nom et le prénom du professionnel.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1397</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le médicament.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3100</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code facturé vous a déjà été payé.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2019-05-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9024</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Toute facture liée à une demande de remboursement soumise après la date de service doit contenir le montant perçu.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-09-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2613</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Loi sur l'assurance maladie, le service ne peut être facturé car le patient n'a pas une carte d'assurance maladie valide ni de document temporaire qui confirme son inscription à la date du service.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1437</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Vous ne détenez pas l'autorisation des parties négociantes qui vous autorise à facturer à l'acte dans ce lieu. S'il s'agit d'un remplacement, le professionnel que vous remplacez doit détenir l'autorisation au préalable pour que vous puissiez facturer selon le mode de rémunération à l'acte.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2578</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le lieu en référence est absent ou n'est pas de type « lieu de départ pour un déplacement ».]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2579</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le lieu en référence est absent ou n'est pas de type « lieu pris en charge lors d'une garde multi-établissements ».]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1028</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Tous les éléments suivants sont obligatoires : nom, prénom, date de naissance, sexe et l'adresse de la personne.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1035</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Tous les éléments suivants sont obligatoires : nom, prénom, date de naissance et sexe de la personne.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1038</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le mode de transmission utilisé nécessite la présence d'un expéditeur différent du demandeur.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1039</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de diagnostic {0} n'existe pas dans le système de classification utilisé en date du {1}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1062</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le lieu en référence doit être différent du lieu de dispensation.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2615</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le prestataire est un revendicateur du statut de réfugié dont le carnet de réclamation porte la mention « Carte d'assurance maladie requise ». La personne doit détenir une carte d'assurance maladie valide pour que la RAMQ assume le coût des services.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1281</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'entente particulière relative aux dentistes oeuvrant dans des établissements du Nord, le mode de rémunération à l'acte n'est pas permis pour ce lieu.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1880</cod_msg_expl>
+    <txt_msg_expl><![CDATA[À la date du service, la personne n’était pas admissible au Régime d’assurance maladie du Québec. Selon les documents qu’elle a fournis, cette personne a payé les frais liés aux services médicaux reçus.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1096</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date-heure de début et la date-heure de fin de l'élément facturé sont requises pour le code de rôle spécifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1786</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Montant perçu révisé pour correspondre à celui indiqué sur la demande de remboursement de la personne assurée.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2777</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En fonction de la nature de l'acte.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-09-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2492</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation n'est pas associé à la spécialité classée du professionnel présent sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2493</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation n'est pas associé à la spécialité, au lieu et/ou au rôle présent sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2494</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation n'est pas associé au rôle et/ou au lieu présent sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2495</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les codes de facturations de frais de déplacement doivent être soumis avec le type de facture réservé aux frais de déplacement.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2013-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2211</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'information sur le lieu de déplacement est obligatoire pour le type de ligne facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-09-19</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2328</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code facturé est incompatible avec le code d'ablation de dent ou d'ablation de racine facturé par vous ou un autre professionnel. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1729</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Cette facture aurait dû indiquer qu'elle est en lien avec une demande de remboursement. Veuillez nous transmettre le Relevé d'honoraires en lien avec ces services.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1886</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date du service doit être antérieure ou égale à la date de réception de la demande.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1788</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Date de service révisée pour correspondre à celle indiquée sur la demande de remboursement de la personne assurée.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1301</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 1.4 du tarif, le code facturé ne peut vous être payé en raison du lieu de dispensation non désigné.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2795</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Vous devez inscrire le nom et prénom du patient au complet sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-09-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9012</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La demande ne sera pas traitée. Les numéros de demande et de facture fournis ont déjà été traités par la RAMQ avec le résultat de recevabilité suivant.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-03-28</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1053</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les renseignements associés au numéro de professionnel sont incomplets ou non valides dans les dossiers de la RAMQ. Pour régulariser votre dossier, communiquez avec la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1060</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de compte administratif ne doit pas être saisi pour le type de modalité de paiement 'compte personnel'.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1083</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour le type de situation 2 - Nouveau-né sans NAM, les informations du répondant sont obligatoires.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-17</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2213</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date de service doit être comprise entre la date-heure de départ du déplacement et celle d'arrivée du déplacement.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2016-09-19</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9005</cod_msg_expl>
+    <txt_msg_expl><![CDATA[{0} {1} n'est pas supporté.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-12-02</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9006</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La valeur de l'élément de mesure saisie excède la limite permise.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-01-10</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9007</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'adresse saisie excède le nombre de caractères autorisés.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-01-10</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9008</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La durée de l'élément de mesure saisi ne correspond pas aux heures de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-01-24</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9011</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du passage à l'heure avancée, la date-heure {0} ne peut être comprise entre 2h00 et 2h59.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-03-21</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9019</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type identifiant la raison du traitement dentaire n'est pas cohérent avec l'identification de la raison du traitement.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9021</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de personne autre utilisé n'est pas permis pour ce type de facture.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9022</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date du service doit être égale à la date de début de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2183</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation, le maximum par période de 8 ans est dépassé selon votre facturation ou celle d'un autre professionnel. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2189</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 2.3, le maximum est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2941</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le service est refusé à la suite de la réception d’une demande de remboursement de la personne assurée.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2019-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1072</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date d'événement associée au patient doit être inférieure ou égale à la date de début de l'élément facturé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-05-08</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2611</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Loi sur l'assurance maladie, le service n'est pas payable car le patient n'était pas inscrit au régime d'assurance maladie à la date du service.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9009</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de personne autre saisi n'est pas cohérent avec le type d'identifiant de la personne autre.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-03-21</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2420</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Votre facture a été rectifiée à la suite d’une étude du service des Enquêtes.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1087</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'identifiant du lieu géographique utilisé n'est pas permis pour ce type d'identifiant du lieu géographique.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2204</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Une facture qui est liée à une demande de remboursement, ne peut avoir qu'un seul patient sans identifiant avec le type de situation 9.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-08-25</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2645</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec la spécialité du professionnel en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2592</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Loi sur l'assurance maladie, le patient n'est pas admissible au régime d'assurance maladie à la date du service parce qu'il est décédé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3008</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La ligne de facture ne contient pas tous les éléments mesurables liés à l'acte à paliers.]]></txt_msg_expl>
+    <catg_msg_expl>2</catg_msg_expl>
+    <dd_txt_msg_expl>2018-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1093</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Dans une demande de modification, l'indicateur indiquant qu'une facture est liée à une demande de remboursement ne peut être modifié.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-12-11</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9023</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facturation du temps d'attente nécessite celle du temps de déplacement.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2017-09-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3414</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 2.3, le maximum de un par période de 365 jours pour l'examen (code de facturation 01120 ou 01130) est dépassé selon votre facturation, y compris selon celle transmise dans l'ancien système de rémunération à l'acte.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1336</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 2.3 du tarif, le code facturé ne peut vous être payé en raison du lieu de dispensation non désigné.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3250</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facturation est acceptée partiellement. Un nouveau calcul est effectué.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1269</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'annexe XV pour les activités administratives, le code facturé ne peut vous être payé en raison du lieu de dispensation non désigné.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2625</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'annexe XIV concernant la garde en disponibilité, le service ne peut vous être payé en raison du lieu de dispensation non désigné pour la garde multi-établissements.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3033</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le service facturé a été rendu à un résident d’une autre province du Canada qui n’est pas admissible au Régime d’assurance maladie du Québec et qui ne détenait pas de carte d’assurance maladie valide à la date où les services ont été rendus.  Veuillez facturer vos honoraires à la province concernée en utilisant le formulaire Réclamation hors province pour services médicaux (2688).]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2019-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1034</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Pour un enfant âgé de moins d'un an, les renseignements d'identification du répondant (mère ou père) suivants sont obligatoires: nom, prénom, date de naissance et sexe.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-15</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1777</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le secteur d'activité présent ne peut être utilisé avec le lieu {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2017-11-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2836</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le délai de facturation est expiré.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2018-11-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3122</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 6.21 contrôle d'hémorragie, ce service ne peut être facturé puisqu'il est inclus dans un service déjà payé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1787</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Identification de la personne assurée révisée pour correspondre à celle indiquée sur la demande de remboursement.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1074</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type d'identification du lieu géographique fourni en référence n'est pas permis pour ce type de référence du lieu.
+
+]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2015-06-14</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2567</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Facturation non conforme aux conditions de votre permis restrictif.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2568</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec l'âge.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2569</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La surface de dent est absente.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2570</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de dent est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2571</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le site d'ablation de fixation intermaxillaire est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2572</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La raison de la greffe est absente.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2573</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le site de prise du greffon intra-oral est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2574</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le site receveur de la greffe osseuse est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2575</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La raison de l'abandon du traitement de canal est absente.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2576</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La date de l'autorisation est absente.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2577</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'heure de début du service est absente.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2580</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'information sur le médicament est absente.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2581</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le patient est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2582</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le professionnel en référence est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2583</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec l'élément de contexte.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2584</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le lieu.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2585</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec la journée.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2586</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec l'heure.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2587</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Aucun patient n'est requis pour ce code de facturation.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2588</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le nombre de patients.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2589</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le rôle.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3411</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le service facturé vous a déjà été payé dans l'ancien système de rémunération à l'acte.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2120</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, les frais d'hôtel sont absents.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2020-06-29</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2120</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, des frais d'hôtel doivent être facturés pour un séjour.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2020-06-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3648</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec le type de ligne de frais de déplacement et de séjour inscrit.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2020-06-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3526</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 2.7 du tarif, le code facturé ne peut vous être payé en raison du lieu de dispensation non désigné.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3527</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 3.1 du tarif, le maximum est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3528</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 3.5 du tarif, le maximum est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3530</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 1.4 du tarif, le maximum est dépassé selon votre facturation ou celle d'un autre professionnel. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3531</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 4.8 du tarif, le code de facturation ne peut vous être payé puisque, selon votre facturation, aucun code de facturation prérequis n’a été facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3665</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Les éléments de contexte indiqués ne peuvent être utilisés simultanément.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3874</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Consécutivement à la mise à jour de votre dossier vous permettant de facturer rétroactivement une modalité spécifique de votre entente.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2021-02-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2117</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, les frais de transport sont absents.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2020-06-29</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2117</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, des frais de transport doivent être facturés pour le moyen de transport utilisé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2020-06-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3908</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation d’ablation d’attelle osseuse, ce code est incompatible avec la mise en place effectuée à la même séance par vous ou un autre professionnel. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3713</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 6.8 du tarif, le service pour lequel vous demandez paiement de l’assistance n’a fait l’objet d’aucune demande de paiement de la part du chirurgien responsable.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-08-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3714</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 6.8 du tarif, le service facturé ne répond pas aux conditions prévues pour le rôle d’assistant au dentiste ou au chirurgien buccal et maxillo-facial.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-08-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3722</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 6.8.1 du tarif, ce service ne peut être facturé puisqu'il est inclus dans un service déjà payé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-08-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3666</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'article 4.1.4 de la Lettre d'entente 16, le maximum de un service par jour est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-03-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3809</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 6.19 du tarif, ce service ne peut être facturé puisqu'il est inclus dans un service déjà payé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-12-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2214</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de lieu en référence présent sur la facture n'est pas compatible avec le code de précision du lieu utilisé.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-09-19</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3864</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 1.11, le code de facturation ne peut vous être payé puisque, selon votre facturation, aucun code de facturation prérequis n’a été facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4271</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Lettre d'entente 17, ce service ne peut être facturé puisqu'il est incompatible avec un autre service que vous avez facturé à la même séance. Veuillez consulter le code de facturation en référence. Utiliser le code de facturation correspondant à la totalité de l'unité de temps.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2623</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Loi sur l'assurance maladie, le service ne peut être facturé que pour un prestataire d'une aide financière de dernier recours qui détient un carnet de réclamation valide à la date du service.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2022-12-31</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2623</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la Loi sur l'assurance maladie, le service ne peut être facturé que pour un prestataire d'une aide financière qui détient un carnet de réclamation valide à la date du service.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3661</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'article 4.1.1 de la Lettre d'entente 16, le code de facturation est incohérent avec l'élément de contexte.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-03-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3662</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le moyen de communication utilisé pour rendre le service à distance doit être inscrit.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-03-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2387</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Lettre explicative envoyée dans votre messagerie sécurisée ou, s’il y a lieu, sous pli séparé par la poste à la suite d’une révision.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4314</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type d'élément facturé « Code d'activité et Per diem » n'est pas encore pris en charge.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2022-12-25</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4493</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, ce code ne peut être facturé, puisque le maximum est dépassé par jour. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+    <df_txt_msg_expl>2024-09-17</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4779</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Ce code est incompatible avec un autre code que vous ou un autre professionnel avez déjà facturé. Veuillez consulter le code de facturation en référence et modifier votre code de facturation pour le code approprié, s’il y a lieu.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2025-01-04</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4500</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 1.13, le code de facturation ne peut vous être payé,  puisqu'aucun code de facturation prérequis n'a été facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4504</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'élément de contexte est absent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2022-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4088</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'élément de contexte "Remplacement d'une prothèse pour perte ou bris" peut seulement être utilisé avec les codes de prothèse prévus pour le maxillaire supérieur ou pour le maxillaire inférieur. S'il y a lieu, utiliser l'élément de contexte "Remplacement de deux prothèses pour perte ou bris".]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3602</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions de la section Facturation hors province dans la rubrique Facturation de votre entente, vous devez utiliser votre numéro de professionnel hors Québec octroyé par la RAMQ pour facturer les services couverts rendus dans un lieu situé à l’extérieur du Québec.  Si vous ne détenez pas de numéro hors Québec, vous devez utiliser le formulaire Réclamation hors province (2688) pour facturer ces services.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3603</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Vous devez utiliser votre numéro de professionnel au Québec pour facturer les services rendus dans un lieu de dispensation situé au Québec.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3663</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L’élément de contexte « Service rendu à distance par téléphone » peut seulement être utilisé dans le cadre de l'article 4.1.1 de la Lettre d'entente 16. Il doit être accompagné de l’élément de contexte « LE 16 - Service rendu à distance dans le cadre de la COVID-19 ».]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-03-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3664</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L’élément de contexte « Service rendu à distance par visioconsultation » peut seulement être utilisé dans le cadre de l'article 4.1.1 de la Lettre d'entente 16. Il doit être accompagné de l’élément de contexte « LE 16 - Service rendu à distance dans le cadre de la COVID-19 ».]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-03-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4272</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, en raison de sa nature, ce code ne peut être facturé, puisqu’il est incompatible avec un service déjà payé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4191</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application du tarif 5.1, le maximum est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4192</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application du tarif 5.1, ce service ne peut être facturé puisqu'il est inclus dans un service déjà payé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4396</cod_msg_expl>
+    <txt_msg_expl><![CDATA[À la suite de contrôles effectués par la RAMQ, nous constatons que vous n'avez fourni aucune réponse à notre demande de renseignements envoyée dans votre messagerie sécurisée ou par la poste.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2023-04-21</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4501</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 2.7.1, le code de facturation ne peut vous être payé, puisqu'aucun code de facturation prérequis n'a été facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2619</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au règlement d'application de la Loi sur l'assurance maladie, le service de prothèse acrylique ne peut être facturé car le prestataire n'est pas inscrit à un programme d'aide financière de dernier recours depuis au moins 24 mois à la date du  service ou à la date d'autorisation du MTESS.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2022-12-31</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2621</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au règlement d'application de la Loi sur l'assurance maladie, le service ne peut être facturé car le prestataire n'est pas inscrit à un programme d'aide financière de dernier recours depuis au moins 12 mois à la date du  service.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2022-12-31</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3988</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Lorsque l'examen d'urgence est effectué à distance dans le cadre de la COVID-19, aucun autre service ne peut être facturé à la même séance.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-05-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4269</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'association entre le type de référence autre professionnel et l'identification du professionnel sont déjà inscrits pour ce service.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2023-03-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>9003</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le type de référence {0} ne peut être utilisé que pour un professionnel en référence connu.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-11-27</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4270</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'article 1 de la Lettre d'entente 17, le code de facturation ne peut vous être payé puisque, selon votre facturation, aucun code de facturation prérequis n'a été facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4498</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation ou celle d'un autre professionnel, ce code ne peut être facturé, puisque le maximum d'un service est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2766</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé, le code ne peut être facturé selon votre facturation, puisqu'il est incompatible avec un service déjà payé ou refusé dans les 30 jours. Veuillez consulter le code de facturation en référence et utiliser celui prévu pour les deux maxillaires.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4660</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, ce code ne peut pas être facturé, puisque le maximum est dépassé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2024-06-23</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4012</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent avec la situation considérée "Patient requérant des soins urgents".]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2118</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, les frais d'essence et/ou de location de véhicule sont absents.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2014-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2020-06-29</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2118</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément aux dispositions générales concernant les frais de déplacement et de séjour, des frais d'essence ou de location doivent être facturés lors de l'utilisation d'un véhicule loué.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2020-06-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2418</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Vous n'avez pas répondu à notre demande de renseignements envoyée dans votre messagerie sécurisée ou par la poste pour des services en révision.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2016-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4497</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, ce code ne peut être facturé, puisque le maximum d'un service est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1100</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le mode de transmission utilisé pour la demande originale nécessite d'être le même pour la demande {0}.]]></txt_msg_expl>
+    <catg_msg_expl>1</catg_msg_expl>
+    <dd_txt_msg_expl>2016-03-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2617</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au règlement d'application de la Loi sur l'assurance maladie, le service de prothèse acrylique ne peut être facturé que pour un prestataire d'une aide financière qui détient un carnet de réclamation valide à la date du service ou à la date d'autorisation du MESS.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2619</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au règlement d'application de la Loi sur l'assurance maladie, le service de prothèse acrylique ne peut être facturé car le prestataire n'est pas inscrit à un programme d'aide financière avec carnet de réclamation depuis au moins 24 mois à la date du  service ou à la date d'autorisation du MESS.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2621</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au règlement d'application de la Loi sur l'assurance maladie, le service ne peut être facturé car le prestataire n'est pas inscrit à un programme d'aide financière avec carnet de réclamation depuis au moins 12 mois à la date du service.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4125</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 6.9 du tarif, ce service ne peut être facturé puisqu'il est inclus dans un service déjà payé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4619</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 4.11.1, le code de facturation n’est pas permis avec ce numéro de dent et/ou cette surface de la dent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3905</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation d’ablation simple de dent ou d’ablation simple de racine dentaire, le maximum pour les dents additionnelles primaires est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3907</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation pour une prothèse partielle est incompatible avec le code pour une prothèse complète facturé par vous ou un autre professionnel, puisque c'est le même maxillaire. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4494</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation ou celle d'un autre professionnel, ce code ne peut être facturé, puisque le maximum est dépassé par jour. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4495</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, ce code ne peut être facturé, puisque le maximum d'un service par 365 jours est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4496</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, ce code ne peut être facturé, puisque le maximum d'un service par 180 jours est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4091</cod_msg_expl>
+    <txt_msg_expl><![CDATA[L'élément de contexte "Remplacement de deux prothèses pour perte ou bris" peut seulement être utilisé avec les codes de prothèse prévus pour les maxillaires supérieur et inférieur. S'il y a lieu, utiliser l'élément de contexte "Remplacement d'une prothèse pour perte ou bris".]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-07-05</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4093</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 6.5 du tarif, ce service ne peut être facturé puisqu'il est incompatible avec un autre service que vous avez facturé à la même séance. Veuillez consulter le code de facturation en référence. Utiliser le code de facturation correspondant à la totalité des centimètres.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2015-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2617</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au règlement d'application de la Loi sur l'assurance maladie, le service de prothèse acrylique ne peut être facturé que pour un prestataire d'une aide financière de dernier recours qui détient un carnet de réclamation valide à la date du service ou à la date d'autorisation du MTESS.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2022-12-31</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3647</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le remboursement du type de frais de déplacement et de séjour demandé n’est pas prévu à votre entente.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>2</typ_fact>
+    <dd_txt_msg_expl>2020-06-30</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4444</cod_msg_expl>
+    <txt_msg_expl><![CDATA[La facturation est acceptée partiellement puisque le maximum d’honoraires permis est atteint. Un nouveau calcul est effectué.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-09-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3875</cod_msg_expl>
+    <txt_msg_expl><![CDATA[À la date du service, vous ne pouvez plus réclamer ce code de facturation consécutivement à la mise à jour de votre dossier.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <dd_txt_msg_expl>2021-02-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3906</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation d’ablation simple de dent ou d’ablation simple de racine dentaire, le maximum pour les dents additionnelles permanentes est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4512</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, ce code ne peut être facturé, puisque le maximum est dépassé par jour. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-05-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3808</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 4.9 du tarif, le maximum est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-12-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4756</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Nous avons rectifié le numéro du lieu sur la facture.]]></txt_msg_expl>
+    <catg_msg_expl>4</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2024-04-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4575</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation, ce service ne peut être facturé, puisque le maximum, par période de 365 jours, est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-06-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4615</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'annexe XIV concernant la rémunération de la garde en disponibilité, le maximum est dépassé selon votre facturation ou celle d'un autre professionnel. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-07-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4616</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à l'annexe XIV concernant la rémunération de la garde en disponibilité, le maximum est dépassé selon votre facturation.  Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2021-07-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4620</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 4.11.1, le code de facturation n’est pas permis avec ce numéro de dent.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4246</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code facturé est incompatible avec le code de prothèse acrylique complète supérieure ou inférieure facturé par vous ou un autre professionnel. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4605</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 7.3 du tarif, ce service ne peut être facturé puisqu'il est inclus dans un service déjà payé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4502</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 6.12.1, le code facturé est payé à 70 %.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3711</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 6.8 du tarif, ce service ne peut être facturé puisqu’il est incompatible avec le même service déjà payé en rôle 4. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-08-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3712</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d’application 6.8 du tarif, ce service ne peut être facturé puisqu’il est incompatible avec le même service déjà payé en rôle 1. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-08-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3723</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation ou celle d'un autre professionnel, ce code ne peut être facturé puisque le maximum, par période de 8 ans, est dépassé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-08-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4513</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Selon votre facturation ou celle d’un autre professionnel, ce code ne peut être facturé, puisque le maximum est dépassé par jour. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2020-05-07</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2840</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation indiquant première dent, le maximum est dépassé selon votre facturation. Veuillez consulter le code de facturation en référence. S'il y a lieu, modifiez votre code de facturation pour celui avec le libellé indiquant chaque dent additionnelle.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2018-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2837</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison de la nature du code de facturation d'ablation de dent ou d'ablation de racine, le maximum est dépassé selon votre facturation ou celle d'un autre professionnel. L'ablation de cette dent ou de sa racine a déjà été réclamée. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2018-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2838</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison de la nature du code de facturation d'ablation de dent et d'ablation de racine, le maximum est dépassé selon votre facturation ou celle d'un autre professionnel. L'ablation de la racine de cette dent a déjà été réclamée. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2018-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>2839</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison de la nature du code de facturation d'ablation de racine et d'ablation de dent, le maximum est dépassé selon votre facturation. L'ablation de cette dent a déjà été réclamée. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2018-10-20</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4503</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le code de facturation est incohérent selon la période.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2022-10-22</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>1396</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Le numéro de dent facturé est incohérent avec l'âge du patient et la raison de l'écart d'âge est absente. S'il y a lieu, modifiez votre facture en vous référant à l'Annexe III et aux instructions de facturation du Guide de facturation à l'acte de votre entente sur le site Internet de la RAMQ.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4445</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 4.5.1, le maximum d'honoraires permis est atteint pour le service facturé. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-09-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2025-02-13</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4445</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 4.5.1, le maximum d'honoraires permis est atteint pour le service facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2025-02-14</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3253</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation au tableau des honoraires, la valeur de mesure maximale permise pour ce code de facturation est atteinte. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2025-02-13</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>3253</cod_msg_expl>
+    <txt_msg_expl><![CDATA[En raison du libellé du code de facturation au tableau des honoraires, la valeur de mesure maximale permise pour ce code de facturation est atteinte.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2025-02-14</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4186</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au paragraphe 4.2 de l'Annexe XV concernant la rémunération des activités administratives dans certains établissements, le maximum d'unités mensuelles est dépassé selon votre facturation ou celle d'un autre professionnel. Veuillez consulter le code de facturation en référence.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2016-01-01</dd_txt_msg_expl>
+    <df_txt_msg_expl>2025-02-13</df_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4186</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément au paragraphe 4.2 de l'Annexe XV concernant la rémunération des activités administratives dans certains établissements, le maximum d'unités mensuelles est dépassé selon votre facturation ou celle d'un autre professionnel.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2025-02-14</dd_txt_msg_expl>
+  </val_msg_expl>
+  <val_msg_expl>
+    <cod_msg_expl>4812</cod_msg_expl>
+    <txt_msg_expl><![CDATA[Conformément à la règle d'application 4.5.4, le maximum d'honoraires permis est atteint pour le service facturé.]]></txt_msg_expl>
+    <catg_msg_expl>3</catg_msg_expl>
+    <typ_fact>4</typ_fact>
+    <dd_txt_msg_expl>2023-08-22</dd_txt_msg_expl>
+  </val_msg_expl>
+</msg_expl>

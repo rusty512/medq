@@ -1,0 +1,2675 @@
+{
+  "contextToCodes": {},
+  "codeToContexts": {},
+  "contextRules": {
+    "10": [
+      {
+        "contextCode": "10",
+        "contextText": "Patient sous anesthésie générale",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.666Z"
+        }
+      }
+    ],
+    "20": [
+      {
+        "contextCode": "20",
+        "contextText": "Patient sous anesthésie régionale",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "27": [
+      {
+        "contextCode": "27",
+        "contextText": "PDT pré-chirurgical de 4 unités ou plus (Addendum 8 - règle 6 )",
+        "contextLevel": "L",
+        "effectiveDate": "2014-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "28": [
+      {
+        "contextCode": "28",
+        "contextText": "Procédé identifié A8-1 réclamé en plus de l’intervention principale",
+        "contextLevel": "L",
+        "effectiveDate": "2014-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "30": [
+      {
+        "contextCode": "30",
+        "contextText": "Patient provenant de l'urgence",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "40": [
+      {
+        "contextCode": "40",
+        "contextText": "Patient hospitalisé",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "41": [
+      {
+        "contextCode": "41",
+        "contextText": "Obstétricien-gynécologue assistant un chirurgien d'une autre discipline",
+        "contextLevel": "L",
+        "effectiveDate": "2017-05-08",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "50": [
+      {
+        "contextCode": "50",
+        "contextText": "Garde aux urgences",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "70": [
+      {
+        "contextCode": "70",
+        "contextText": "Soins d'urgence",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "80": [
+      {
+        "contextCode": "80",
+        "contextText": "Suivi d'un patient atteint d'un cancer",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "85": [
+      {
+        "contextCode": "85",
+        "contextText": "Séance différente",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "87": [
+      {
+        "contextCode": "87",
+        "contextText": "Séjour différent à la salle d’urgence",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "100": [
+      {
+        "contextCode": "100",
+        "contextText": "Le travailleur ne s'est pas présenté au rendez-vous, il n'a pas consenti à se faire évaluer ou son état ne permettait pas de procéder à l'évaluation",
+        "contextLevel": "L",
+        "effectiveDate": "2018-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "110": [
+      {
+        "contextCode": "110",
+        "contextText": "Remplaçant au cours d'une anesthésie",
+        "contextLevel": "F",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "120": [
+      {
+        "contextCode": "120",
+        "contextText": "En contexte ambulatoire, à un patient connu ou dirigé par un autre médecin et nécessitant une évaluation rapide et une prise en charge",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "130": [
+      {
+        "contextCode": "130",
+        "contextText": "Exerce en cabinet et doit se rendre d'urgence à l'hôpital",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "140": [
+      {
+        "contextCode": "140",
+        "contextText": "Assume ou a assumé la prise en charge d'une unité de soins intensifs au cours de la journée",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "150": [
+      {
+        "contextCode": "150",
+        "contextText": "Service dispensé pendant la période où un forfait de soutien en psychiatrie est réclamé",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "160": [
+      {
+        "contextCode": "160",
+        "contextText": "Pratique en rhumatologie pédiatrique au cours de cette journée",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "170": [
+      {
+        "contextCode": "170",
+        "contextText": "Service dispensé pendant la période où un forfait dans une unité de grands brûlés est réclamé",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "200": [
+      {
+        "contextCode": "200",
+        "contextText": "Garde en disponibilité",
+        "contextLevel": "L",
+        "effectiveDate": "2014-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "260": [
+      {
+        "contextCode": "260",
+        "contextText": "Suivi d'un patient atteint d'une tumeur intracrânienne",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "270": [
+      {
+        "contextCode": "270",
+        "contextText": "Suivi d'un patient en raison d'une transplantation d'organe",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "280": [
+      {
+        "contextCode": "280",
+        "contextText": "Patient hospitalisé qui est vu pour une maladie infectieuse",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "290": [
+      {
+        "contextCode": "290",
+        "contextText": "Patient sous respirateur",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "320": [
+      {
+        "contextCode": "320",
+        "contextText": "Visite rendue à l'unité de soins intensifs dans des circonstances exceptionnelles",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "330": [
+      {
+        "contextCode": "330",
+        "contextText": "Service dispensé pendant la période où un forfait pour la continuité des soins et services selon la LE 208 est réclamé",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "360": [
+      {
+        "contextCode": "360",
+        "contextText": "Service dispensé en vertu du Protocole d'accord concernant la télémédecine",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "370": [
+      {
+        "contextCode": "370",
+        "contextText": "Reprise de la réduction fermée",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "380": [
+      {
+        "contextCode": "380",
+        "contextText": "Service dispensé pendant la période de garde suprarégionale pour la téléthrombolyse",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "390": [
+      {
+        "contextCode": "390",
+        "contextText": "Territoire supplémentaire au cours d'une même journée",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "400": [
+      {
+        "contextCode": "400",
+        "contextText": "Service en exception à la règle d'application 19.5",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "410": [
+      {
+        "contextCode": "410",
+        "contextText": "Acte fait seul",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "450": [
+      {
+        "contextCode": "450",
+        "contextText": "Déplacement pour prélèvement d'organes",
+        "contextLevel": "F",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "640": [
+      {
+        "contextCode": "640",
+        "contextText": "Période d'enseignement en après-midi",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "650": [
+      {
+        "contextCode": "650",
+        "contextText": "Période d'enseignement en avant-midi",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "660": [
+      {
+        "contextCode": "660",
+        "contextText": "Service non lié à la santé et à la sécurité du travail",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "680": [
+      {
+        "contextCode": "680",
+        "contextText": "Fracture ou luxation de plusieurs os majeurs",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "690": [
+      {
+        "contextCode": "690",
+        "contextText": "Chirurgie bilatérale de l'appareil visuel pratiquée au cours d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "700": [
+      {
+        "contextCode": "700",
+        "contextText": "Chirurgie de plus d'une valve ou chirurgie valvulaire associée à un pontage coronarien ou chirurgie aortique associée à une chirurgie valvulaire ou à un pontage coronarien",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "710": [
+      {
+        "contextCode": "710",
+        "contextText": "Chirurgie multiple pratiquée au cours d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "720": [
+      {
+        "contextCode": "720",
+        "contextText": "PDT multiple exécuté lors d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "730": [
+      {
+        "contextCode": "730",
+        "contextText": "Chirurgie ou PDT multiple pratiquée au cours de la même séance en obstétrique-gynécologie",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "740": [
+      {
+        "contextCode": "740",
+        "contextText": "Chirurgie ou PDT multiple pratiqué au cours d'une même séance en neurochirurgie",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "750": [
+      {
+        "contextCode": "750",
+        "contextText": "Technique d'ablation myocardique auriculaire effectuée lors d'une chirurgie cardiaque",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "760": [
+      {
+        "contextCode": "760",
+        "contextText": "Endoscopie haute et basse effectuée à la même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "770": [
+      {
+        "contextCode": "770",
+        "contextText": "PDT multiple sous la rubrique OPHTALMOLOGIE exécuté lors d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "780": [
+      {
+        "contextCode": "780",
+        "contextText": "Chirurgie multiple de l'appareil visuel pratiquée au cours d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "790": [
+      {
+        "contextCode": "790",
+        "contextText": "Intervention mammaire effectuée en contralatéral à la même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "800": [
+      {
+        "contextCode": "800",
+        "contextText": "Deuxième approche par voie différente, à la même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "810": [
+      {
+        "contextCode": "810",
+        "contextText": "Chirurgie réalisée au niveau du sein contralatéral à la même séance par le médecin spécialiste en chirurgie générale",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "820": [
+      {
+        "contextCode": "820",
+        "contextText": "Chirurgie réalisée au niveau de la surrénale contralatérale à la même séance par le médecin spécialiste en chirurgie générale",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "830": [
+      {
+        "contextCode": "830",
+        "contextText": "PDT multiple sous la rubrique POTENTIELS ÉVOQUÉS exécuté lors d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "850": [
+      {
+        "contextCode": "850",
+        "contextText": "PDT multiple en endocrinologie, exécuté au cours d'une même séance, mentionné à la règle 8.4 du Préambule général",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "860": [
+      {
+        "contextCode": "860",
+        "contextText": "Injection de toxine botulinique multiple exécutée lors d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "950": [
+      {
+        "contextCode": "950",
+        "contextText": "Prélèvement d'une autogreffe hétérotopique osseuse ou ostéo-cartilagineuse lors de la chirurgie",
+        "contextLevel": "L",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "960": [
+      {
+        "contextCode": "960",
+        "contextText": "Prélèvement d'une autogreffe hétérotopique cartilagineuse lors de la chirurgie",
+        "contextLevel": "L",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "970": [
+      {
+        "contextCode": "970",
+        "contextText": "Prélèvement d'une greffe tendineuse lors de la chirurgie de reconstruction",
+        "contextLevel": "L",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "980": [
+      {
+        "contextCode": "980",
+        "contextText": "Première visite du patient aux soins intensifs en pédiatrie",
+        "contextLevel": "L",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1020": [
+      {
+        "contextCode": "1020",
+        "contextText": "Trois pathologies dans des systèmes anatomiques différents",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1030": [
+      {
+        "contextCode": "1030",
+        "contextText": "Deuxième pathologie dans un système anatomique différent de celui de la première",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1060": [
+      {
+        "contextCode": "1060",
+        "contextText": "Autre incision",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1070": [
+      {
+        "contextCode": "1070",
+        "contextText": "Reconstruction mammaire de même nature que la chirurgie principale ou chirurgie de symétrisation faites en contralatéral par une incision différente",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1075": [
+      {
+        "contextCode": "1075",
+        "contextText": "Chirurgie du sein effectuée à la demande d'un autre médecin en obstétrique et/ou gynécologie",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1080": [
+      {
+        "contextCode": "1080",
+        "contextText": "Pendant la garde de nuit pour un patient pour lequel il n'est pas déjà impliqué dans l'épisode de soins",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1083": [
+      {
+        "contextCode": "1083",
+        "contextText": "Chirurgie distincte de celle pratiquée à la même séance par un autre médecin de spécialité différente",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1090": [
+      {
+        "contextCode": "1090",
+        "contextText": "Il s'agit de l'une des 4 premières tumeurs malignes",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1100": [
+      {
+        "contextCode": "1100",
+        "contextText": "L'une des deux fractures du même os est en rapport avec une articulation et il y a réductions par des voies d'approche différentes",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1130": [
+      {
+        "contextCode": "1130",
+        "contextText": "Intervention côté droit",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1131": [
+      {
+        "contextCode": "1131",
+        "contextText": "Intervention côté gauche",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1190": [
+      {
+        "contextCode": "1190",
+        "contextText": "Chirurgie multiple de l'appareil visuel  pratiquée au cours d'une journée lors d'une séance différente",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1200": [
+      {
+        "contextCode": "1200",
+        "contextText": "Chirurgie pratiquée dans un autre centre hospitalier",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1210": [
+      {
+        "contextCode": "1210",
+        "contextText": "Consultation en clinique externe effectuée le même jour",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1230": [
+      {
+        "contextCode": "1230",
+        "contextText": "Échographie abdominale supérieure effectuée le même jour",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1240": [
+      {
+        "contextCode": "1240",
+        "contextText": "Quote-part facturée le même jour",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1250": [
+      {
+        "contextCode": "1250",
+        "contextText": "Autre stimulation programmée du cœur (00176) effectuée dans les 30 derniers jours par un médecin cardiologue",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1260": [
+      {
+        "contextCode": "1260",
+        "contextText": "Autre étude de la morphologie cardiaque (08303) ou de la morphologie cardiaque foetale (08311) effectuée dans les 30 derniers jours par un médecin cardiologue",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1270": [
+      {
+        "contextCode": "1270",
+        "contextText": "Première consultation avec prise en charge du patient",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1275": [
+      {
+        "contextCode": "1275",
+        "contextText": "Première consultation effectuée en vue d'une évaluation d'une greffe de cellules souches hématopoïétiques",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1280": [
+      {
+        "contextCode": "1280",
+        "contextText": "Cancer de la peau",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1290": [
+      {
+        "contextCode": "1290",
+        "contextText": "Fracture ouverte",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1300": [
+      {
+        "contextCode": "1300",
+        "contextText": "En vue de l'étude d'un ou de plusieurs pontages artériels ou de fistules artérioveineuses",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1310": [
+      {
+        "contextCode": "1310",
+        "contextText": "Synchronisation cardiaque pour étude cardiaque ou des grands vaisseaux",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1320": [
+      {
+        "contextCode": "1320",
+        "contextText": "Injection de phénol ou d'alcool",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1330": [
+      {
+        "contextCode": "1330",
+        "contextText": "Blocage thérapeutique avec alcool ou phénol ou autres substances neurotoxiques ou selon la technique de cryoneurothérapie ou par radiofréquence",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1340": [
+      {
+        "contextCode": "1340",
+        "contextText": "Consultation pour l'interprétation d'une épreuve complexe",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1350": [
+      {
+        "contextCode": "1350",
+        "contextText": "Révision avec rapport écrit à la demande d'un médecin, d'un examen de résonance magnétique ou de tomodensitométrie",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1360": [
+      {
+        "contextCode": "1360",
+        "contextText": "Hors discipline",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1380": [
+      {
+        "contextCode": "1380",
+        "contextText": "Anesthésie simultanée",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1390": [
+      {
+        "contextCode": "1390",
+        "contextText": "Utilisation du cœur-poumon artificiel au cours d'une anesthésie",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1400": [
+      {
+        "contextCode": "1400",
+        "contextText": "Soins post-opératoires confiés à un autre médecin",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1410": [
+      {
+        "contextCode": "1410",
+        "contextText": "Soins post-opératoires confiés par un autre médecin",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1420": [
+      {
+        "contextCode": "1420",
+        "contextText": "Médecin consultant",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1425": [
+      {
+        "contextCode": "1425",
+        "contextText": "Aucun montant forfaitaire en rémunération mixte n'a été réclamé au cours de la journée",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1430": [
+      {
+        "contextCode": "1430",
+        "contextText": "Indication médicale particulière",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1440": [
+      {
+        "contextCode": "1440",
+        "contextText": "Étude morphologique non comparative",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1500": [
+      {
+        "contextCode": "1500",
+        "contextText": "Biopsie osseuse ou des tissus mous avec analyse extemporanée effectuée le même jour que la chirurgie principale",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1510": [
+      {
+        "contextCode": "1510",
+        "contextText": "Chirurgie principale bilatérale de même nature au niveau du deuxième membre",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1520": [
+      {
+        "contextCode": "1520",
+        "contextText": "Les deux fractures du même os sont reliées à une articulation",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1530": [
+      {
+        "contextCode": "1530",
+        "contextText": "Réadmission à l’unité de soins intensifs lors d’une même hospitalisation",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1600": [
+      {
+        "contextCode": "1600",
+        "contextText": "Service médical dispensé à un malade atteint d'un cancer, non visé par un plafonnement",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1630": [
+      {
+        "contextCode": "1630",
+        "contextText": "Service médical dont la complexité est inhabituelle",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1640": [
+      {
+        "contextCode": "1640",
+        "contextText": "Durée de la visite de 60 minutes et plus",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1650": [
+      {
+        "contextCode": "1650",
+        "contextText": "Site différent",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1660": [
+      {
+        "contextCode": "1660",
+        "contextText": "Biopsie non reliée à l’acte opératoire",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1670": [
+      {
+        "contextCode": "1670",
+        "contextText": "Soins d'urgence pour une raison autre qu'une brûlure",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1680": [
+      {
+        "contextCode": "1680",
+        "contextText": "Fait au laser",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1690": [
+      {
+        "contextCode": "1690",
+        "contextText": "Cicatrice située à la face ou au cou",
+        "contextLevel": "L",
+        "effectiveDate": "2014-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1700": [
+      {
+        "contextCode": "1700",
+        "contextText": "Révision, avec rapport écrit, à la demande d'un médecin, de document radiologique fait ailleurs ou dont le rapport a déjà été fourni",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1710": [
+      {
+        "contextCode": "1710",
+        "contextText": "Post chirurgie mammaire assurée",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1718": [
+      {
+        "contextCode": "1718",
+        "contextText": "Demande de remboursement des frais de transport déjà transmise",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1719": [
+      {
+        "contextCode": "1719",
+        "contextText": "Temps d'attente imprévu",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1720": [
+      {
+        "contextCode": "1720",
+        "contextText": "En raison d'une complication, l'intervention ne peut être entreprise ou est interrompue",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1722": [
+      {
+        "contextCode": "1722",
+        "contextText": "Intervention bilatérale",
+        "contextLevel": "L",
+        "effectiveDate": "2013-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1756": [
+      {
+        "contextCode": "1756",
+        "contextText": "Difficulté à recruter un médecin plus près du lieu de l'intervention dans le cadre de l'aide médicale à mourir",
+        "contextLevel": "L",
+        "effectiveDate": "2015-12-10",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1763": [
+      {
+        "contextCode": "1763",
+        "contextText": "Médecin contributeur",
+        "contextLevel": "L",
+        "effectiveDate": "2016-03-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1769": [
+      {
+        "contextCode": "1769",
+        "contextText": "Anesthésie simultanée pour une urgence grave (règle 11 Add.8)",
+        "contextLevel": "L",
+        "effectiveDate": "2017-08-25",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1783": [
+      {
+        "contextCode": "1783",
+        "contextText": "Aller",
+        "contextLevel": "F",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1784": [
+      {
+        "contextCode": "1784",
+        "contextText": "Retour",
+        "contextLevel": "F",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1786": [
+      {
+        "contextCode": "1786",
+        "contextText": "Examen d'imagerie médicale complémentaire à la suite à une mammographie anormale",
+        "contextLevel": "L",
+        "effectiveDate": "2017-11-26",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1788": [
+      {
+        "contextCode": "1788",
+        "contextText": "Patient sous les soins d’un médecin anesthésiologiste",
+        "contextLevel": "L",
+        "effectiveDate": "2018-12-10",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1807": [
+      {
+        "contextCode": "1807",
+        "contextText": "Même type d'étude moléculaire pratiquée sur un fœtus ou dans un contexte de diagnostic prénatal le même jour, chez la même patiente",
+        "contextLevel": "L",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1808": [
+      {
+        "contextCode": "1808",
+        "contextText": "Même type d'étude moléculaire ciblant une anomalie différente pratiquée le même jour, chez la même personne assurée",
+        "contextLevel": "L",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1810": [
+      {
+        "contextCode": "1810",
+        "contextText": "Soins d'urgence selon la règle 14 du PG",
+        "contextLevel": "L",
+        "effectiveDate": "2019-12-09",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1811": [
+      {
+        "contextCode": "1811",
+        "contextText": "Service dispensé selon le mode de rémunération mixte - LE 221",
+        "contextLevel": "L",
+        "effectiveDate": "2017-03-20",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1812": [
+      {
+        "contextCode": "1812",
+        "contextText": "Dans le cadre d'une mission",
+        "contextLevel": "L",
+        "effectiveDate": "2016-04-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1813": [
+      {
+        "contextCode": "1813",
+        "contextText": "Vol nolisé de 35 sièges et plus",
+        "contextLevel": "L",
+        "effectiveDate": "2019-12-09",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1814": [
+      {
+        "contextCode": "1814",
+        "contextText": "Temps d'attente imprévu entre 7 h et 21 h",
+        "contextLevel": "L",
+        "effectiveDate": "2019-12-09",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1815": [
+      {
+        "contextCode": "1815",
+        "contextText": "Disponibilité supplémentaire à l'équipe volante du mécanisme de soutien d'urgence",
+        "contextLevel": "L",
+        "effectiveDate": "2019-12-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1817": [
+      {
+        "contextCode": "1817",
+        "contextText": "Consultation réalisée ailleurs que dans le CRDS - LE 221",
+        "contextLevel": "L",
+        "effectiveDate": "2020-03-09",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1822": [
+      {
+        "contextCode": "1822",
+        "contextText": "LE 238 - Service rendu dans un SNT non ambulatoire dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-02-28",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1822",
+        "contextText": "LE 241 - Service rendu dans un SNT non ambulatoire ou une unité COVID dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1822",
+        "contextText": "LE 241 - Service rendu dans un SNT non ambulatoire dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2022-11-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1823": [
+      {
+        "contextCode": "1823",
+        "contextText": "LE 238 - Service rendu dans un SNT ambulatoire ou une clinique désignée dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-02-28",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1823",
+        "contextText": "LE 241 - Service rendu dans un SNT ambulatoire ou une clinique désignée de dépistage (CDD) ou d'évaluation (CDÉ) dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1823",
+        "contextText": "LE 241 - Service rendu dans un SNT ambulatoire dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2022-11-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1824": [
+      {
+        "contextCode": "1824",
+        "contextText": "LE 238 - Service rendu par un médecin réaffecté dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-02-28",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1824",
+        "contextText": "LE 241 - Service rendu par un médecin réaffecté dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1824",
+        "contextText": "LE 241 – Service rendu par un médecin réaffecté dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2022-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1825": [
+      {
+        "contextCode": "1825",
+        "contextText": "LE 238 - Service rendu par une médecin enceinte dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-02-28",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1825",
+        "contextText": "LE 241 - Service rendu par une médecin enceinte dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1826": [
+      {
+        "contextCode": "1826",
+        "contextText": "LE 238 - Télémédecine à partir d'un cabinet dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-03-16",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1826",
+        "contextText": "LE 241 - Service rendu en télémédecine auprès de la clientèle du cabinet dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1827": [
+      {
+        "contextCode": "1827",
+        "contextText": "LE 238 - Télémédecine ailleurs qu'à partir d'un cabinet dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-03-16",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1827",
+        "contextText": "LE 241 - Service rendu en télémédecine auprès de la clientèle hospitalière dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1828": [
+      {
+        "contextCode": "1828",
+        "contextText": "LE 238 - Service rendu par un médecin infecté dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-02-28",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1828",
+        "contextText": "LE 241 - Service rendu par un médecin infecté dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1829": [
+      {
+        "contextCode": "1829",
+        "contextText": "LE 238 - Service rendu par un médecin en isolement préventif dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-02-28",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1829",
+        "contextText": "LE 241 - Service rendu par un médecin faisant l'objet d'une mise en quarantaine dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1833": [
+      {
+        "contextCode": "1833",
+        "contextText": "LE 238 – Médecin réaffecté dans un autre lieu que l’établissement auquel il est rattaché dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-02-28",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1833",
+        "contextText": "LE 241 - Médecin réaffecté dans un autre lieu que l’établissement auquel il est rattaché dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      },
+      {
+        "contextCode": "1833",
+        "contextText": "LE 241 – Médecin réaffecté dans un autre lieu que l'établissement auquel il est rattaché dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2022-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1835": [
+      {
+        "contextCode": "1835",
+        "contextText": "Service rendu en présence du patient dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2020-03-13",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1836": [
+      {
+        "contextCode": "1836",
+        "contextText": "Télémédecine par téléphone",
+        "contextLevel": "L",
+        "effectiveDate": "2020-06-20",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1837": [
+      {
+        "contextCode": "1837",
+        "contextText": "Télémédecine par visioconsultation",
+        "contextLevel": "L",
+        "effectiveDate": "2020-06-20",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1853": [
+      {
+        "contextCode": "1853",
+        "contextText": "Webinaire - Le médecin a assisté en direct",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1854": [
+      {
+        "contextCode": "1854",
+        "contextText": "Webinaire - Le médecin a assisté en différé",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1855": [
+      {
+        "contextCode": "1855",
+        "contextText": "Temps du service discontinu en télémédecine",
+        "contextLevel": "L",
+        "effectiveDate": "2020-03-16",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1856": [
+      {
+        "contextCode": "1856",
+        "contextText": "LE 241 - Médecin dont les activités sont annulées",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1857": [
+      {
+        "contextCode": "1857",
+        "contextText": "Aucun per diem ou demi per diem de l’Annexe 38 facturé au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1858": [
+      {
+        "contextCode": "1858",
+        "contextText": "Demi per diem de l’Annexe 38 facturé au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1859": [
+      {
+        "contextCode": "1859",
+        "contextText": "Per diem de l’Annexe 38 facturé au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1860": [
+      {
+        "contextCode": "1860",
+        "contextText": "Aucun code d’activité de l’Annexe 40 ailleurs qu’à la salle d’urgence facturé au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1861": [
+      {
+        "contextCode": "1861",
+        "contextText": "1 heure d’activité de l’Annexe 40 facturée ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1862": [
+      {
+        "contextCode": "1862",
+        "contextText": "2 heures d’activité de l’Annexe 40 facturées ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1863": [
+      {
+        "contextCode": "1863",
+        "contextText": "3 heures d’activité de l’Annexe 40 facturées ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1864": [
+      {
+        "contextCode": "1864",
+        "contextText": "4 heures d’activité de l’Annexe 40 facturées ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1865": [
+      {
+        "contextCode": "1865",
+        "contextText": "5 heures d’activité de l’Annexe 40 facturées ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1866": [
+      {
+        "contextCode": "1866",
+        "contextText": "6 heures d’activité de l’Annexe 40 facturées ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1867": [
+      {
+        "contextCode": "1867",
+        "contextText": "7 heures d’activité de l’Annexe 40 facturées ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1868": [
+      {
+        "contextCode": "1868",
+        "contextText": "8 heures d’activité de l’Annexe 40 facturées ailleurs qu’à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1869": [
+      {
+        "contextCode": "1869",
+        "contextText": "Aucun code d’activité 077113 de l’Annexe 40 à la salle d’urgence facturé au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1870": [
+      {
+        "contextCode": "1870",
+        "contextText": "1 heure d’activité (code 077113) de l’Annexe 40 facturée à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1871": [
+      {
+        "contextCode": "1871",
+        "contextText": "2 heures d’activité (code 077113) de l’Annexe 40 facturées à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1872": [
+      {
+        "contextCode": "1872",
+        "contextText": "3 heures d’activité (code 077113) de l’Annexe 40 facturées à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1873": [
+      {
+        "contextCode": "1873",
+        "contextText": "4 heures d’activité (code 077113) de l’Annexe 40 facturées à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1874": [
+      {
+        "contextCode": "1874",
+        "contextText": "5 heures d’activité (code 077113) de l’Annexe 40 facturées à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1875": [
+      {
+        "contextCode": "1875",
+        "contextText": "6 heures d’activité (code 077113) de l’Annexe 40 facturées à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1876": [
+      {
+        "contextCode": "1876",
+        "contextText": "7 heures d’activité (code 077113) de l’Annexe 40 facturées à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1877": [
+      {
+        "contextCode": "1877",
+        "contextText": "8 heures d’activité (code 077113) de l’Annexe 40 facturées à la salle d’urgence au cours de la période",
+        "contextLevel": "L",
+        "effectiveDate": "2020-12-07",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1878": [
+      {
+        "contextCode": "1878",
+        "contextText": "Service rendu à un patient confirmé ou suspecté d'être atteint de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2021-03-15",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1880": [
+      {
+        "contextCode": "1880",
+        "contextText": "Exercice de relecture d'examens",
+        "contextLevel": "L",
+        "effectiveDate": "2019-02-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1881": [
+      {
+        "contextCode": "1881",
+        "contextText": "Service rendu en tant que cardiologue",
+        "contextLevel": "L",
+        "effectiveDate": "2021-12-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1885": [
+      {
+        "contextCode": "1885",
+        "contextText": "Transidentité",
+        "contextLevel": "L",
+        "effectiveDate": "2023-07-15",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1886": [
+      {
+        "contextCode": "1886",
+        "contextText": "Visite non liée au suivi ou au traitement par injection intravitréenne",
+        "contextLevel": "L",
+        "effectiveDate": "2021-10-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1887": [
+      {
+        "contextCode": "1887",
+        "contextText": "Échographies endobronchiques avec sonde linéaire et sonde radiale effectuées à la même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2021-10-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1891": [
+      {
+        "contextCode": "1891",
+        "contextText": "PDT ou chirurgie identifié par la mention PG-28 non facturé car non payable à suppléments d'honoraires",
+        "contextLevel": "L",
+        "effectiveDate": "2021-10-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1892": [
+      {
+        "contextCode": "1892",
+        "contextText": "PDT ou chirurgie identifié par la mention PG-28 effectué par un autre médecin",
+        "contextLevel": "L",
+        "effectiveDate": "2021-10-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1893": [
+      {
+        "contextCode": "1893",
+        "contextText": "Examen identifié par la mention PG-7 non facturé car non payable à suppléments d'honoraires",
+        "contextLevel": "L",
+        "effectiveDate": "2021-10-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1894": [
+      {
+        "contextCode": "1894",
+        "contextText": "Examen identifié par la mention PG-7 effectué par un autre médecin",
+        "contextLevel": "L",
+        "effectiveDate": "2021-10-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1895": [
+      {
+        "contextCode": "1895",
+        "contextText": "LE 246 - Service rendu en télémédecine auprès de la clientèle hospitalisée",
+        "contextLevel": "L",
+        "effectiveDate": "2021-07-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1896": [
+      {
+        "contextCode": "1896",
+        "contextText": "LE 246 - Service rendu en télémédecine auprès de la clientèle de l'urgence",
+        "contextLevel": "L",
+        "effectiveDate": "2021-07-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1897": [
+      {
+        "contextCode": "1897",
+        "contextText": "LE 241 - Service rendu dans le cadre du rattrapage des activités médicales",
+        "contextLevel": "L",
+        "effectiveDate": "2021-05-24",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1898": [
+      {
+        "contextCode": "1898",
+        "contextText": "Facturation d'un demi-per diem de la LE 241 au cours de la journée",
+        "contextLevel": "L",
+        "effectiveDate": "2021-05-24",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1901": [
+      {
+        "contextCode": "1901",
+        "contextText": "LE 241 - Service rendu dans une clinique d'évaluation pédiatrique (CDP) dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2021-09-06",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1904": [
+      {
+        "contextCode": "1904",
+        "contextText": "Cystoscopie pour une raison autre qu'une tumeur vésicale primaire de la vessie à faible risque (bas stade, bas grade)",
+        "contextLevel": "L",
+        "effectiveDate": "2022-03-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1905": [
+      {
+        "contextCode": "1905",
+        "contextText": "Support en urgence pour une situation exceptionnelle",
+        "contextLevel": "L",
+        "effectiveDate": "2022-02-15",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1906": [
+      {
+        "contextCode": "1906",
+        "contextText": "Facturé pour une chirurgie autre que bariatrique",
+        "contextLevel": "L",
+        "effectiveDate": "2021-10-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1907": [
+      {
+        "contextCode": "1907",
+        "contextText": "Traitement de photothérapie pour une raison autre que le psoriasis ou une dermatite atopique",
+        "contextLevel": "L",
+        "effectiveDate": "2022-03-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1908": [
+      {
+        "contextCode": "1908",
+        "contextText": "Laparoscopie suivie d'une laparotomie",
+        "contextLevel": "L",
+        "effectiveDate": "2023-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1912": [
+      {
+        "contextCode": "1912",
+        "contextText": "Temps du service discontinu",
+        "contextLevel": "L",
+        "effectiveDate": "2022-07-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1914": [
+      {
+        "contextCode": "1914",
+        "contextText": "Prise en charge d'une condition clinique exigeant une intervention rapide et une seconde évaluation par un médecin cardiologue",
+        "contextLevel": "L",
+        "effectiveDate": "2022-07-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1915": [
+      {
+        "contextCode": "1915",
+        "contextText": "Patient sous les soins concomitants d'un anesthésiologiste",
+        "contextLevel": "L",
+        "effectiveDate": "2022-09-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1916": [
+      {
+        "contextCode": "1916",
+        "contextText": "Patient ayant un EDSS supérieur ou égal à deux",
+        "contextLevel": "L",
+        "effectiveDate": "2022-09-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1917": [
+      {
+        "contextCode": "1917",
+        "contextText": "Patient ayant une maladie active avec considération d’un changement de traitement",
+        "contextLevel": "L",
+        "effectiveDate": "2022-09-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1918": [
+      {
+        "contextCode": "1918",
+        "contextText": "LE 241 - Service rendu en télémédecine auprès de la clientèle hospitalière à domicile dans le cadre de la COVID-19",
+        "contextLevel": "L",
+        "effectiveDate": "2021-12-22",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1919": [
+      {
+        "contextCode": "1919",
+        "contextText": "Patient ayant un score de deux ou plus à l’échelle de Hoenh et Yahr",
+        "contextLevel": "L",
+        "effectiveDate": "2022-09-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1920": [
+      {
+        "contextCode": "1920",
+        "contextText": "Patient présentant des fluctuations motrices ou associées à un trouble cognitif",
+        "contextLevel": "L",
+        "effectiveDate": "2022-09-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1921": [
+      {
+        "contextCode": "1921",
+        "contextText": "Chirurgie distincte pratiquée à la même séance par un ophtalmologiste surspécialisé",
+        "contextLevel": "L",
+        "effectiveDate": "2021-12-10",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1922": [
+      {
+        "contextCode": "1922",
+        "contextText": "Complexité anesthésique (règle 16)",
+        "contextLevel": "L",
+        "effectiveDate": "2023-02-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1928": [
+      {
+        "contextCode": "1928",
+        "contextText": "Chirurgies simultanées pour revitalisation des membres supérieurs chez un patient tétraplégique",
+        "contextLevel": "L",
+        "effectiveDate": "2020-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1930": [
+      {
+        "contextCode": "1930",
+        "contextText": "Chirurgie de retrait d’une bandelette sous-urétrale à la demande d'un autre médecin au cours  d'une même séance",
+        "contextLevel": "L",
+        "effectiveDate": "2021-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1931": [
+      {
+        "contextCode": "1931",
+        "contextText": "Visite effectuée à la demande d’un autre hémato-oncologue médical",
+        "contextLevel": "L",
+        "effectiveDate": "2023-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1933": [
+      {
+        "contextCode": "1933",
+        "contextText": "Complexité anesthésique pour une durée de quatre heures ou plus avec présence d'un remplaçant (règle 16)",
+        "contextLevel": "L",
+        "effectiveDate": "2023-02-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1934": [
+      {
+        "contextCode": "1934",
+        "contextText": "Complexité anesthésique pour une durée de huit heures ou plus avec présence d'un remplaçant (règle 16)",
+        "contextLevel": "L",
+        "effectiveDate": "2023-02-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1948": [
+      {
+        "contextCode": "1948",
+        "contextText": "Service rendu pour un patient en attente d’une chirurgie élective depuis plus d’un an - LE 256 et LE 257",
+        "contextLevel": "L",
+        "effectiveDate": "2023-05-08",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1949": [
+      {
+        "contextCode": "1949",
+        "contextText": "Service rendu pour un patient en attente d’une chirurgie oncologique depuis plus de 56 jours - LE 256 et LE 257",
+        "contextLevel": "L",
+        "effectiveDate": "2023-05-08",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1962": [
+      {
+        "contextCode": "1962",
+        "contextText": "Colonne vertébrale - Approche antérieure",
+        "contextLevel": "L",
+        "effectiveDate": "2024-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1963": [
+      {
+        "contextCode": "1963",
+        "contextText": "Colonne vertébrale - Approche postérieure",
+        "contextLevel": "L",
+        "effectiveDate": "2024-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1969": [
+      {
+        "contextCode": "1969",
+        "contextText": "Service médical dispensé dans le cadre de la LE 259",
+        "contextLevel": "L",
+        "effectiveDate": "2020-03-18",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1970": [
+      {
+        "contextCode": "1970",
+        "contextText": "Intervention requise en raison d'une complication per-procédure",
+        "contextLevel": "L",
+        "effectiveDate": "2024-07-25",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1971": [
+      {
+        "contextCode": "1971",
+        "contextText": "Prise en charge d'un patient avec douleur chronique en raison d'un problème différent",
+        "contextLevel": "L",
+        "effectiveDate": "2024-07-25",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1972": [
+      {
+        "contextCode": "1972",
+        "contextText": "Second supplément d'honoraires de plateau technique",
+        "contextLevel": "L",
+        "effectiveDate": "2024-01-01",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ],
+    "1977": [
+      {
+        "contextCode": "1977",
+        "contextText": "Forfait pour reconstruction en chirurgie plastique pratiquée dans un des cas d'exception.",
+        "contextLevel": "L",
+        "effectiveDate": "2025-03-24",
+        "metadata": {
+          "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+          "lastUpdated": "2025-09-09T23:30:48.667Z"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "totalContexts": 211,
+    "totalMappings": 0,
+    "totalCodeMappings": 0,
+    "sourceFile": "elementContexte_Specialiste_V351_20250613.xml",
+    "lastUpdated": "2025-09-09T23:30:48.667Z"
+  }
+}

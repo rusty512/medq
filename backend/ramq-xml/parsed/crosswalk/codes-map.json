@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2025-09-09T19:51:24.735Z",
+  "version": "2025-06-13T12-04-06",
+  "description": "Mapping between specialist codes and public RAMQ codes with amounts",
+  "mappings": {
+    "24": { "amount": 76.25, "label": "Visite de départ (exemple)" },
+    "10": { "amount": 52.40, "label": "Visite ICU 15 min (exemple)" },
+    "09992": { "amount": 18.00, "label": "Supplément (exemple)" }
+  },
+  "summary": {
+    "totalMappings": 3,
+    "specialties": { "006": 1, "027": 2 }
+  },
+  "notes": {
+    "status": "Scaffold created - needs population with actual tariff data",
+    "next_steps": [
+      "Map specialist codes to public RAMQ codes",
+      "Extract amounts from tariff documents",
+      "Validate mappings against official RAMQ documentation"
+    ]
+  }
+}

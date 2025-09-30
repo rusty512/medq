@@ -1,0 +1,338 @@
+[
+  {
+    "sectorCode": "01",
+    "sectorName": "Clinique externe",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      },
+      {
+        "category": "CLSC",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "02",
+    "sectorName": "Section gériatrique",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "03",
+    "sectorName": "Unité de soins généraux et spéc.",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      },
+      {
+        "category": "PE",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "04",
+    "sectorName": "Unité soins longue durée(prolongés)",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CA",
+        "effectiveDate": ""
+      },
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "05",
+    "sectorName": "Unité soins longue durée (héberg.)",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CA",
+        "effectiveDate": ""
+      },
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "08",
+    "sectorName": "Section psychiatrique",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CA",
+        "effectiveDate": ""
+      },
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "15",
+    "sectorName": "Unité coronarienne",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "16",
+    "sectorName": "Unité de soins intensifs",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "17",
+    "sectorName": "Réadaptation en déficience physique",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CA",
+        "effectiveDate": ""
+      },
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "31",
+    "sectorName": "Service d'urgence CLSC réseau garde",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CLSC",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "35",
+    "sectorName": "Clinique d'urgence",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "43",
+    "sectorName": "Centre des grands brûlés",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "49",
+    "sectorName": "Unité de réadaptation lourde",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "52",
+    "sectorName": "Unité de médecine familiale",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      },
+      {
+        "category": "CLSC",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "53",
+    "sectorName": "Centre de douleur chronique",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "54",
+    "sectorName": "Unité de soins de néonatalogie",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "55",
+    "sectorName": "Unité d'hépatologie",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "56",
+    "sectorName": "Autre secteur CLSC",
+    "effectiveDate": "2016-04-01",
+    "establishmentCategories": [
+      {
+        "category": "CLSC",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  },
+  {
+    "sectorCode": "57",
+    "sectorName": "Groupe méd. famille universitaire",
+    "effectiveDate": "2018-12-10",
+    "establishmentCategories": [
+      {
+        "category": "CH",
+        "effectiveDate": ""
+      },
+      {
+        "category": "CLSC",
+        "effectiveDate": ""
+      }
+    ],
+    "isActive": true,
+    "metadata": {
+      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
+      "lastUpdated": "2025-09-09T19:51:24.319Z"
+    }
+  }
+]

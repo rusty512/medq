@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2025-09-09T19:51:24.735Z",
+  "version": "2025-06-13T12-04-06",
+  "focus": "specialist-only",
+  "totalCodes": 7352,
+  "totalContextRules": 300267,
+  "totalErrorMessages": 2685,
+  "totalEstablishments": 5379,
+  "totalLocations": 1248,
+  "totalActivitySectors": 19,
+  "structure": {
+    "billingCodes": "specialist/billing-codes.json",
+    "contextRules": "specialist/context-rules.json",
+    "errorMessages": "specialist/error-messages.json",
+    "establishments": "specialist/establishments.json",
+    "locations": "specialist/locations.json",
+    "activitySectors": "specialist/activity-sectors.json",
+    "crosswalk": "crosswalk/codes-map.json"
+  }
+}

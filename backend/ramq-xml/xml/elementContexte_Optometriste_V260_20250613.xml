@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<elm_contx xmlns="urn:ramq-gouv-qc-ca:RFP">
+  <cod_fich_ext_aide_sais>17</cod_fich_ext_aide_sais>
+  <no_versi_fich>260</no_versi_fich>
+  <dat_extr>2025-06-20</dat_extr>
+  <no_enten>5</no_enten>
+  <val_elm_contx>
+    <cod_elm_contx>26</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Service dont la complexité est inhabituelle]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2013-04-01</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2013-04-01</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>31</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Condition médicale différente]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2013-04-01</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2013-04-01</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>32</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Examen non relié à celui sous dilatation du segment postérieur]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2013-04-01</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2013-04-01</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>33</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Aucun lien avec l'examen spécifique d'orthoptique]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2013-04-01</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2013-04-01</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>29</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Séance différente]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2013-04-01</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2013-04-01</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>1809</cod_elm_contx>
+    <txt_elm_contx><![CDATA[À la suite de l'examen d'un patient de moins de 18 ans, une prescription pour lunettes ou verres de contact a été émise]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2019-06-01</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2019-06-01</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>1831</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Service rendu à distance dans le cadre de la COVID-19]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2020-03-20</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2020-03-20</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>1842</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Téléconsultation par voie téléphonique]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2020-07-15</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2020-07-15</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+  <val_elm_contx>
+    <cod_elm_contx>1843</cod_elm_contx>
+    <txt_elm_contx><![CDATA[Téléconsultation par visioconférence]]></txt_elm_contx>
+    <cod_niv>L</cod_niv>
+    <dd_effec_elm_contx>2020-07-15</dd_effec_elm_contx>
+    <liste_util_elm_contx>
+      <util_elm_contx>
+        <typ_fact>5</typ_fact>
+        <dd_util_elm_contx>2020-07-15</dd_util_elm_contx>
+      </util_elm_contx>
+    </liste_util_elm_contx>
+  </val_elm_contx>
+</elm_contx>
