@@ -22,6 +22,7 @@ export function Step3Establishments() {
   const [results, setResults] = useState<any[]>([]);
   const [offset, setOffset] = useState(0)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const [canLoadMoreVisible, setCanLoadMoreVisible] = useState(false)
 
   useEffect(() => {
     const controller = new AbortController();
@@ -97,7 +98,7 @@ export function Step3Establishments() {
                 <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="z-50 w-full p-0">
+            <PopoverContent side="bottom" align="start" avoidCollisions={false} className="z-50 w-full p-0">
               <Command>
                 <CommandInput 
                   placeholder="Rechercher par nom, adresse ou code..." 
@@ -105,18 +106,27 @@ export function Step3Establishments() {
                   onValueChange={setSearchValue}
                 />
                 <div className="max-h-96 flex flex-col">
-                  <CommandList className="flex-1 overflow-auto">
+                  <CommandList
+                    className="flex-1 overflow-auto"
+                    onScroll={(e) => {
+                      const el = e.currentTarget
+                      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 8
+                      setCanLoadMoreVisible(atBottom)
+                    }}
+                  >
                     <CommandEmpty>Aucun établissement trouvé.</CommandEmpty>
                     <CommandGroup>
                       {filteredEstablishments.map((establishment) => (
                         <CommandItem
                         key={establishment.id}
                         value={establishment.name}
-                        onSelect={(currentValue) => {
-                          setSearchValue(currentValue === searchValue ? "" : currentValue)
-                          setOpen(false)
-                          handleAddEstablishment(establishment)
-                        }}
+                          onMouseDown={(ev) => {
+                            ev.preventDefault()
+                            ev.stopPropagation()
+                            setSearchValue(establishment.name)
+                            handleAddEstablishment(establishment)
+                            setOpen(false)
+                          }}
                         className="py-1 px-1"
                       >
                         <div className="flex w-full items-start justify-between gap-3">
@@ -159,8 +169,9 @@ export function Step3Establishments() {
                           setIsLoadingMore(false)
                         }
                       }}
+                      disabled={!canLoadMoreVisible}
                     >
-                      {isLoadingMore ? 'Chargement…' : 'Charger plus'}
+                      {isLoadingMore ? 'Chargement…' : canLoadMoreVisible ? 'Charger plus' : 'Faites défiler pour plus'}
                     </Button>
                   </div>
                 </div>
