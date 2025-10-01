@@ -38,6 +38,16 @@ export default function OnboardingPage() {
           if (typeof window !== 'undefined') {
             window.localStorage.setItem('auth_token', session.access_token);
           }
+          // Ensure the app DB has an upserted user row
+          try {
+            await fetch('/api/me', {
+              headers: { Authorization: `Bearer ${session.access_token}` },
+              cache: 'no-store',
+            });
+          } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error('Initial /api/me upsert failed:', e);
+          }
         } else {
           // Check if there's a pending onboarding from signup
           const pendingOnboarding = localStorage.getItem('pendingOnboarding');

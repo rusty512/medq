@@ -55,11 +55,20 @@ export function SignupForm({
       }
 
       if (data.user) {
-        // Store auth token for API calls
+        // Store auth token for API calls and upsert user in app DB
         if (data.session) {
           localStorage.setItem('auth_token', data.session.access_token);
+          try {
+            await fetch('/api/me', {
+              headers: { Authorization: `Bearer ${data.session.access_token}` },
+              cache: 'no-store',
+            });
+          } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error('Post-signup /api/me upsert failed:', e);
+          }
         }
-        
+
         // Check for pending onboarding data
         const pendingOnboarding = localStorage.getItem('pendingOnboarding');
         if (pendingOnboarding) {
