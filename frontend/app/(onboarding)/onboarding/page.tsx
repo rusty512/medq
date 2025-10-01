@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { ChevronLeft } from "lucide-react";
 import { Step1Identity } from "@/components/forms/onboarding/Step1Identity";
 import { Step2Professional } from "@/components/forms/onboarding/Step2Professional";
 import { Step3Establishments } from "@/components/forms/onboarding/Step3Establishments";
@@ -236,7 +235,6 @@ export default function OnboardingPage() {
                     onClick={handlePrevious}
                     className="w-full"
                   >
-                    <ChevronLeft className="mr-2 h-4 w-4" />
                     Retour
                   </Button>
                 )}
@@ -251,11 +249,11 @@ export default function OnboardingPage() {
                         className="w-full"
                         variant={hasEstablishments ? "default" : "secondary"}
                       >
-                        {hasEstablishments ? "Continuer →" : "Passer pour l'instant"}
+                        {hasEstablishments ? "Continuer" : "Passer pour l'instant"}
                       </Button>
                     ) : (
                       <Button type="button" onClick={handleNext} className="w-full">
-                        Continuer <span className="ml-1">→</span>
+                        Continuer
                       </Button>
                     )
                   ) : (
