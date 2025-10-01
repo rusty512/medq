@@ -1694,8 +1694,8 @@ export function DataTable({
                                     ${isSelectColumn ? 'w-12 px-2' : ''}
                                     ${isPatientColumn ? 'px-3 whitespace-nowrap w-48' : ''}
                                     ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-40' : ''}
-                                    ${isDayColumn ? 'px-2 text-center w-24' : ''}
-                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-16' : ''}
+                                    ${isDayColumn ? 'px-2 text-left w-24' : ''}
+                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-16 text-left' : ''}
                                   `}
                                >
                                  {header.isPlaceholder
@@ -1728,8 +1728,8 @@ export function DataTable({
                                     ${isSelectColumn ? 'w-12 px-2' : ''}
                                     ${isPatientColumn ? 'px-3 whitespace-nowrap w-48' : ''}
                                     ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-40' : ''}
-                                    ${isDayColumn ? 'px-2 text-center w-24' : ''}
-                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-16' : ''}
+                                    ${isDayColumn ? 'px-2 text-left w-24' : ''}
+                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-16 text-left' : ''}
                                   `}
                                  >
                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -1785,12 +1785,12 @@ export function DataTable({
                             <TableCell className={`px-3 whitespace-nowrap w-40 ${withTopBorder ? 'border-t' : ''} bg-muted`}></TableCell>
                             {/* Day columns as plain text, aligned like badges */}
                             {days.map((d) => (
-                              <TableCell key={d} className={`px-2 text-center w-24 ${withTopBorder ? 'border-t' : ''} bg-muted`}>
+                              <TableCell key={d} className={`px-2 text-left w-24 ${withTopBorder ? 'border-t' : ''} bg-muted`}>
                                 <span className="text-sm text-foreground">{isMoney ? `${values[d].toLocaleString('fr-CA')}\u00A0$` : values[d]}</span>
                               </TableCell>
                             ))}
                             {/* Actions column → weekly total */}
-                            <TableCell className={`px-3 text-center ${withTopBorder ? 'border-t' : ''} bg-muted`}>
+                            <TableCell className={`px-3 text-left ${withTopBorder ? 'border-t' : ''} bg-muted`}>
                               <span className="text-sm font-medium">
                                 {(() => {
                                   const sum = Object.values(values).reduce((a, b) => a + b, 0)
@@ -1815,9 +1815,9 @@ export function DataTable({
                               </TableCell>
                               <TableCell className="px-3 whitespace-nowrap w-40 bg-muted"></TableCell>
                               {days.map((d) => (
-                                <TableCell key={d} className="px-2 text-center w-24 bg-muted"></TableCell>
+                                <TableCell key={d} className="px-2 text-left w-24 bg-muted"></TableCell>
                               ))}
-                              <TableCell className="px-3 text-center bg-muted"></TableCell>
+                              <TableCell className="px-3 text-left bg-muted"></TableCell>
                             </TableRow>
 
                             {showTotals && (
