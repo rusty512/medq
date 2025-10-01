@@ -41,7 +41,25 @@ export function Step1Identity() {
             <FormItem>
               <FormLabel>Téléphone (optionnel)</FormLabel>
               <FormControl>
-                <Input id="phone" type="tel" placeholder="(514) 123-4567" aria-invalid={fieldState.invalid} {...field} />
+                <Input
+                  id="phone"
+                  type="tel"
+                  inputMode="tel"
+                  placeholder="514-123-4567"
+                  aria-invalid={fieldState.invalid}
+                  {...field}
+                  onChange={(e) => {
+                    // Live-format to 000-000-0000, allows deletion
+                    const digits = e.target.value.replace(/\D/g, '').slice(0, 10)
+                    let formatted = digits
+                    if (digits.length >= 4 && digits.length <= 6) {
+                      formatted = `${digits.slice(0,3)}-${digits.slice(3)}`
+                    } else if (digits.length > 6) {
+                      formatted = `${digits.slice(0,3)}-${digits.slice(3,6)}-${digits.slice(6)}`
+                    }
+                    field.onChange(formatted)
+                  }}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

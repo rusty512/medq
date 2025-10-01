@@ -3,7 +3,18 @@ import { z } from "zod";
 export const identitySchema = z.object({
   firstName: z.string().min(1, "Prénom requis"),
   lastName: z.string().min(1, "Nom requis"),
-  phone: z.string().optional(),
+  // Canadian phone format: 000-000-0000 or (000) 000-0000
+  phone: z
+    .string()
+    .trim()
+    .transform((v) => v || "")
+    .refine(
+      (v) => v === "" || /^(\(\d{3}\)\s?\d{3}-\d{4}|\d{3}-\d{3}-\d{4})$/.test(v),
+      {
+        message: "Format invalide. Ex.: 514-123-4567 ou (514) 123-4567",
+      }
+    )
+    .optional(),
 });
 
 export const professionalSchema = z.object({
