@@ -3,7 +3,6 @@
 import * as React from "react"
 import {
   IconCheck,
-  IconChevronDown,
   IconChevronLeft,
   IconChevronRight,
   IconChevronsLeft,
@@ -11,12 +10,13 @@ import {
   IconCircleCheckFilled,
   IconDotsVertical,
   IconEdit,
-  IconLayoutColumns,
   IconLoader,
   IconPlus,
   IconTrendingUp,
   IconX,
 } from "@tabler/icons-react"
+import { CircleCheck, Circle, CircleAlert, CheckCircle2, Pencil, Trash2, X, Import as ImportIcon, ChevronRight } from "lucide-react"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -34,7 +34,6 @@ import {
 } from "@tanstack/react-table"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { toast } from "sonner"
-import { useSortable } from "@dnd-kit/sortable"
 import { z } from "zod"
 
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -107,6 +106,8 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+
 
 export const schema = z.object({
   id: z.number(),
@@ -116,39 +117,144 @@ export const schema = z.object({
   target: z.string(),
   limit: z.string(),
   reviewer: z.string(),
+  patientName: z.string().optional(),
+  nam: z.string().optional(),
+  establishment: z.string().optional(),
+  lun: z.array(z.object({ code: z.string(), status: z.enum(["pending", "approved", "error"]) })).optional(),
+  mar: z.array(z.object({ code: z.string(), status: z.enum(["pending", "approved", "error"]) })).optional(),
+  mer: z.array(z.object({ code: z.string(), status: z.enum(["pending", "approved", "error"]) })).optional(),
+  jeu: z.array(z.object({ code: z.string(), status: z.enum(["pending", "approved", "error"]) })).optional(),
+  ven: z.array(z.object({ code: z.string(), status: z.enum(["pending", "approved", "error"]) })).optional(),
+  sam: z.array(z.object({ code: z.string(), status: z.enum(["pending", "approved", "error"]) })).optional(),
+  dim: z.array(z.object({ code: z.string(), status: z.enum(["pending", "approved", "error"]) })).optional(),
 })
 
 // Create a separate component for the drag handle
 
-// TODO: Connect to real RAMQ API for patient search
-const mockRAMQPatients: any[] = []
+// Mock RAMQ API data for patient search
+const mockRAMQPatients = [
+  { id: "RAMQ001", name: "Marie Dubois", nam: "DUBM12345678" },
+  { id: "RAMQ002", name: "Jean-Pierre Tremblay", nam: "TREM23456789" },
+  { id: "RAMQ003", name: "Sophie Gagnon", nam: "GAGS34567890" },
+  { id: "RAMQ004", name: "Alexandre Roy", nam: "ROYA45678901" },
+  { id: "RAMQ005", name: "Isabelle Lavoie", nam: "LAVI56789012" },
+  { id: "RAMQ006", name: "François Bouchard", nam: "BOUC67890123" },
+  { id: "RAMQ007", name: "Camille Bergeron", nam: "BERG78901234" },
+  { id: "RAMQ008", name: "Nicolas Pelletier", nam: "PELL89012345" },
+  { id: "RAMQ009", name: "Élise Côté", nam: "COTE90123456" },
+  { id: "RAMQ010", name: "Marc-André Fortin", nam: "FORT01234567" },
+]
+
+// Mock establishment mapping (shortNumber -> full name)
+const mockEstablishments = {
+  "1": "CHU Sainte-Justine",
+  "2": "CHUM", 
+  "3": "Hôpital du Sacré-Cœur"
+}
 
 // Interactive Act Badge Component
+function CodeEditPopoverContent({
+  value,
+  onValueChange,
+  onConfirm,
+  onCancel,
+  confirmLabel = 'Confirmer',
+}: {
+  value: string
+  onValueChange: (v: string) => void
+  onConfirm: () => void
+  onCancel?: () => void
+  confirmLabel?: string
+}) {
+  return (
+    <PopoverContent className="w-80">
+      <div className="space-y-3">
+        <div className="space-y-2">
+          <Label htmlFor="code-input">Code ou raccourci</Label>
+          <Input
+            id="code-input"
+            placeholder="Entrer un code ou raccourci"
+            value={value}
+            onChange={(e) => onValueChange(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') onConfirm()
+              if (e.key === 'Escape') onCancel?.()
+            }}
+          />
+        </div>
+        <div className="flex gap-2 justify-end">
+          <Button variant="outline" size="sm" onClick={onCancel}>Annuler</Button>
+          <Button size="sm" onClick={onConfirm} disabled={!value.trim()}>
+            {confirmLabel}
+          </Button>
+        </div>
+      </div>
+    </PopoverContent>
+  )
+}
 function ActBadge({ 
   act, 
   onApprove, 
   onEdit, 
-  onRemove 
+  onRemove,
+  isSelected,
+  onSelect,
+  onMouseDown,
+  onMouseEnter,
+  onMouseUp,
 }: { 
   act: { code: string; status: "pending" | "approved" | "error" }
   onApprove: () => void
-  onEdit: () => void
+  onEdit: (newCode: string) => void
   onRemove: () => void
+  isSelected: boolean
+  onSelect: (e: React.MouseEvent) => void
+  onMouseDown: (e: React.MouseEvent) => void
+  onMouseEnter: (e: React.MouseEvent) => void
+  onMouseUp: () => void
 }) {
-  const statusStyles = {
-    approved: { badgeVariant: "default" },
-    pending: { badgeVariant: "secondary" },
-    error: { badgeVariant: "secondary" },
-  } as const
+  const [isEditOpen, setIsEditOpen] = React.useState(false)
+  const [editValue, setEditValue] = React.useState(act.code)
 
-  const styles = statusStyles[act.status]
+  const handleEdit = () => {
+    setIsEditOpen(true)
+    setEditValue(act.code)
+  }
+
+  const handleConfirmEdit = () => {
+    onEdit(editValue)
+    setIsEditOpen(false)
+  }
+
+  const handleCancelEdit = () => {
+    setIsEditOpen(false)
+    setEditValue(act.code)
+  }
+  const getStatusIcon = (status: "pending" | "approved" | "error") => {
+    switch (status) {
+      case "approved":
+        return <CircleCheck className="w-3 h-3 text-green-600" />
+      case "pending":
+        return <Circle className="w-3 h-3 text-yellow-600" />
+      case "error":
+        return <CircleAlert className="w-3 h-3 text-red-600" />
+      default:
+        return null
+    }
+  }
 
   return (
     <div className="group relative flex items-center gap-1">
-      {/* Main badge - full color pill, never changes size */}
-      <Badge
-        variant={styles.badgeVariant as any}
+      {/* Main badge - outline with icon; selection handlers bound here */}
+      <Badge 
+        variant="outline"
+        className={`flex items-center gap-1 ${isSelected ? 'ring-2 ring-primary/40 bg-muted/40' : ''}`}
+        onClick={onSelect}
+        onMouseDown={onMouseDown}
+        onMouseEnter={onMouseEnter}
+        onMouseUp={onMouseUp}
       >
+        {getStatusIcon(act.status)}
         {act.code}
       </Badge>
 
@@ -169,16 +275,27 @@ function ActBadge({
           )}
           
         {/* Edit - always available */}
+        <Popover open={isEditOpen} onOpenChange={setIsEditOpen}>
+          <PopoverTrigger asChild>
           <button
             onClick={(e) => {
               e.stopPropagation()
-              onEdit()
+                handleEdit()
             }}
-          className="bg-white border border-border rounded-full p-1 hover:bg-muted transition-colors"
+              className="bg-white border border-border rounded-full p-1 hover:bg-muted transition-colors"
             title="Modifier"
           >
-          <IconEdit className="w-3 h-3 text-muted-foreground" />
+              <IconEdit className="w-3 h-3 text-muted-foreground" />
           </button>
+          </PopoverTrigger>
+          <CodeEditPopoverContent
+            value={editValue}
+            onValueChange={setEditValue}
+            confirmLabel="Confirmer"
+            onCancel={handleCancelEdit}
+            onConfirm={handleConfirmEdit}
+          />
+        </Popover>
           
         {/* Remove - always available */}
           <button
@@ -198,16 +315,20 @@ function ActBadge({
 
 // Day Cell Component for displaying acts/shortcuts
 function DayCell({ 
-  act, 
+  acts, 
   dayName,
   cellId,
   isSelected,
   onCellSelect,
   onCellMouseDown,
   onCellMouseEnter,
-  onCellMouseUp
+  onCellMouseUp,
+  onActApprove,
+  onActEdit,
+  onActRemove,
+  onActAdd
 }: { 
-  act: { code: string; status: "pending" | "approved" | "error" } | undefined
+  acts: { code: string; status: "pending" | "approved" | "error" }[] | { code: string; status: "pending" | "approved" | "error" } | undefined
   dayName: string 
   cellId: string
   isSelected: boolean
@@ -215,48 +336,69 @@ function DayCell({
   onCellMouseDown: (cellId: string, event: React.MouseEvent) => void
   onCellMouseEnter: (cellId: string, event: React.MouseEvent) => void
   onCellMouseUp: () => void
+  onActApprove: (actIndex: number) => void
+  onActEdit: (actIndex: number, newCode: string) => void
+  onActRemove: (actIndex: number) => void
+  onActAdd: (newCode: string) => void
 }) {
-  const isEmpty = !act
+  // Handle both single act and array of acts
+  const actsArray = Array.isArray(acts) ? acts : acts ? [acts] : []
+  const isEmpty = actsArray.length === 0
 
-  const handleApprove = () => {
-    console.log(`Approving act for ${dayName}`)
-    // This would update the data in the parent component
+  const handleApprove = (actIndex: number) => {
+    onActApprove(actIndex)
   }
 
-  const handleEdit = () => {
-    console.log(`Editing act for ${dayName}`)
-    // This would open an edit modal
+  const handleEdit = (actIndex: number, newCode: string) => {
+    onActEdit(actIndex, newCode)
   }
 
-  const handleRemove = () => {
-    console.log(`Removing act for ${dayName}`)
-    // This would remove the act from the data
+  const handleRemove = (actIndex: number) => {
+    onActRemove(actIndex)
   }
+
+  const [addOpen, setAddOpen] = React.useState(false)
+  const [addValue, setAddValue] = React.useState("")
 
   return (
     <>
       {isEmpty ? (
         <div className="group flex items-center justify-start w-full h-full">
-          <Badge 
-            variant="outline" 
-            className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground cursor-pointer text-xs px-2 py-0.5 h-6"
-            onClick={(e) => {
-              e.stopPropagation()
-              // TODO: Turn into inline input
-              console.log('Add new act')
-            }}
-          >
-            +
-          </Badge>
+          <Popover open={addOpen} onOpenChange={setAddOpen}>
+            <PopoverTrigger asChild>
+              <Badge 
+                variant="outline" 
+                className={`text-muted-foreground cursor-pointer text-xs px-2 py-0.5 h-6 opacity-0 group-hover:opacity-100 transition-opacity ${isSelected ? 'ring-2 ring-primary/40 bg-muted/40' : ''}`}
+                onClick={(e) => { e.stopPropagation(); setAddOpen(true) }}
+              >
+                +
+              </Badge>
+            </PopoverTrigger>
+            <CodeEditPopoverContent
+              value={addValue}
+              onValueChange={setAddValue}
+              confirmLabel="Ajouter"
+              onCancel={() => { setAddOpen(false); setAddValue("") }}
+              onConfirm={() => { if (addValue.trim()) { onActAdd(addValue.trim()); setAddValue(""); setAddOpen(false) } }}
+            />
+          </Popover>
         </div>
       ) : (
-        <div className="group">
+        <div className="group flex flex-wrap gap-1">
+          {actsArray.map((act, index) => (
         <ActBadge
+              key={`${act.code}-${index}`}
           act={act}
-          onApprove={handleApprove}
-          onEdit={handleEdit}
-          onRemove={handleRemove}
-        />
+              onApprove={() => handleApprove(index)}
+              onEdit={(newCode) => handleEdit(index, newCode)}
+              onRemove={() => handleRemove(index)}
+              isSelected={isSelected}
+              onSelect={(e) => onCellSelect(cellId, e)}
+              onMouseDown={(e) => onCellMouseDown(cellId, e)}
+              onMouseEnter={(e) => onCellMouseEnter(cellId, e)}
+              onMouseUp={() => onCellMouseUp()}
+            />
+          ))}
     </div>
       )}
     </>
@@ -276,10 +418,13 @@ function PatientSearchModal({
   const [searchValue, setSearchValue] = React.useState("")
   const [selectedPatient, setSelectedPatient] = React.useState<{ name: string; nam: string } | null>(null)
 
-  // TODO: Connect to real patient search API
-  const filteredPatients = React.useMemo((): Array<{ id: string; name: string; nam: string }> => {
-    // Placeholder for real patient search
-    return []
+  // Filter patients based on search
+  const filteredPatients = React.useMemo(() => {
+    if (!searchValue) return mockRAMQPatients
+    return mockRAMQPatients.filter(patient => 
+      patient.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+      patient.nam.toLowerCase().includes(searchValue.toLowerCase())
+    )
   }, [searchValue])
 
   const handleAssociate = () => {
@@ -385,7 +530,16 @@ const getDayDate = (dayName: string, offset: number = 0) => {
   return `${dayShort} ${date}`
 }
 
-const columns: ColumnDef<z.infer<typeof schema>>[] = [
+const createColumns = (
+  handleActApprove: (rowId: number, dayKey: string, actIndex: number) => void,
+  handleActEdit: (rowId: number, dayKey: string, actIndex: number, newCode: string) => void,
+  handleActRemove: (rowId: number, dayKey: string, actIndex: number) => void,
+  isCellSelected: (cellId: string) => boolean,
+  handleCellSelect: (cellId: string, e: React.MouseEvent) => void,
+  handleCellMouseDown: (cellId: string, e: React.MouseEvent) => void,
+  handleCellMouseEnter: (cellId: string, e: React.MouseEvent) => void,
+  handleCellMouseUp: () => void,
+): ColumnDef<z.infer<typeof schema>>[] => [
   {
     id: "select",
     header: ({ table }) => (
@@ -416,7 +570,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     accessorKey: "patientName",
     header: "Patient",
     cell: ({ row, table }) => {
-      // Note: This should be refactored to use a proper component for the modal
+      const [isModalOpen, setIsModalOpen] = React.useState(false)
       
       const handleAssociate = (patient: { name: string; nam: string }) => {
         // Update the data in the table
@@ -432,14 +586,39 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       }
 
       return (
-        <div className="space-y-0.5">
-          <div className="font-medium text-foreground transition-colors text-sm whitespace-nowrap">
-            {row.original.reviewer || "Non associé"}
-          </div>
-          <div className="text-xs text-muted-foreground whitespace-nowrap">
-            {row.original.target || "N/A"}
-          </div>
-        </div>
+        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+          <DialogTrigger asChild>
+            <button 
+              className="text-left hover:underline cursor-pointer group whitespace-nowrap"
+              onClick={(e) => {
+                e.stopPropagation()
+                setIsModalOpen(true)
+              }}
+            >
+              <div className="space-y-0.5">
+                <div className="font-medium text-foreground group-hover:text-foreground/80 transition-colors text-sm whitespace-nowrap">
+                  {row.original.patientName}
+                </div>
+                <div className="text-xs text-muted-foreground whitespace-nowrap">
+                  {row.original.nam}
+                </div>
+              </div>
+            </button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Associer un patient</DialogTitle>
+              <DialogDescription>
+                Recherchez et sélectionnez le bon patient dans la base de données RAMQ
+              </DialogDescription>
+            </DialogHeader>
+            <PatientSearchModal
+              currentPatient={row.original}
+              onAssociate={handleAssociate}
+              onClose={() => setIsModalOpen(false)}
+            />
+          </DialogContent>
+        </Dialog>
       )
     },
     enableHiding: false,
@@ -449,12 +628,29 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   },
   {
     accessorKey: "establishment",
-    header: "Établissement",
-    cell: ({ row }) => (
-      <div className="truncate text-sm text-foreground whitespace-nowrap" title={row.original.type}>
-        {row.original.type}
-      </div>
-    ),
+    header: "Étab.",
+    cell: ({ row }) => {
+      const establishmentId = row.original.establishment
+      const establishmentNumber = Object.keys(mockEstablishments).find(key => 
+        mockEstablishments[key as keyof typeof mockEstablishments] === establishmentId
+      )
+      const fullName = mockEstablishments[establishmentNumber as keyof typeof mockEstablishments] || establishmentId
+      
+      return (
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Badge variant="outline" className="text-xs">
+                {establishmentNumber || "—"}
+              </Badge>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{fullName}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      )
+    },
     size: 0,
     minSize: 0,
     maxSize: 0,
@@ -466,22 +662,27 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return getDayDate("lun", meta?.dateOffset || 0)
     },
     cell: ({ row, table }) => {
+      const cellId = `${row.original.id}-lun`
       return (
         <DayCell 
-          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
+          acts={row.original.lun} 
           dayName="Lun" 
-          cellId=""
-          isSelected={false}
-          onCellSelect={() => {}}
-          onCellMouseDown={() => {}}
-          onCellMouseEnter={() => {}}
-          onCellMouseUp={() => {}}
+          cellId={cellId}
+          isSelected={isCellSelected(cellId)}
+          onCellSelect={handleCellSelect}
+          onCellMouseDown={handleCellMouseDown}
+          onCellMouseEnter={handleCellMouseEnter}
+          onCellMouseUp={handleCellMouseUp}
+          onActApprove={(actIndex) => handleActApprove(row.original.id, 'lun', actIndex)}
+          onActEdit={(actIndex, newCode) => handleActEdit(row.original.id, 'lun', actIndex, newCode)}
+          onActRemove={(actIndex) => handleActRemove(row.original.id, 'lun', actIndex)}
+            onActAdd={(code) => (table.options.meta as any)?.handleAddAct?.(row.original.id, 'lun', code)}
         />
       )
     },
-    size: 100,
-    minSize: 100,
-    maxSize: 100,
+    size: 60,
+    minSize: 60,
+    maxSize: 60,
   },
   {
     accessorKey: "mar",
@@ -490,22 +691,27 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return getDayDate("mar", meta?.dateOffset || 0)
     },
     cell: ({ row, table }) => {
+      const cellId = `${row.original.id}-mar`
       return (
         <DayCell 
-          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
+          acts={row.original.mar} 
           dayName="Mar" 
-          cellId=""
-          isSelected={false}
-          onCellSelect={() => {}}
-          onCellMouseDown={() => {}}
-          onCellMouseEnter={() => {}}
-          onCellMouseUp={() => {}}
+          cellId={cellId}
+          isSelected={isCellSelected(cellId)}
+          onCellSelect={handleCellSelect}
+          onCellMouseDown={handleCellMouseDown}
+          onCellMouseEnter={handleCellMouseEnter}
+          onCellMouseUp={handleCellMouseUp}
+          onActApprove={(actIndex) => handleActApprove(row.original.id, 'mar', actIndex)}
+          onActEdit={(actIndex, newCode) => handleActEdit(row.original.id, 'mar', actIndex, newCode)}
+          onActRemove={(actIndex) => handleActRemove(row.original.id, 'mar', actIndex)}
+            onActAdd={(code) => (table.options.meta as any)?.handleAddAct?.(row.original.id, 'mar', code)}
         />
       )
     },
-    size: 100,
-    minSize: 100,
-    maxSize: 100,
+    size: 60,
+    minSize: 60,
+    maxSize: 60,
   },
   {
     accessorKey: "mer",
@@ -514,22 +720,27 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return getDayDate("mer", meta?.dateOffset || 0)
     },
     cell: ({ row, table }) => {
+      const cellId = `${row.original.id}-mer`
       return (
         <DayCell 
-          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
+          acts={row.original.mer} 
           dayName="Mer" 
-          cellId=""
-          isSelected={false}
-          onCellSelect={() => {}}
-          onCellMouseDown={() => {}}
-          onCellMouseEnter={() => {}}
-          onCellMouseUp={() => {}}
+          cellId={cellId}
+          isSelected={isCellSelected(cellId)}
+          onCellSelect={handleCellSelect}
+          onCellMouseDown={handleCellMouseDown}
+          onCellMouseEnter={handleCellMouseEnter}
+          onCellMouseUp={handleCellMouseUp}
+          onActApprove={(actIndex) => handleActApprove(row.original.id, 'mer', actIndex)}
+          onActEdit={(actIndex, newCode) => handleActEdit(row.original.id, 'mer', actIndex, newCode)}
+          onActRemove={(actIndex) => handleActRemove(row.original.id, 'mer', actIndex)}
+            onActAdd={(code) => (table.options.meta as any)?.handleAddAct?.(row.original.id, 'mer', code)}
         />
       )
     },
-    size: 100,
-    minSize: 100,
-    maxSize: 100,
+    size: 60,
+    minSize: 60,
+    maxSize: 60,
   },
   {
     accessorKey: "jeu",
@@ -538,22 +749,27 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return getDayDate("jeu", meta?.dateOffset || 0)
     },
     cell: ({ row, table }) => {
+      const cellId = `${row.original.id}-jeu`
       return (
         <DayCell 
-          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
+          acts={row.original.jeu} 
           dayName="Jeu" 
-          cellId=""
-          isSelected={false}
-          onCellSelect={() => {}}
-          onCellMouseDown={() => {}}
-          onCellMouseEnter={() => {}}
-          onCellMouseUp={() => {}}
+          cellId={cellId}
+          isSelected={isCellSelected(cellId)}
+          onCellSelect={handleCellSelect}
+          onCellMouseDown={handleCellMouseDown}
+          onCellMouseEnter={handleCellMouseEnter}
+          onCellMouseUp={handleCellMouseUp}
+          onActApprove={(actIndex) => handleActApprove(row.original.id, 'jeu', actIndex)}
+          onActEdit={(actIndex, newCode) => handleActEdit(row.original.id, 'jeu', actIndex, newCode)}
+          onActRemove={(actIndex) => handleActRemove(row.original.id, 'jeu', actIndex)}
+            onActAdd={(code) => (table.options.meta as any)?.handleAddAct?.(row.original.id, 'jeu', code)}
         />
       )
     },
-    size: 100,
-    minSize: 100,
-    maxSize: 100,
+    size: 60,
+    minSize: 60,
+    maxSize: 60,
   },
   {
     accessorKey: "ven",
@@ -562,22 +778,27 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return getDayDate("ven", meta?.dateOffset || 0)
     },
     cell: ({ row, table }) => {
+      const cellId = `${row.original.id}-ven`
       return (
         <DayCell 
-          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
+          acts={row.original.ven} 
           dayName="Ven" 
-          cellId=""
-          isSelected={false}
-          onCellSelect={() => {}}
-          onCellMouseDown={() => {}}
-          onCellMouseEnter={() => {}}
-          onCellMouseUp={() => {}}
+          cellId={cellId}
+          isSelected={isCellSelected(cellId)}
+          onCellSelect={handleCellSelect}
+          onCellMouseDown={handleCellMouseDown}
+          onCellMouseEnter={handleCellMouseEnter}
+          onCellMouseUp={handleCellMouseUp}
+          onActApprove={(actIndex) => handleActApprove(row.original.id, 'ven', actIndex)}
+          onActEdit={(actIndex, newCode) => handleActEdit(row.original.id, 'ven', actIndex, newCode)}
+          onActRemove={(actIndex) => handleActRemove(row.original.id, 'ven', actIndex)}
+            onActAdd={(code) => (table.options.meta as any)?.handleAddAct?.(row.original.id, 'ven', code)}
         />
       )
     },
-    size: 100,
-    minSize: 100,
-    maxSize: 100,
+    size: 60,
+    minSize: 60,
+    maxSize: 60,
   },
   {
     accessorKey: "sam",
@@ -586,22 +807,27 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return getDayDate("sam", meta?.dateOffset || 0)
     },
     cell: ({ row, table }) => {
+      const cellId = `${row.original.id}-sam`
       return (
         <DayCell 
-          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
+          acts={row.original.sam} 
           dayName="Sam" 
-          cellId=""
-          isSelected={false}
-          onCellSelect={() => {}}
-          onCellMouseDown={() => {}}
-          onCellMouseEnter={() => {}}
-          onCellMouseUp={() => {}}
+          cellId={cellId}
+          isSelected={isCellSelected(cellId)}
+          onCellSelect={handleCellSelect}
+          onCellMouseDown={handleCellMouseDown}
+          onCellMouseEnter={handleCellMouseEnter}
+          onCellMouseUp={handleCellMouseUp}
+          onActApprove={(actIndex) => handleActApprove(row.original.id, 'sam', actIndex)}
+          onActEdit={(actIndex, newCode) => handleActEdit(row.original.id, 'sam', actIndex, newCode)}
+          onActRemove={(actIndex) => handleActRemove(row.original.id, 'sam', actIndex)}
+            onActAdd={(code) => (table.options.meta as any)?.handleAddAct?.(row.original.id, 'sam', code)}
         />
       )
     },
-    size: 100,
-    minSize: 100,
-    maxSize: 100,
+    size: 60,
+    minSize: 60,
+    maxSize: 60,
   },
   {
     accessorKey: "dim",
@@ -610,92 +836,203 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
       return getDayDate("dim", meta?.dateOffset || 0)
     },
     cell: ({ row, table }) => {
+      const cellId = `${row.original.id}-dim`
       return (
         <DayCell 
-          act={{ code: row.original.status, status: row.original.status as "error" | "pending" | "approved" }} 
+          acts={row.original.dim} 
           dayName="Dim" 
-          cellId=""
-          isSelected={false}
-          onCellSelect={() => {}}
-          onCellMouseDown={() => {}}
-          onCellMouseEnter={() => {}}
-          onCellMouseUp={() => {}}
+          cellId={cellId}
+          isSelected={isCellSelected(cellId)}
+          onCellSelect={handleCellSelect}
+          onCellMouseDown={handleCellMouseDown}
+          onCellMouseEnter={handleCellMouseEnter}
+          onCellMouseUp={handleCellMouseUp}
+          onActApprove={(actIndex) => handleActApprove(row.original.id, 'dim', actIndex)}
+          onActEdit={(actIndex, newCode) => handleActEdit(row.original.id, 'dim', actIndex, newCode)}
+          onActRemove={(actIndex) => handleActRemove(row.original.id, 'dim', actIndex)}
+            onActAdd={(code) => (table.options.meta as any)?.handleAddAct?.(row.original.id, 'dim', code)}
         />
       )
     },
-    size: 100,
-    minSize: 100,
-    maxSize: 100,
+    size: 60,
+    minSize: 60,
+    maxSize: 60,
   },
   {
     id: "actions",
-    cell: () => (
+    cell: ({ row, table }) => (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
             className="data-[state=open]:bg-muted text-muted-foreground flex size-8"
             size="icon"
+            onClick={(e) => e.stopPropagation()}
           >
             <IconDotsVertical />
             <span className="sr-only">Open menu</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-          <DropdownMenuItem>Make a copy</DropdownMenuItem>
-          <DropdownMenuItem>Favorite</DropdownMenuItem>
+        <DropdownMenuContent align="end" className="w-40">
+          <DropdownMenuItem onClick={() => { /* placeholder edit */ }}>Éditer</DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={() => { (table.options.meta as any)?.handleRowDuplicate?.(row.original.id); try { toast.success('Ligne dupliquée') } catch {} }}
+          >
+            Dupliquer
+          </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          <DropdownMenuItem
+            className="text-destructive focus:text-destructive"
+            onClick={() => { (table.options.meta as any)?.handleRowDelete?.(row.original.id); try { toast.success('Ligne supprimée') } catch {} }}
+          >
+            Supprimer
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     ),
   },
 ]
 
-function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
-  const { transform, transition, setNodeRef, isDragging } = useSortable({
-    id: row.original.id,
-  })
-
-  return (
-    <TableRow
-      data-state={row.getIsSelected() && "selected"}
-      data-dragging={isDragging}
-      ref={setNodeRef}
-      className="relative z-0 data-[dragging=true]:z-10 data-[dragging=true]:opacity-80"
-      style={{
-        transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
-        transition: transition,
-      }}
-    >
-      {row.getVisibleCells().map((cell, index) => {
-        const isDayColumn = ['lun', 'mar', 'mer', 'jeu', 'ven', 'sam', 'dim'].includes(cell.column.id)
-        const isEstablishmentColumn = cell.column.id === 'establishment'
-        return (
-          <TableCell 
-            key={cell.id}
-            className={`py-1`}
-          >
-          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-        </TableCell>
-        )
-      })}
-    </TableRow>
-  )
-}
 
 export function DataTable({
   data: initialData,
+  onDateChange,
 }: {
   data: z.infer<typeof schema>[]
+  onDateChange?: (weekInfo: { monthName: string; weekRange: string }) => void
 }) {
-  // Timeframe view state: today | 3days | week
-  const [timeframeView, setTimeframeView] = React.useState<'today' | '3days' | 'week'>('week')
+  // Only weekly view supported
   const [data, setData] = React.useState(() => initialData)
   
   // Navigation state for date offset
   const [dateOffset, setDateOffset] = React.useState(0)
+
+  // Calculate current week range and month
+  const weekInfo = React.useMemo(() => {
+    const today = new Date()
+    const currentDay = today.getDay() // 0=Sunday, 1=Monday, etc.
+    const mondayOffset = currentDay === 0 ? -6 : 1 - currentDay // Monday is day 1
+    const mondayDate = new Date(today)
+    mondayDate.setDate(today.getDate() + mondayOffset + (dateOffset * 7))
+    
+    // Get Sunday (end of week)
+    const sundayDate = new Date(mondayDate)
+    sundayDate.setDate(mondayDate.getDate() + 6)
+    
+    // French month names
+    const monthNames = [
+      'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+      'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+    ]
+    
+    const startDay = mondayDate.getDate()
+    const startMonth = monthNames[mondayDate.getMonth()]
+    const endDay = sundayDate.getDate()
+    const endMonth = monthNames[sundayDate.getMonth()]
+    const year = sundayDate.getFullYear()
+    
+    // Month name for title (use end month)
+    const monthName = endMonth
+    
+    // Week range for subtitle
+    let weekRange: string
+    if (startMonth === endMonth) {
+      weekRange = `Semaine du ${startDay} au ${endDay} ${startMonth} ${year}`
+    } else {
+      weekRange = `Semaine du ${startDay} ${startMonth} au ${endDay} ${endMonth} ${year}`
+    }
+    
+    return { monthName, weekRange }
+  }, [dateOffset])
+
+  // Update parent with date info when dateOffset changes
+  React.useEffect(() => {
+    if (onDateChange) {
+      onDateChange(weekInfo)
+    }
+  }, [weekInfo, onDateChange])
+
+  // Handler functions for act actions
+  const handleActApprove = React.useCallback((rowId: number, dayKey: string, actIndex: number) => {
+    setData(prevData => 
+      prevData.map(row => 
+        row.id === rowId 
+          ? {
+              ...row,
+              [dayKey]: Array.isArray(row[dayKey as keyof typeof row]) 
+                ? (row[dayKey as keyof typeof row] as any[]).map((act: any, index: number) => 
+                    index === actIndex ? { ...act, status: 'approved' } : act
+                  )
+                : row[dayKey as keyof typeof row]
+            }
+          : row
+      )
+    )
+  }, [])
+
+  const handleActEdit = React.useCallback((rowId: number, dayKey: string, actIndex: number, newCode: string) => {
+    setData(prevData => 
+      prevData.map(row => 
+        row.id === rowId 
+          ? {
+              ...row,
+              [dayKey]: Array.isArray(row[dayKey as keyof typeof row]) 
+                ? (row[dayKey as keyof typeof row] as any[]).map((act: any, index: number) => 
+                    index === actIndex ? { ...act, code: newCode, status: 'approved' } : act
+                  )
+                : row[dayKey as keyof typeof row]
+            }
+          : row
+      )
+    )
+  }, [])
+
+  const handleActRemove = React.useCallback((rowId: number, dayKey: string, actIndex: number) => {
+    setData(prevData => 
+      prevData.map(row => 
+        row.id === rowId 
+          ? {
+              ...row,
+              [dayKey]: Array.isArray(row[dayKey as keyof typeof row]) 
+                ? (row[dayKey as keyof typeof row] as any[]).filter((_: any, index: number) => index !== actIndex)
+                : row[dayKey as keyof typeof row]
+            }
+          : row
+      )
+    )
+  }, [])
+
+  const handleAddAct = React.useCallback((rowId: number, dayKey: string, code: string) => {
+    setData(prevData => 
+      prevData.map(row => 
+        row.id === rowId 
+          ? {
+              ...row,
+              [dayKey]: Array.isArray(row[dayKey as keyof typeof row]) 
+                ? [...(row[dayKey as keyof typeof row] as any[]), { code, status: 'approved' }]
+                : [{ code, status: 'approved' }]
+            }
+          : row
+      )
+    )
+  }, [])
+
+  // Row actions
+  const handleRowDelete = React.useCallback((rowId: number) => {
+    setData((prev: any[]) => prev.filter((r: any) => r.id !== rowId))
+  }, [])
+
+  const handleRowDuplicate = React.useCallback((rowId: number) => {
+    setData((prev: any[]) => {
+      const idx = prev.findIndex((r: any) => r.id === rowId)
+      if (idx === -1) return prev
+      const original = prev[idx]
+      const clone = { ...original, id: Date.now(), patientName: `${original.patientName || 'Patient'} (copie)` }
+      const next = [...prev]
+      next.splice(idx + 1, 0, clone)
+      return next
+    })
+  }, [])
 
     // Importer modal local state
     const [selectedEstablishment, setSelectedEstablishment] = React.useState<string | null>(null)
@@ -703,8 +1040,13 @@ export function DataTable({
     const [fileName, setFileName] = React.useState<string>("")
     const [previewRows, setPreviewRows] = React.useState<Array<{patient: string; establishment: string; acts: string; status: string}>>([])
 
-    // TODO: Connect to real establishment data
-    const establishmentSessionTypeMap: Record<string, 'clinique' | 'garde'> = {}
+    // Mock establishment to session type mapping
+    const establishmentSessionTypeMap: Record<string, 'clinique' | 'garde'> = {
+      'chu_sainte_justine': 'clinique',
+      'chum': 'clinique', 
+      'sacré_coeur': 'garde',
+      'cusc': 'garde',
+    }
 
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
@@ -740,9 +1082,13 @@ export function DataTable({
       setSelectedCells(newSelection)
       setLastSelectedCell(cellId)
     } else {
-      // Single cell selection
-      setSelectedCells(new Set([cellId]))
-      setLastSelectedCell(cellId)
+      // Single click: toggle if it's the only selected one; otherwise select only this cell
+      if (selectedCells.has(cellId) && selectedCells.size === 1) {
+        clearSelection()
+      } else {
+        setSelectedCells(new Set([cellId]))
+        setLastSelectedCell(cellId)
+      }
     }
   }
 
@@ -751,8 +1097,13 @@ export function DataTable({
       setIsDragging(true)
       setDragStartCell(cellId)
       if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
-        setSelectedCells(new Set([cellId]))
-        setLastSelectedCell(cellId)
+        const isOnlySelected = selectedCells.has(cellId) && selectedCells.size === 1
+        // Do not pre-select if this cell is already the only selection.
+        // This lets the subsequent click toggle to deselect.
+        if (!isOnlySelected) {
+          setSelectedCells(new Set([cellId]))
+          setLastSelectedCell(cellId)
+        }
       }
     }
   }
@@ -802,6 +1153,9 @@ export function DataTable({
     setLastSelectedCell(null)
   }
 
+  // Totals expand/collapse
+  const [showTotals, setShowTotals] = React.useState(true)
+
   // Global mouse up handler for drag selection
   React.useEffect(() => {
     const handleGlobalMouseUp = () => {
@@ -813,14 +1167,25 @@ export function DataTable({
     return () => document.removeEventListener('mouseup', handleGlobalMouseUp)
   }, [])
 
+  // Escape to clear selection
+  React.useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        clearSelection()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [])
+
   // Bulk actions
   const handleBulkApprove = () => {
     const updatedData = data.map(row => {
-      const updatedRow = { ...row }
+      const updatedRow: any = { ...row }
       selectedCells.forEach(cellId => {
         const [rowId, day] = cellId.split('-')
-        if (row.id.toString() === rowId && updatedRow[day as keyof typeof updatedRow]) {
-          (updatedRow[day as keyof typeof updatedRow] as any).status = 'approved'
+        if (row.id.toString() === rowId && Array.isArray(updatedRow[day])) {
+          updatedRow[day] = (updatedRow[day] as any[]).map((act: any) => ({ ...act, status: 'approved' }))
         }
       })
       return updatedRow
@@ -828,6 +1193,28 @@ export function DataTable({
     setData(updatedData)
     clearSelection()
   }
+
+  // Bulk confirm dialog
+  const [bulkConfirmOpen, setBulkConfirmOpen] = React.useState(false)
+  const [bulkConfirmAction, setBulkConfirmAction] = React.useState<"approve" | "delete">("approve")
+  const [skipBulkConfirm, setSkipBulkConfirm] = React.useState<boolean>(false)
+
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return
+    const saved = localStorage.getItem('ramq_skip_bulk_confirm')
+    if (saved) setSkipBulkConfirm(saved === '1')
+  }, [])
+
+  const handleMaybeConfirm = (action: "approve" | "delete", onConfirm: () => void) => {
+    if (skipBulkConfirm) {
+      onConfirm()
+    } else {
+      setBulkConfirmAction(action)
+      setBulkConfirmOpen(true)
+    }
+  }
+
+  
 
   const handleBulkMarkPending = () => {
     const updatedData = data.map(row => {
@@ -859,64 +1246,34 @@ export function DataTable({
     clearSelection()
   }
 
+  const isCellSelected = React.useCallback((cellId: string) => selectedCells.has(cellId), [selectedCells])
+
+  const columns = React.useMemo(
+    () => createColumns(
+      handleActApprove,
+      handleActEdit,
+      handleActRemove,
+      isCellSelected,
+      handleCellSelect,
+      handleCellMouseDown,
+      handleCellMouseEnter,
+      handleCellMouseUp
+    ),
+    [
+      handleActApprove,
+      handleActEdit,
+      handleActRemove,
+      isCellSelected,
+      handleCellSelect,
+      handleCellMouseDown,
+      handleCellMouseEnter,
+      handleCellMouseUp,
+    ]
+  )
+
   const table = useReactTable({
     data,
-    columns: React.useMemo(() => {
-      // Day keys in canonical order (Mon -> Sun)
-      const orderedDays = ['lun', 'mar', 'mer', 'jeu', 'ven', 'sam', 'dim'] as const
-
-      // Compute today index in the above order
-      const jsDay = new Date().getDay() // 0=Sun ... 6=Sat
-      const mapJsToOrderedIdx = (d: number) => {
-        // Map: Mon(1)->0, Tue(2)->1, Wed(3)->2, Thu(4)->3, Fri(5)->4, Sat(6)->5, Sun(0)->6
-        if (d === 0) return 6
-        return d - 1
-      }
-      const todayIdx = mapJsToOrderedIdx(jsDay)
-
-      // Only consider day columns that actually exist in the current columns definition
-      const existingDayIds = (columns as ColumnDef<any, any>[])
-        .map((c: any) => (c.id ?? c.accessorKey) as string | undefined)
-        .filter((id): id is string => !!id && orderedDays.includes(id as any))
-
-      // Helper to pick k consecutive days starting at today among existing ones
-      const pickConsecutive = (k: number): string[] => {
-        const result: string[] = []
-        let idx = todayIdx
-        while (result.length < k) {
-          const cand = orderedDays[idx]
-          if (existingDayIds.includes(cand)) result.push(cand)
-          idx = (idx + 1) % orderedDays.length
-          // Safety: avoid infinite loops
-          if (result.length === 0 && idx === todayIdx) break
-          if (result.length > orderedDays.length) break
-        }
-        // Fallback to any existing day if nothing matched
-        if (result.length === 0 && existingDayIds.length > 0) result.push(existingDayIds[0])
-        return result
-      }
-
-      // Decide visible days based on view
-      let visibleDays: readonly string[]
-      if (timeframeView === 'today') {
-        visibleDays = pickConsecutive(1)
-      } else if (timeframeView === '3days') {
-        visibleDays = pickConsecutive(3)
-      } else {
-        // week: keep current set/order of all day columns unchanged
-        visibleDays = orderedDays.filter(d => existingDayIds.includes(d))
-      }
-
-      // Filter the existing columns: keep all non-day columns, and only the day columns in visibleDays
-      const daySet = new Set(visibleDays)
-      const isDayColumnId = (id: string | undefined) => !!id && ['lun','mar','mer','jeu','ven','sam','dim'].includes(id)
-
-      return (columns as ColumnDef<any, any>[]).filter((col: any) => {
-        const id = (col.id ?? col.accessorKey) as string | undefined
-        if (!isDayColumnId(id)) return true
-        return daySet.has(id!)
-      })
-    }, [timeframeView, data]),
+    columns,
     state: {
       sorting,
       columnVisibility,
@@ -939,80 +1296,88 @@ export function DataTable({
     getFacetedUniqueValues: getFacetedUniqueValues(),
     meta: {
       dateOffset,
+      handleRowDelete,
+      handleRowDuplicate,
+      handleAddAct,
     },
   })
 
 
+  const tableContainerRef = React.useRef<HTMLDivElement | null>(null)
+
+  React.useEffect(() => {
+    const onDocMouseDown = (e: MouseEvent) => {
+      const container = tableContainerRef.current
+      if (!container) return
+      if (!container.contains(e.target as Node)) {
+        clearSelection()
+      }
+    }
+    document.addEventListener('mousedown', onDocMouseDown)
+    return () => document.removeEventListener('mousedown', onDocMouseDown)
+  }, [clearSelection])
+
   return (
-          <div className="w-full">
-            <div className="flex items-center justify-between pb-4">
-              <div className="flex items-center gap-2">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="sm">
-                      <IconLayoutColumns />
-                      <span className="hidden lg:inline">
-                        {timeframeView === "today" ? "Daily" : 
-                         timeframeView === "3days" ? "3 days" : 
-                         timeframeView === "week" ? "Weekly" : "Daily"}
-                      </span>
-                      <span className="lg:hidden">
-                        {timeframeView === "today" ? "Daily" : 
-                         timeframeView === "3days" ? "3d" : 
-                         timeframeView === "week" ? "Week" : "Daily"}
-                      </span>
-                      <IconChevronDown />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-40">
-                    <DropdownMenuItem 
-                      onClick={() => setTimeframeView("today")}
-                      className={timeframeView === "today" ? "bg-accent" : ""}
-                    >
-                      Daily
-                    </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      onClick={() => setTimeframeView("3days")}
-                      className={timeframeView === "3days" ? "bg-accent" : ""}
-                    >
-                      3 days
-                    </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      onClick={() => setTimeframeView("week")}
-                      className={timeframeView === "week" ? "bg-accent" : ""}
-                    >
-                      Weekly
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                
+           <div ref={tableContainerRef} className="w-full">
+            {/* Simple inline bulk edit form */}
+            {/* Component defined inline to keep file self-contained */}
+            {(() => {
+              function BulkEditForm({ onConfirm }: { onConfirm: (code: string) => void }) {
+                const [value, setValue] = React.useState("")
+                return (
+                  <div className="space-y-3">
+                    <div className="space-y-2">
+                      <Label htmlFor="bulk-code">Code ou raccourci</Label>
+                      <Input
+                        id="bulk-code"
+                        placeholder="Entrer un code ou raccourci"
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') onConfirm(value)
+                        }}
+                      />
+                    </div>
+                    <div className="flex justify-end gap-2">
+                      <Button variant="outline" size="sm" onClick={() => (document.activeElement as HTMLElement)?.blur()}>Annuler</Button>
+                      <Button size="sm" onClick={() => onConfirm(value)}>Confirmer</Button>
+                    </div>
+                  </div>
+                )
+              }
+              return null
+            })()}
+            {/* Bulk edit popover content component */}
+            {/** Inline to avoid new file creation */}
+            {/* eslint-disable react/no-unstable-nested-components */}
+            
+             <div className="flex items-center justify-between pb-4">
+               <div className="flex items-center gap-2">
                 {/* Navigation controls */}
-                <div className="flex items-center gap-2">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    onClick={() => setDateOffset(0)}
-                    className="h-8 px-3"
-                  >
-                    Today
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    onClick={() => setDateOffset(prev => prev - 1)}
-                    className="h-8 w-8 p-0"
-                  >
-                    <IconChevronLeft className="w-4 h-4" />
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    onClick={() => setDateOffset(prev => prev + 1)}
-                    className="h-8 w-8 p-0"
-                  >
-                    <IconChevronRight className="w-4 h-4" />
-                  </Button>
-                </div>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => setDateOffset(0)}
+                  className="h-8 px-3"
+                >
+                  Cette semaine
+                     </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={() => setDateOffset(prev => prev - 1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <IconChevronLeft className="w-4 h-4" />
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={() => setDateOffset(prev => prev + 1)}
+                  className="h-8 w-8 p-0"
+                >
+                  <IconChevronRight className="w-4 h-4" />
+                </Button>
               </div>
                <div className="flex items-center gap-2">
                 <Dialog onOpenChange={(open) => {
@@ -1024,9 +1389,28 @@ export function DataTable({
                     setPreviewRows([])
                   }
                 }}>
+                  {/* Add patient manually */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      const newRow = {
+                        id: Date.now(),
+                        patientName: "Nouveau patient",
+                        nam: "",
+                        establishment: 1,
+                        lun: [], mar: [], mer: [], jeu: [], ven: [], sam: [],
+                      } as any
+                      setData((prev: any[]) => [newRow, ...prev])
+                    }}
+                  >
+                    <IconPlus />
+                    <span className="hidden lg:inline">Ajouter un patient</span>
+                  </Button>
+
                   <DialogTrigger asChild>
                     <Button variant="default" size="sm">
-                      <IconPlus />
+                      <ImportIcon className="h-4 w-4" />
                       <span className="hidden lg:inline">Importer</span>
                     </Button>
                   </DialogTrigger>
@@ -1054,13 +1438,14 @@ export function DataTable({
                             <SelectValue placeholder="Sélectionnez un établissement" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="chu_sainte_justine">CHU Sainte-Justine</SelectItem>
-                            <SelectItem value="chum">CHUM</SelectItem>
-                            <SelectItem value="sacré_coeur">Hôpital du Sacré-Cœur</SelectItem>
-                            <SelectItem value="cusc">CUSM</SelectItem>
+                            {Object.entries(mockEstablishments).map(([number, name]) => (
+                              <SelectItem key={number} value={name}>
+                                {number} — {name}
+                              </SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
-                      </div>
+               </div>
 
                       {selectedEstablishment && (
                         <div className="space-y-2">
@@ -1077,7 +1462,7 @@ export function DataTable({
                           </RadioGroup>
                         </div>
                       )}
-                    </div>
+             </div>
 
                     {/* Step 2 — Upload / Scan (only after establishment selected) */}
                     {selectedEstablishment && (
@@ -1087,8 +1472,12 @@ export function DataTable({
                           const f = e.target.files?.[0]
                           if (f) {
                             setFileName(f.name)
-                            // TODO: Parse real file data
-                            const rows: any[] = []
+                            // Mock parsed data
+                            const rows = [
+                              { patient: 'Jean Tremblay', establishment: 'CHU Sainte-Justine', acts: 'A123, A456', status: 'pending' },
+                              { patient: 'Marie Dubois', establishment: 'CHUM', acts: 'B234', status: 'ok' },
+                              { patient: 'Ali Benali', establishment: 'CHUM', acts: 'C987, C123', status: 'warning' },
+                            ]
                             setPreviewRows(rows)
                           }
                         }} />
@@ -1125,7 +1514,29 @@ export function DataTable({
                                 <TableCell><Input defaultValue={r.status} /></TableCell>
                               </TableRow>
                             ))}
-                          </TableBody>
+                    </TableBody>
+                    {/* Totals rows inside same table */}
+                    {(() => {
+                      const days = ['lun','mar','mer','jeu','ven','sam','dim'] as const
+                      const totals = {
+                        patients: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                        acts: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                        supplements: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                        amount: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                      }
+                      const rowsData: any[] = table.getRowModel().rows.map(r => r.original)
+                      rowsData.forEach(r => {
+                        days.forEach(d => {
+                          const acts = Array.isArray(r[d]) ? (r[d] as any[]) : []
+                          if (acts.length > 0) totals.patients[d] += 1
+                          totals.acts[d] += acts.length
+                          totals.supplements[d] += acts.filter(a => typeof a.code === 'string' && a.code.toUpperCase().startsWith('S')).length
+                          totals.amount[d] += acts.length * 150
+                        })
+                      })
+
+                        return null
+                    })()}
                         </Table>
                       </div>
                     )}
@@ -1153,13 +1564,120 @@ export function DataTable({
                </div>
              </div>
 
-            {/* Bulk actions removed */}
+            {/* Bulk actions toolbar */}
+            {selectedCells.size > 1 && (
+              <div
+                className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 flex items-center gap-3 rounded-2xl border bg-background px-4 py-2 shadow-sm"
+                role="region"
+                aria-label="Barre d'actions de sélection"
+              >
+                <span className="text-sm font-medium whitespace-nowrap">{selectedCells.size} sélectionné(s)</span>
+                <div className="mx-1 h-5 w-px bg-border" />
+                <div className="flex items-center gap-2">
+                  <Button size="sm" variant="outline" onClick={() => handleMaybeConfirm('approve', handleBulkApprove)}>
+                    <CheckCircle2 className="h-4 w-4 mr-2 text-green-600" />
+                    Approuver
+                  </Button>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button size="sm" variant="outline">
+                        <Pencil className="h-4 w-4 mr-2 text-blue-600" />
+                        Modifier
+                      </Button>
+                    </PopoverTrigger>
+                  <PopoverContent className="w-80">
+                      {(() => {
+                        function BulkEditFormLocal({ onConfirm }: { onConfirm: (code: string) => void }) {
+                          const [value, setValue] = React.useState("")
+                          return (
+                            <div className="space-y-3">
+                              <div className="space-y-2">
+                                <Label htmlFor="bulk-code-local">Code ou raccourci</Label>
+                                <Input id="bulk-code-local" placeholder="Entrer un code ou raccourci" value={value} onChange={(e) => setValue(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') onConfirm(value) }} />
+                              </div>
+                              <div className="flex justify-end gap-2">
+                                <Button variant="outline" size="sm" onClick={() => (document.activeElement as HTMLElement)?.blur()}>Annuler</Button>
+                                <Button size="sm" onClick={() => onConfirm(value)}>Confirmer</Button>
+                              </div>
+                            </div>
+                          )
+                        }
+                         return (
+                          <BulkEditFormLocal
+                            onConfirm={(code: string) => {
+                          // Apply edit to all selected cells
+                          const updated = data.map((row) => {
+                            const updatedRow: any = { ...row }
+                            selectedCells.forEach((cellId) => {
+                              const [rowId, day] = cellId.split('-')
+                              if (row.id.toString() === rowId && Array.isArray(updatedRow[day])) {
+                                updatedRow[day] = (updatedRow[day] as any[]).map((act: any) => ({ ...act, code, status: 'approved' }))
+                              }
+                            })
+                            return updatedRow
+                          })
+                          setData(updated)
+                          clearSelection()
+                            }}
+                          />
+                        )
+                      })()}
+                    </PopoverContent>
+                  </Popover>
+                  <Button size="sm" variant="outline" onClick={() => handleMaybeConfirm('delete', handleBulkDelete)}>
+                    <Trash2 className="h-4 w-4 mr-2 text-red-600" />
+                    Supprimer
+                  </Button>
+                  <Button size="sm" variant="ghost" onClick={clearSelection} className="h-8 w-8 p-0">
+                    <X className="h-4 w-4" />
+                 </Button>
+               </div>
+             </div>
+            )}
+             
+            {/* Bulk confirm dialog */}
+            <Dialog open={bulkConfirmOpen} onOpenChange={setBulkConfirmOpen}>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>
+                    {bulkConfirmAction === 'approve' ? 'Confirmer l\'approbation' : 'Confirmer la suppression'}
+                  </DialogTitle>
+                  <DialogDescription>
+                    {bulkConfirmAction === 'approve'
+                      ? `Cela va approuver ${selectedCells.size} acte(s). Voulez-vous continuer ?`
+                      : `Cela va supprimer ${selectedCells.size} acte(s) sélectionné(s). Cette action est irréversible.`}
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Checkbox id="skip-confirm" checked={skipBulkConfirm} onCheckedChange={(v) => {
+                      const val = Boolean(v)
+                      setSkipBulkConfirm(val)
+                      if (typeof window !== 'undefined') {
+                        localStorage.setItem('ramq_skip_bulk_confirm', val ? '1' : '0')
+                      }
+                    }} />
+                    <label htmlFor="skip-confirm" className="text-sm text-muted-foreground select-none">
+                      Ne plus demander
+                    </label>
+                  </div>
+                  <DialogFooter className="sm:justify-end">
+                    <Button variant="ghost" onClick={() => setBulkConfirmOpen(false)}>Annuler</Button>
+                    {bulkConfirmAction === 'approve' ? (
+                      <Button onClick={() => { setBulkConfirmOpen(false); handleBulkApprove() }}>Confirmer</Button>
+                    ) : (
+                      <Button variant="destructive" onClick={() => { setBulkConfirmOpen(false); handleBulkDelete() }}>Supprimer</Button>
+                    )}
+                  </DialogFooter>
+                </div>
+              </DialogContent>
+            </Dialog>
              
              <Tabs defaultValue="all" className="w-full">
                <TabsContent value="all" className="relative flex flex-col gap-4 overflow-auto">
                 <div className="overflow-x-auto rounded-lg border">
                    <Table>
-                    <TableHeader className="bg-muted sticky top-0 z-10">
+                     <TableHeader className="bg-muted sticky top-0 z-10">
                        {table.getHeaderGroups().map((headerGroup) => (
                          <TableRow key={headerGroup.id}>
                            {headerGroup.headers.map((header, index) => {
@@ -1175,7 +1693,8 @@ export function DataTable({
                                     py-3 font-medium
                                     ${isSelectColumn ? 'w-12 px-2' : 'px-3'}
                                     ${isPatientColumn ? 'px-2 whitespace-nowrap' : ''}
-                                    ${isEstablishmentColumn ? 'px-2 whitespace-nowrap' : ''}
+                                    ${isEstablishmentColumn ? 'px-2 whitespace-nowrap pr-4' : ''}
+                                    ${isDayColumn ? 'w-12 px-1 text-left' : ''}
                                   `}
                                >
                                  {header.isPlaceholder
@@ -1190,7 +1709,7 @@ export function DataTable({
                          </TableRow>
                        ))}
                      </TableHeader>
-                    <TableBody className="**:data-[slot=table-cell]:first:w-8">
+                     <TableBody className="**:data-[slot=table-cell]:first:w-8">
                        {table.getRowModel().rows?.length ? (
                          table.getRowModel().rows.map((row) => (
                            <TableRow key={row.id}>
@@ -1207,7 +1726,8 @@ export function DataTable({
                                     py-2 min-h-[40px] cursor-pointer transition-all duration-150
                                     ${isSelectColumn ? 'w-12 px-2' : 'px-3'}
                                     ${isPatientColumn ? 'px-2 whitespace-nowrap' : ''}
-                                    ${isEstablishmentColumn ? 'px-2 whitespace-nowrap' : ''}
+                                    ${isEstablishmentColumn ? 'px-2 whitespace-nowrap pr-4' : ''}
+                                    ${isDayColumn ? 'w-12 px-1 text-center' : ''}
                                   `}
                                  >
                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -1215,10 +1735,10 @@ export function DataTable({
                                )
                              })}
                            </TableRow>
-                         ))
+                        ))
                        ) : (
                          <TableRow>
-                          <TableCell
+                           <TableCell
                             colSpan={table.getAllColumns().length}
                              className="h-24 text-center"
                            >
@@ -1226,6 +1746,87 @@ export function DataTable({
                            </TableCell>
                          </TableRow>
                        )}
+                      {/* Totals rows */}
+                      {(() => {
+                        const days = ['lun','mar','mer','jeu','ven','sam','dim'] as const
+                        const totals = {
+                          patients: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                          acts: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                          supplements: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                          amount: Object.fromEntries(days.map(d => [d, 0])) as Record<string, number>,
+                        }
+                        const rowsData: any[] = table.getRowModel().rows.map(r => r.original)
+                        rowsData.forEach(r => {
+                          days.forEach(d => {
+                            const acts = Array.isArray(r[d]) ? (r[d] as any[]) : []
+                            if (acts.length > 0) totals.patients[d] += 1
+                            totals.acts[d] += acts.length
+                            totals.supplements[d] += acts.filter(a => typeof a.code === 'string' && a.code.toUpperCase().startsWith('S')).length
+                            totals.amount[d] += acts.length * 150
+                          })
+                        })
+
+                        const renderTotalsRow = (
+                          label: string,
+                          values: Record<string, number>,
+                          isMoney = false,
+                          withTopBorder = false
+                        ) => (
+                          <TableRow>
+                            {/* Checkbox column placeholder */}
+                            <TableCell className={`w-12 px-2 ${withTopBorder ? 'border-t' : ''} bg-muted`}></TableCell>
+                            {/* Patient label column */}
+                            <TableCell className={`px-2 whitespace-nowrap font-medium ${withTopBorder ? 'border-t' : ''} bg-muted`}>
+                              {label}
+                            </TableCell>
+                            {/* Establishment column empty */}
+                            <TableCell className={`px-2 whitespace-nowrap pr-4 ${withTopBorder ? 'border-t' : ''} bg-muted`}></TableCell>
+                            {/* Day columns as plain text, aligned like badges */}
+                            {days.map((d) => (
+                              <TableCell key={d} className={`px-3 ${withTopBorder ? 'border-t' : ''} bg-muted`}>
+                                <span className="text-sm text-foreground">{isMoney ? `${values[d].toLocaleString('fr-CA')}\u00A0$` : values[d]}</span>
+                              </TableCell>
+                            ))}
+                            {/* Actions column → weekly total */}
+                            <TableCell className={`px-3 ${withTopBorder ? 'border-t' : ''} bg-muted`}>
+                              <span className="text-sm font-medium">
+                                {(() => {
+                                  const sum = Object.values(values).reduce((a, b) => a + b, 0)
+                                  return isMoney ? `${sum.toLocaleString('fr-CA')}\u00A0$` : sum
+                                })()}
+                              </span>
+                            </TableCell>
+                          </TableRow>
+                        )
+
+                        return (
+                          <>
+                            {/* Toggle row */}
+                            <TableRow className="bg-muted cursor-pointer select-none" onClick={() => setShowTotals((v) => !v)}>
+                              <TableCell className="w-12 bg-muted pl-2 pr-0">
+                                <div className="flex h-8 w-full items-center justify-end">
+                                  <ChevronRight className={`h-4 w-4 transition-transform ${showTotals ? 'rotate-90' : ''}`} />
+                                </div>
+                              </TableCell>
+                              <TableCell className="px-0 whitespace-nowrap font-medium bg-muted"><span className="ml-2 block">Totaux</span></TableCell>
+                              <TableCell className="px-2 whitespace-nowrap pr-4 bg-muted"></TableCell>
+                              {days.map((d) => (
+                                <TableCell key={d} className="px-3 bg-muted"></TableCell>
+                              ))}
+                              <TableCell className="px-3 bg-muted"></TableCell>
+                            </TableRow>
+
+                            {showTotals && (
+                              <>
+                                {renderTotalsRow('Patients', totals.patients, false, true)}
+                                {renderTotalsRow('Actes', totals.acts)}
+                                {renderTotalsRow('Suppléments', totals.supplements)}
+                                {renderTotalsRow('Total $', totals.amount, true)}
+                              </>
+                            )}
+                          </>
+                        )
+                      })()}
                      </TableBody>
                    </Table>
                </div>
@@ -1382,6 +1983,7 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
                     tickFormatter={(value) => value.slice(0, 3)}
                     hide
                   />
+                  <ChartTooltip />
                   <Area
                     dataKey="mobile"
                     type="natural"
