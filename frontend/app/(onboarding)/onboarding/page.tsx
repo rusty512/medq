@@ -227,18 +227,6 @@ export default function OnboardingPage() {
                 {renderStep()}
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
-                {/* Back button for steps 2, 3, and 4 */}
-                {currentStep > 1 && (
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    onClick={handlePrevious}
-                    className="w-full"
-                  >
-                    Retour
-                  </Button>
-                )}
-                
                 {/* Continue/Finish button */}
                 <div className="w-full">
                   {currentStep < totalSteps ? (
@@ -262,6 +250,18 @@ export default function OnboardingPage() {
                     </Button>
                   )}
                 </div>
+                
+                {/* Back button for steps 2, 3, and 4 */}
+                {currentStep > 1 && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={handlePrevious}
+                    className="self-center"
+                  >
+                    Retour
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           </form>
