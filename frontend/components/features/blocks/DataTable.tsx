@@ -1676,7 +1676,7 @@ export function DataTable({
              <Tabs defaultValue="all" className="w-full">
                <TabsContent value="all" className="relative flex flex-col gap-4 overflow-auto">
                 <div className="overflow-x-auto rounded-lg border">
-                   <Table>
+                   <Table className="w-full">
                      <TableHeader className="bg-muted sticky top-0 z-10">
                        {table.getHeaderGroups().map((headerGroup) => (
                          <TableRow key={headerGroup.id}>
@@ -1692,9 +1692,9 @@ export function DataTable({
                                   className={`
                                     py-3 font-medium
                                     ${isSelectColumn ? 'w-12 px-2' : ''}
-                                    ${isPatientColumn ? 'px-3 whitespace-nowrap min-w-[200px]' : ''}
-                                    ${isEstablishmentColumn ? 'px-3 whitespace-nowrap min-w-[150px]' : ''}
-                                    ${isDayColumn ? 'w-16 px-2 text-center' : ''}
+                                    ${isPatientColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
+                                    ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
+                                    ${isDayColumn ? 'px-2 text-center w-full' : ''}
                                     ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3' : ''}
                                   `}
                                >
@@ -1726,9 +1726,9 @@ export function DataTable({
                                   className={`
                                     py-2 min-h-[40px] cursor-pointer transition-all duration-150
                                     ${isSelectColumn ? 'w-12 px-2' : ''}
-                                    ${isPatientColumn ? 'px-3 whitespace-nowrap min-w-[200px]' : ''}
-                                    ${isEstablishmentColumn ? 'px-3 whitespace-nowrap min-w-[150px]' : ''}
-                                    ${isDayColumn ? 'w-16 px-2 text-center' : ''}
+                                    ${isPatientColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
+                                    ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
+                                    ${isDayColumn ? 'px-2 text-center w-full' : ''}
                                     ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3' : ''}
                                   `}
                                  >
@@ -1778,14 +1778,14 @@ export function DataTable({
                             {/* Checkbox column placeholder */}
                             <TableCell className={`w-12 px-2 ${withTopBorder ? 'border-t' : ''} bg-muted`}></TableCell>
                             {/* Patient label column */}
-                            <TableCell className={`px-3 whitespace-nowrap font-medium min-w-[200px] ${withTopBorder ? 'border-t' : ''} bg-muted`}>
+                            <TableCell className={`px-3 whitespace-nowrap font-medium w-fit ${withTopBorder ? 'border-t' : ''} bg-muted`}>
                               {label}
                             </TableCell>
                             {/* Establishment column empty */}
-                            <TableCell className={`px-3 whitespace-nowrap min-w-[150px] ${withTopBorder ? 'border-t' : ''} bg-muted`}></TableCell>
+                            <TableCell className={`px-3 whitespace-nowrap w-fit ${withTopBorder ? 'border-t' : ''} bg-muted`}></TableCell>
                             {/* Day columns as plain text, aligned like badges */}
                             {days.map((d) => (
-                              <TableCell key={d} className={`w-16 px-2 text-center ${withTopBorder ? 'border-t' : ''} bg-muted`}>
+                              <TableCell key={d} className={`px-2 text-center min-w-[60px] flex-1 ${withTopBorder ? 'border-t' : ''} bg-muted`}>
                                 <span className="text-sm text-foreground">{isMoney ? `${values[d].toLocaleString('fr-CA')}\u00A0$` : values[d]}</span>
                               </TableCell>
                             ))}
@@ -1810,12 +1810,12 @@ export function DataTable({
                                   <ChevronRight className={`h-4 w-4 transition-transform ${showTotals ? 'rotate-90' : ''}`} />
                                 </div>
                               </TableCell>
-                              <TableCell className="px-3 whitespace-nowrap font-medium min-w-[200px] bg-muted">
+                              <TableCell className="px-3 whitespace-nowrap font-medium w-fit bg-muted">
                                 <span className="block">Totaux</span>
                               </TableCell>
-                              <TableCell className="px-3 whitespace-nowrap min-w-[150px] bg-muted"></TableCell>
+                              <TableCell className="px-3 whitespace-nowrap w-fit bg-muted"></TableCell>
                               {days.map((d) => (
-                                <TableCell key={d} className="w-16 px-2 text-center bg-muted"></TableCell>
+                                <TableCell key={d} className="px-2 text-center min-w-[60px] flex-1 bg-muted"></TableCell>
                               ))}
                               <TableCell className="px-3 text-center bg-muted"></TableCell>
                             </TableRow>
