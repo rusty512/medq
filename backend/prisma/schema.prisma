@@ -16,6 +16,7 @@ model User {
   supabase_uid            String        @unique
   first_name              String?
   last_name               String?
+  phone                   String?
   professional_id         String?       // 6-digit professional ID
   specialty_code          String?       // RAMQ specialty code
   specialty_name          String?       // Human-readable specialty name

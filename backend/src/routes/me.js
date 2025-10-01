@@ -54,6 +54,7 @@ router.put('/me', requireAuth, async (req, res) => {
       professionalId, 
       specialtyCode, 
       specialtyName, 
+      phone,
       establishments 
     } = req.body
 
@@ -66,6 +67,7 @@ router.put('/me', requireAuth, async (req, res) => {
           supabase_uid: supabaseUid,
           first_name: firstName || null,
           last_name: lastName || null,
+          phone: phone || null,
         },
         update: {},
       })
@@ -78,7 +80,8 @@ router.put('/me', requireAuth, async (req, res) => {
           last_name: lastName,
           professional_id: professionalId,
           specialty_code: specialtyCode,
-          specialty_name: specialtyName
+          specialty_name: specialtyName,
+          phone: phone,
         }
       })
 

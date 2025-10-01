@@ -113,6 +113,7 @@ export default function OnboardingPage() {
       const userData = {
         firstName: values.firstName,
         lastName: values.lastName,
+        phone: values.phone,
         professionalId: values.ramqId,
         specialtyCode: values.speciality,
         specialtyName: selectedSpecialty?.name || null,
