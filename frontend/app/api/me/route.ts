@@ -1,5 +1,12 @@
 import { headers } from 'next/headers'
 
+function getApiBaseUrl() {
+  const raw = process.env.NEXT_PUBLIC_API_URL || ''
+  if (!raw) return ''
+  if (raw.startsWith('http://') || raw.startsWith('https://')) return raw
+  return `https://${raw}`
+}
+
 export async function GET() {
   const headersList = await headers()
   const authorization = headersList.get('authorization')
@@ -8,7 +15,9 @@ export async function GET() {
     return new Response('Unauthorized', { status: 401 })
   }
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/me`, {
+  const base = getApiBaseUrl()
+  if (!base) return new Response('API base URL not configured', { status: 500 })
+  const res = await fetch(`${base}/me`, {
     headers: { Authorization: authorization },
     cache: 'no-store',
   })
@@ -27,7 +36,9 @@ export async function PUT(request: Request) {
 
   const body = await request.json()
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/me`, {
+  const base = getApiBaseUrl()
+  if (!base) return new Response('API base URL not configured', { status: 500 })
+  const res = await fetch(`${base}/me`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
