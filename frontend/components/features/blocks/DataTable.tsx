@@ -1694,7 +1694,7 @@ export function DataTable({
                                     ${isSelectColumn ? 'w-12 px-2' : ''}
                                     ${isPatientColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
                                     ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
-                                    ${isDayColumn ? 'px-2 text-center w-full' : ''}
+                                    ${isDayColumn ? 'px-2 text-center w-20' : ''}
                                     ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3' : ''}
                                   `}
                                >
@@ -1728,7 +1728,7 @@ export function DataTable({
                                     ${isSelectColumn ? 'w-12 px-2' : ''}
                                     ${isPatientColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
                                     ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-fit' : ''}
-                                    ${isDayColumn ? 'px-2 text-center w-full' : ''}
+                                    ${isDayColumn ? 'px-2 text-center w-20' : ''}
                                     ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3' : ''}
                                   `}
                                  >
