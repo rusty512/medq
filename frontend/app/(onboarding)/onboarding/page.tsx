@@ -257,7 +257,7 @@ export default function OnboardingPage() {
                     type="button"
                     variant="ghost"
                     onClick={handlePrevious}
-                    className="self-center"
+                    className="w-full"
                   >
                     Retour
                   </Button>
