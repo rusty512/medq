@@ -11,9 +11,11 @@ import {
 import { NavMain } from "@/components/layout/navigation/nav-main"
 import { NavProjects } from "@/components/layout/navigation/nav-projects"
 import { NavUser } from "@/components/layout/navigation/nav-user"
+import { TeamSwitcher } from "@/components/layout/navigation/team-switcher"
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
@@ -88,12 +90,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <NavUser user={user} />
+        <TeamSwitcher
+          teams={[
+            {
+              name: "Clinique AQ",
+              logo: () => <div className="size-4 rounded-sm bg-primary" />,
+              plan: "Organisation",
+            },
+          ]}
+        />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects shortcuts={data.shortcuts} />
       </SidebarContent>
+      <SidebarFooter>
+        {/* Account block at bottom like sidebar-07 */}
+        <NavUser user={user} />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )
