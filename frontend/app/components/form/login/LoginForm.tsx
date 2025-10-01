@@ -46,7 +46,15 @@ export function LoginForm() {
         window.localStorage.setItem('auth_token', token);
       }
       await fetch('/api/me', { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
-      router.push('/dashboard');
+      
+      // Check if there's pending onboarding data
+      const pendingOnboarding = localStorage.getItem('pendingOnboarding');
+      if (pendingOnboarding) {
+        localStorage.removeItem('pendingOnboarding');
+        router.push('/onboarding');
+      } else {
+        router.push('/dashboard');
+      }
     } catch {
       setError('An unexpected error occurred');
     } finally {

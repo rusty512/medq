@@ -41,6 +41,135 @@ router.get('/me', requireAuth, async (req, res) => {
   }
 })
 
+// PUT /me - Update user profile data
+router.put('/me', requireAuth, async (req, res) => {
+  try {
+    const user = req.supabaseUser
+    const supabaseUid = user.id
+    const { 
+      firstName, 
+      lastName, 
+      professionalId, 
+      specialtyCode, 
+      specialtyName, 
+      establishments 
+    } = req.body
+
+    // Start a transaction to update user and establishments
+    const result = await prisma.$transaction(async (tx) => {
+      // Update user basic info
+      const updatedUser = await tx.user.update({
+        where: { supabase_uid: supabaseUid },
+        data: { 
+          first_name: firstName,
+          last_name: lastName,
+          professional_id: professionalId,
+          specialty_code: specialtyCode,
+          specialty_name: specialtyName
+        }
+      })
+
+      // Handle establishments if provided
+      if (establishments && establishments.length > 0) {
+        // Remove existing user-establishment relationships
+        await tx.userEstablishment.deleteMany({
+          where: { user_id: updatedUser.id }
+        })
+
+        // Find establishments by their codes/names and create relationships
+        const establishmentRelations = []
+        let defaultEstablishmentId = null
+
+        for (const establishmentData of establishments) {
+          // Try to find establishment by code first, then by name
+          let establishment = await tx.establishment.findFirst({
+            where: {
+              OR: [
+                { code: establishmentData.id },
+                { name: establishmentData.name }
+              ]
+            }
+          })
+
+          // If establishment doesn't exist, create it
+          if (!establishment) {
+            establishment = await tx.establishment.create({
+              data: {
+                code: establishmentData.id || `temp_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+                name: establishmentData.name,
+                address: establishmentData.address || '',
+                codes: establishmentData.codes || [],
+                category: establishmentData.type || '',
+                establishment_type: establishmentData.type || ''
+              }
+            })
+          }
+
+          // Create user-establishment relationship
+          const userEstablishment = await tx.userEstablishment.create({
+            data: {
+              user_id: updatedUser.id,
+              establishment_id: establishment.id,
+              is_default: establishmentData.isDefault || false
+            }
+          })
+
+          establishmentRelations.push(userEstablishment)
+
+          // Track default establishment
+          if (establishmentData.isDefault) {
+            defaultEstablishmentId = establishment.id
+          }
+        }
+
+        // Update user's default establishment
+        if (defaultEstablishmentId) {
+          await tx.user.update({
+            where: { id: updatedUser.id },
+            data: { default_establishment_id: defaultEstablishmentId }
+          })
+        }
+      }
+
+      // Return updated user with establishments
+      return await tx.user.findUnique({
+        where: { id: updatedUser.id },
+        include: {
+          establishments: {
+            include: {
+              establishment: true
+            }
+          },
+          default_establishment: true
+        }
+      })
+    })
+
+    return res.json({
+      id: result.id,
+      supabase_uid: result.supabase_uid,
+      first_name: result.first_name,
+      last_name: result.last_name,
+      professional_id: result.professional_id,
+      specialty_code: result.specialty_code,
+      specialty_name: result.specialty_name,
+      default_establishment_id: result.default_establishment_id,
+      establishments: result.establishments?.map(ue => ({
+        id: ue.establishment.id,
+        name: ue.establishment.name,
+        address: ue.establishment.address,
+        code: ue.establishment.code,
+        isDefault: ue.is_default
+      })) || [],
+      created_at: result.created_at,
+      updated_at: result.updated_at
+    })
+  } catch (err) {
+    console.error('Error updating user:', err)
+    return res.status(500).json({ error: 'Failed to update user' })
+  }
+})
+
 export default router
 
 // PUT /me/default-establishment

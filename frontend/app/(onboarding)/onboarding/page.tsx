@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { ChevronLeft } from "lucide-react";
 import { Step1Identity } from "@/components/forms/onboarding/Step1Identity";
 import { Step2Professional } from "@/components/forms/onboarding/Step2Professional";
 import { Step3Establishments } from "@/components/forms/onboarding/Step3Establishments";
@@ -13,15 +14,46 @@ import { Step4Confirmation } from "@/components/forms/onboarding/Step4Confirmati
 import { Form } from "@/components/ui/form";
 import { defaultValues, onboardingSchema, type OnboardingValues, stepFieldMap } from "@/components/forms/onboarding/schema";
 import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase-client";
 
 export default function OnboardingPage() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const form = useForm<OnboardingValues>({
     resolver: zodResolver(onboardingSchema),
     defaultValues,
     mode: "onChange",
   });
+
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session) {
+          setIsAuthenticated(true);
+          // Store token in localStorage for API calls
+          if (typeof window !== 'undefined') {
+            window.localStorage.setItem('auth_token', session.access_token);
+          }
+        } else {
+          // Check if there's a pending onboarding from signup
+          const pendingOnboarding = localStorage.getItem('pendingOnboarding');
+          if (pendingOnboarding) {
+            console.log('Pending onboarding data found, user may need to login');
+          }
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
 
   const totalSteps = 4;
 
@@ -43,9 +75,63 @@ export default function OnboardingPage() {
     if (currentStep === 3) setCurrentStep(4);
   };
 
-  const onSubmit = async (_values: OnboardingValues) => {
-    // After onboarding, move to dashboard; backend /me will upsert on first call
-    router.push("/dashboard");
+  const onSubmit = async (values: OnboardingValues) => {
+    try {
+      if (!isAuthenticated) {
+        // If not authenticated, store data in localStorage and redirect to login
+        const onboardingData = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          professionalId: values.ramqId,
+          specialtyCode: values.speciality,
+          establishments: values.establishments || []
+        };
+        
+        localStorage.setItem('pendingOnboarding', JSON.stringify(onboardingData));
+        router.push('/login?message=onboarding-pending');
+        return;
+      }
+
+      // Find the selected specialty name from the specialty code
+      const selectedSpecialty = values.speciality ? 
+        await fetch('/api/specialties')
+          .then(res => res.json())
+          .then(specialties => specialties.find((s: any) => s.code === values.speciality))
+          .catch(() => null) : null;
+
+      // Prepare the data to send to backend
+      const userData = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        professionalId: values.ramqId,
+        specialtyCode: values.speciality,
+        specialtyName: selectedSpecialty?.name || null,
+        establishments: values.establishments || []
+      };
+
+      // Save onboarding data to backend
+      const response = await fetch('/api/me', {
+        method: 'PUT',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+        },
+        body: JSON.stringify(userData)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Failed to save onboarding data:', errorData);
+        alert('Erreur lors de la sauvegarde des données. Veuillez réessayer.');
+        return;
+      }
+
+      // Success - move to dashboard
+      router.push("/dashboard");
+    } catch (error) {
+      console.error('Error saving onboarding data:', error);
+      alert('Une erreur inattendue s\'est produite. Veuillez réessayer.');
+    }
   };
 
   const getStepInfo = () => {
@@ -100,6 +186,18 @@ export default function OnboardingPage() {
   const establishments = form.watch("establishments");
   const hasEstablishments = establishments && establishments.length > 0;
 
+  // Show loading state while checking authentication
+  if (isLoading) {
+    return (
+      <div className="bg-background flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
+        <div className="text-center">
+          <div className="text-lg font-medium">Chargement...</div>
+          <div className="text-sm text-muted-foreground mt-2">Vérification de votre session</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-background flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-md flex flex-col">
@@ -119,6 +217,20 @@ export default function OnboardingPage() {
                 {renderStep()}
               </CardContent>
               <CardFooter className="flex flex-col gap-3">
+                {/* Back button for steps 2, 3, and 4 */}
+                {currentStep > 1 && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    onClick={handlePrevious}
+                    className="w-full"
+                  >
+                    <ChevronLeft className="mr-2 h-4 w-4" />
+                    Retour
+                  </Button>
+                )}
+                
+                {/* Continue/Finish button */}
                 <div className="w-full">
                   {currentStep < totalSteps ? (
                     currentStep === 3 ? (

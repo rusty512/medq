@@ -16,9 +16,12 @@ model User {
   supabase_uid            String        @unique
   first_name              String?
   last_name               String?
-  specialty               String?
+  professional_id         String?       // 6-digit professional ID
+  specialty_code          String?       // RAMQ specialty code
+  specialty_name          String?       // Human-readable specialty name
   default_establishment_id Int?
-  default_establishment   Establishment? @relation(fields: [default_establishment_id], references: [id])
+  default_establishment   Establishment? @relation("UserDefaultEstablishment", fields: [default_establishment_id], references: [id])
+  establishments          UserEstablishment[] @relation("UserEstablishments")
   created_at              DateTime      @default(now())
   updated_at              DateTime      @updatedAt
 }
@@ -36,9 +39,25 @@ model Establishment {
   municipality String?
   postal_code String?
   is_active  Boolean   @default(true)
-  users      User[]
+  default_users User[] @relation("UserDefaultEstablishment")
+  user_establishments UserEstablishment[] @relation("EstablishmentUsers")
   created_at DateTime  @default(now())
   updated_at DateTime  @updatedAt
+}
+
+// Junction table for many-to-many relationship between User and Establishment
+model UserEstablishment {
+  id             Int          @id @default(autoincrement())
+  user_id        Int
+  establishment_id Int
+  is_default     Boolean      @default(false)
+  created_at     DateTime     @default(now())
+  updated_at     DateTime     @updatedAt
+  
+  user           User         @relation("UserEstablishments", fields: [user_id], references: [id], onDelete: Cascade)
+  establishment  Establishment @relation("EstablishmentUsers", fields: [establishment_id], references: [id], onDelete: Cascade)
+  
+  @@unique([user_id, establishment_id])
 }
 
 

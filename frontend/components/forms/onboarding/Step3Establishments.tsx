@@ -7,79 +7,76 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { Input } from "@/components/ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { X, Check, ChevronsUpDown, Star, Trash2 } from "lucide-react";
+import { Star, Trash2, ChevronsUpDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Step3Establishments() {
-  const [open, setOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
   const { watch, setValue } = useFormContext();
   const establishments = watch("establishments") || [];
   const [defaultEstablishmentId, setDefaultEstablishmentId] = useState<string | null>((establishments.find((e: any) => e.isDefault) || null)?.id || null);
 
   const [results, setResults] = useState<any[]>([]);
-  const [offset, setOffset] = useState(0)
-  const [isLoadingMore, setIsLoadingMore] = useState(false)
-  const [canLoadMoreVisible, setCanLoadMoreVisible] = useState(false)
-  const [hasMore, setHasMore] = useState(true)
-  const PAGE_SIZE = 100
+  const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
+  // Load establishments with search
   useEffect(() => {
-    const controller = new AbortController();
-    const q = searchValue.trim();
-    const fetchData = async () => {
+    const loadEstablishments = async () => {
+      setIsLoading(true);
       try {
-        const params = q ? `?search=${encodeURIComponent(q)}` : '';
-        const res = await fetch(`/api/establishments${params}`, { signal: controller.signal });
-        if (!res.ok) return;
-        const data = await res.json();
-        setResults(data || []);
-      } catch (err: any) {
-        if (err?.name !== 'AbortError') {
-          // swallow network errors silently for this UX
+        const searchParam = searchValue ? `&search=${encodeURIComponent(searchValue)}` : '';
+        const res = await fetch(`/api/establishments?limit=500${searchParam}`);
+        if (res.ok) {
+          const data = await res.json();
+          setResults(data || []);
         }
+      } catch (err) {
+        console.error('Failed to load establishments:', err);
+      } finally {
+        setIsLoading(false);
       }
     };
-    fetchData();
-    return () => {
-      if (!controller.signal.aborted) controller.abort();
-    };
+    
+    // Debounce search to avoid too many API calls
+    const timeoutId = setTimeout(loadEstablishments, 300);
+    return () => clearTimeout(timeoutId);
   }, [searchValue]);
 
-  // initial load all (paged)
+  // Close dropdown when clicking outside
   useEffect(() => {
-    const controller = new AbortController();
-    const load = async () => {
-      try {
-        const res = await fetch(`/api/establishments?offset=0&limit=${PAGE_SIZE}`, { signal: controller.signal })
-        if (res.ok) {
-          const data = await res.json()
-          setResults(data)
-          setHasMore(Array.isArray(data) && data.length === PAGE_SIZE)
-        }
-      } catch (err: any) {
-        if (err?.name !== 'AbortError') {
-          // ignore other errors silently for now
-        }
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('[data-dropdown]')) {
+        setOpen(false);
       }
-    }
-    load()
-    return () => {
-      if (!controller.signal.aborted) controller.abort()
-    }
-  }, [])
+    };
 
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [open]);
+
+  // Results are already filtered by server-side search
   const filteredEstablishments = results;
 
   const handleAddEstablishment = (establishment: any) => {
-    console.log('Adding establishment:', establishment.name);
-    if (!establishments.find((est: any) => est.id === establishment.id)) {
-      const newEstablishments = [...establishments, { ...establishment, isDefault: false }];
-      console.log('Setting establishments:', newEstablishments);
-      setValue("establishments", newEstablishments);
+    const normalized = {
+      id: String(establishment.id),
+      name: establishment.name ?? "",
+      address: establishment.address ?? "",
+      // Map backend shape to schema-required `type`
+      type: establishment.type ?? establishment.establishment_type ?? establishment.category ?? "",
+      isDefault: false,
+    };
+    if (!establishments.find((est: any) => est.id === normalized.id)) {
+      const newEstablishments = [...establishments, normalized];
+      setValue("establishments", newEstablishments, { shouldDirty: true, shouldValidate: true });
     }
+    // Reset search and close popover after adding
     setSearchValue("");
     setOpen(false);
   };
@@ -98,139 +95,72 @@ export function Step3Establishments() {
     setValue("establishments", updated);
   };
 
-  const loadMore = async () => {
-    if (isLoadingMore || !hasMore) return
-    try {
-      setIsLoadingMore(true)
-      const next = offset + PAGE_SIZE
-      const res = await fetch(`/api/establishments?offset=${next}&limit=${PAGE_SIZE}`)
-      if (res.ok) {
-        const more = await res.json()
-        setResults(prev => [...prev, ...(more || [])])
-        setOffset(next)
-        setHasMore(Array.isArray(more) && more.length === PAGE_SIZE)
-      }
-    } finally {
-      setIsLoadingMore(false)
-    }
-  }
-
-  // Skip handled by parent page footer to match global layout
-
   return (
     <div className="space-y-6">
       <div className="space-y-4">
         {/* Establishment Combobox */}
         <div className="space-y-2">
-          <Label>Rechercher un établissement</Label>
-          <Popover open={open} onOpenChange={setOpen} modal={false}>
-            <PopoverTrigger asChild>
-              <Button
-                variant="outline"
-                role="combobox"
-                aria-expanded={open}
-                className="w-full justify-between px-3"
-              >
-                {searchValue ? 
-                  filteredEstablishments.find((est) => est.name === searchValue)?.name || "Sélectionner un établissement..."
-                  : "Sélectionner un établissement..."
-                }
-                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent
-              side="bottom"
-              align="start"
-              avoidCollisions={false}
-              onOpenAutoFocus={(e) => e.preventDefault()}
-              onCloseAutoFocus={(e) => e.preventDefault()}
-              className="z-50 w-full p-0"
+          <Label>Ajouter un établissement</Label>
+          <div className="relative" data-dropdown>
+            <Input
+              placeholder="Rechercher un établissement..."
+              value={searchValue}
+              onChange={(e) => {
+                setSearchValue(e.target.value);
+                setOpen(true);
+              }}
+              onFocus={() => setOpen(true)}
+              className="w-full"
+            />
+            <Button
+              variant="ghost"
+              size="sm"
+              className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+              onClick={() => setOpen(!open)}
             >
-              <Command>
-                <CommandInput 
-                  placeholder="Rechercher par nom, adresse ou code..." 
-                  value={searchValue}
-                  onValueChange={setSearchValue}
-                />
-                <div className="max-h-96 flex flex-col">
-                  <CommandList
-                    className="flex-1 overflow-auto"
-                    onScroll={(e) => {
-                      const el = e.currentTarget
-                      const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 8
-                      setCanLoadMoreVisible(atBottom)
-                      if (atBottom) {
-                        void loadMore()
-                      }
-                    }}
-                  >
-                    <CommandEmpty>Aucun établissement trouvé.</CommandEmpty>
-                    <CommandGroup>
-                      {filteredEstablishments.map((establishment) => (
-                        <CommandItem
-                          key={establishment.id}
-                          value={establishment.name}
-                          disabled={false}
-                          onSelect={() => {
-                            console.log('onSelect triggered for:', establishment.name);
-                            handleAddEstablishment(establishment)
-                          }}
-                          onClick={(ev) => {
-                            console.log('onClick triggered for:', establishment.name);
-                            ev.preventDefault()
-                            ev.stopPropagation()
-                            handleAddEstablishment(establishment)
-                          }}
-                          onMouseDown={(ev) => {
-                            console.log('onMouseDown triggered for:', establishment.name);
-                            ev.preventDefault()
-                            ev.stopPropagation()
-                            handleAddEstablishment(establishment)
-                          }}
-                          className="py-1 px-1 cursor-pointer hover:bg-accent active:bg-accent"
-                        >
-                        <button
-                          type="button"
-                          className="flex w-full items-start justify-between gap-3 text-left"
-                          onPointerDown={(ev) => {
-                            // Pointer-level handler fires before Radix dismiss layer
-                            ev.preventDefault()
-                            ev.stopPropagation()
-                            handleAddEstablishment(establishment)
-                            setOpen(false)
-                          }}
-                        >
-                          <div className="min-w-0">
-                            <div className="flex items-center">
-                              {establishments.find((e: any) => e.id === establishment.id) && (
-                                <Check className="mr-2 h-4 w-4 shrink-0" />
-                              )}
-                              <span className="font-medium truncate">{establishment.name}</span>
-                            </div>
-                            <span className="text-xs text-muted-foreground block truncate">{establishment.address}</span>
+              <ChevronsUpDown className="h-4 w-4" />
+            </Button>
+            
+            {/* Dropdown Results */}
+            {open && (
+              <div className="absolute z-50 w-full mt-1 bg-white border rounded-md shadow-lg max-h-96 overflow-auto">
+                {filteredEstablishments.length === 0 ? (
+                  <div className="p-4 text-sm text-muted-foreground text-center">
+                    Aucun établissement trouvé
+                  </div>
+                ) : (
+                  <div className="p-1">
+                    {filteredEstablishments.map((establishment) => (
+                      <div
+                        key={establishment.id}
+                        onClick={() => handleAddEstablishment(establishment)}
+                        className="flex items-start justify-between gap-3 p-3 rounded-sm cursor-pointer hover:bg-accent hover:text-accent-foreground"
+                      >
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center">
+                            {establishments.find((e: any) => e.id === establishment.id) && (
+                              <Check className="mr-2 h-4 w-4 shrink-0" />
+                            )}
+                            <span className="font-medium truncate">{establishment.name}</span>
+                          </div>
+                          <span className="text-xs text-muted-foreground block truncate">{establishment.address}</span>
+                          {establishment.codes && establishment.codes.length > 0 && (
                             <div className="flex gap-1 mt-1">
-                              {establishment.codes?.map((code: string, index: number) => (
+                              {establishment.codes.map((code: string, index: number) => (
                                 <Badge key={index} variant="outline" className="text-[10px] px-1 py-0">
                                   {code}
                                 </Badge>
                               ))}
                             </div>
-                          </div>
-                        </button>
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                  {/* Optional tiny status row at bottom to show loading */}
-                  {isLoadingMore && (
-                    <div className="p-2 text-center text-xs text-muted-foreground">
-                      Chargement…
-                    </div>
-                  )}
-                </div>
-              </Command>
-            </PopoverContent>
-          </Popover>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
         
         {/* Selected establishments */}

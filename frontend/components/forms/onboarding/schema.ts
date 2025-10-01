@@ -10,7 +10,7 @@ export const professionalSchema = z.object({
   speciality: z.string().min(1, "Spécialité requise"),
   ramqId: z
     .string()
-    .regex(/^\d{10}$/,{ message: "Identifiant RAMQ (10 chiffres)" }),
+    .regex(/^\d{6}$/,{ message: "Identifiant du professionnel (6 chiffres)" }),
 });
 
 export const establishmentsSchema = z.object({

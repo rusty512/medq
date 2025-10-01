@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
   }
 
   // Define public routes that don't require authentication
-  const publicRoutes = ['/', '/login', '/register', '/health']
+  const publicRoutes = ['/', '/login', '/register', '/health', '/onboarding']
   const isPublicRoute = publicRoutes.includes(pathname)
   
   // Check for auth token in localStorage (client-side) or Authorization header
