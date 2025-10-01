@@ -37,6 +37,8 @@ router.get('/me', requireAuth, async (req, res) => {
       updated_at: dbUser.updated_at
     })
   } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('GET /me failed:', err)
     return res.status(500).json({ error: 'Failed to fetch user' })
   }
 })
@@ -55,11 +57,22 @@ router.put('/me', requireAuth, async (req, res) => {
       establishments 
     } = req.body
 
-    // Start a transaction to update user and establishments
+    // Start a transaction to upsert user and update establishments safely
     const result = await prisma.$transaction(async (tx) => {
+      // Ensure the user exists (create if missing)
+      const baseUser = await tx.user.upsert({
+        where: { supabase_uid: supabaseUid },
+        create: {
+          supabase_uid: supabaseUid,
+          first_name: firstName || null,
+          last_name: lastName || null,
+        },
+        update: {},
+      })
+
       // Update user basic info
       const updatedUser = await tx.user.update({
-        where: { supabase_uid: supabaseUid },
+        where: { id: baseUser.id },
         data: { 
           first_name: firstName,
           last_name: lastName,
@@ -165,7 +178,8 @@ router.put('/me', requireAuth, async (req, res) => {
       updated_at: result.updated_at
     })
   } catch (err) {
-    console.error('Error updating user:', err)
+    // eslint-disable-next-line no-console
+    console.error('PUT /me failed:', err)
     return res.status(500).json({ error: 'Failed to update user' })
   }
 })
