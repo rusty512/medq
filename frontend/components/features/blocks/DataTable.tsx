@@ -1695,7 +1695,7 @@ export function DataTable({
                                     ${isPatientColumn ? 'px-3 whitespace-nowrap w-48' : ''}
                                     ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-40' : ''}
                                     ${isDayColumn ? 'px-2 text-center w-24' : ''}
-                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-20' : ''}
+                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-16' : ''}
                                   `}
                                >
                                  {header.isPlaceholder
@@ -1729,7 +1729,7 @@ export function DataTable({
                                     ${isPatientColumn ? 'px-3 whitespace-nowrap w-48' : ''}
                                     ${isEstablishmentColumn ? 'px-3 whitespace-nowrap w-40' : ''}
                                     ${isDayColumn ? 'px-2 text-center w-24' : ''}
-                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-20' : ''}
+                                    ${!isSelectColumn && !isPatientColumn && !isEstablishmentColumn && !isDayColumn ? 'px-3 w-16' : ''}
                                   `}
                                  >
                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
