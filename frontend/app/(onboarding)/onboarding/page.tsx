@@ -137,7 +137,7 @@ export default function OnboardingPage() {
       }
 
       // Success - move to dashboard
-      router.push("/dashboard");
+      router.push("/");
     } catch (error) {
       console.error('Error saving onboarding data:', error);
       alert('Une erreur inattendue s\'est produite. Veuillez réessayer.');

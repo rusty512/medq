@@ -74,19 +74,96 @@ export const DEMO_USER: MockUser = {
   ]
 };
 
-// Fetch visits directly from backend using demo endpoint
+// Return realistic mock visits data for development/demo
 export async function fetchMockVisits(): Promise<MockVisit[]> {
-  try {
-    const response = await fetch('http://localhost:3001/api/visits/demo');
-    if (!response.ok) {
-      throw new Error('Failed to fetch visits');
-    }
-    const data = await response.json();
-    return data.data || [];
-  } catch (error) {
-    console.error('Error fetching visits:', error);
-    return [];
-  }
+  // Simulate async operation
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const mockVisits: MockVisit[] = [
+        {
+          id: 1,
+          user_id: "ab3a9e65-64f8-48a0-98ff-555bd36b256a",
+          nam: "DUPONT1234567",
+          patient_age: 45,
+          establishment_code: "61",
+          date: new Date().toISOString().split('T')[0], // Today
+          heure: "09:30",
+          acte_code: "02400", // Consultation ophtalmologique
+          majoration_percent: 0,
+          is_garde: false,
+          validated: true,
+          validated_at: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: 2,
+          user_id: "ab3a9e65-64f8-48a0-98ff-555bd36b256a",
+          nam: "MARTIN7654321",
+          patient_age: 32,
+          establishment_code: "61",
+          date: new Date().toISOString().split('T')[0], // Today
+          heure: "14:15",
+          acte_code: "02401", // Examen de la vision
+          majoration_percent: 0,
+          is_garde: false,
+          validated: false,
+          validated_at: "",
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: 3,
+          user_id: "ab3a9e65-64f8-48a0-98ff-555bd36b256a",
+          nam: "BERNARD9876543",
+          patient_age: 67,
+          establishment_code: "61",
+          date: new Date(Date.now() + 86400000).toISOString().split('T')[0], // Tomorrow
+          heure: "11:00",
+          acte_code: "02402", // Rétinographie
+          majoration_percent: 50, // Garde de nuit
+          is_garde: true,
+          validated: true,
+          validated_at: new Date().toISOString(),
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        },
+        {
+          id: 4,
+          user_id: "ab3a9e65-64f8-48a0-98ff-555bd36b256a",
+          nam: "TREMBLAY1111111",
+          patient_age: 28,
+          establishment_code: "61",
+          date: new Date(Date.now() - 86400000).toISOString().split('T')[0], // Yesterday
+          heure: "16:30",
+          acte_code: "02403", // Fond d'œil
+          majoration_percent: 0,
+          is_garde: false,
+          validated: true,
+          validated_at: new Date(Date.now() - 86400000).toISOString(),
+          created_at: new Date(Date.now() - 86400000).toISOString(),
+          updated_at: new Date(Date.now() - 86400000).toISOString()
+        },
+        {
+          id: 5,
+          user_id: "ab3a9e65-64f8-48a0-98ff-555bd36b256a",
+          nam: "GAGNON2222222",
+          patient_age: 55,
+          establishment_code: "61",
+          date: new Date(Date.now() - 172800000).toISOString().split('T')[0], // 2 days ago
+          heure: "10:45",
+          acte_code: "02404", // Prescription de verres
+          majoration_percent: 0,
+          is_garde: false,
+          validated: false,
+          validated_at: "",
+          created_at: new Date(Date.now() - 172800000).toISOString(),
+          updated_at: new Date(Date.now() - 172800000).toISOString()
+        }
+      ];
+      resolve(mockVisits);
+    }, 300); // Small delay to simulate network request
+  });
 }
 
 // Get mock user (no API call needed)

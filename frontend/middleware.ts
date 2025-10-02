@@ -10,16 +10,12 @@ export function middleware(request: NextRequest) {
   }
 
   // Define public routes that don't require authentication
-  const publicRoutes = ['/', '/login', '/register', '/health', '/onboarding']
+  const publicRoutes = ['/', '/login', '/register', '/health', '/onboarding', '/signup']
   const isPublicRoute = publicRoutes.includes(pathname)
   
-  // Check for auth token in localStorage (client-side) or Authorization header
-  const authToken = request.headers.get('authorization')
-  
-  // If accessing a protected route without auth token, redirect to login
-  if (!isPublicRoute && !authToken) {
-    return NextResponse.redirect(new URL('/login', request.url))
-  }
+  // For client-side auth, we'll handle protection in the components
+  // Middleware can't access localStorage, so we'll be permissive here
+  // and let the client-side components handle auth checks
   
   return NextResponse.next()
 }

@@ -17,7 +17,7 @@ import { useState } from "react";
 import { supabase } from "@/lib/supabase-client";
 import { useRouter } from "next/navigation";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000/api";
 
 export function LoginForm() {
   const router = useRouter();
@@ -53,7 +53,7 @@ export function LoginForm() {
         localStorage.removeItem('pendingOnboarding');
         router.push('/onboarding');
       } else {
-        router.push('/dashboard');
+        router.push('/');
       }
     } catch {
       setError('An unexpected error occurred');
