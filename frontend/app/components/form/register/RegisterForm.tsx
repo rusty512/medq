@@ -13,7 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { supabase } from "@/lib/supabase-client";
+import { createClient } from "@/lib/supabase/client";
+
+const supabase = createClient();
 import { useRouter } from "next/navigation";
 
 export function RegisterForm() {

@@ -6,61 +6,47 @@ import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/features/blocks/StatCard";
 import { DataTable } from "@/components/features/blocks/DataTable";
 import { Plus, RefreshCw } from "lucide-react";
-import { getMockUser, fetchMockVisits, MockVisit } from "@/lib/mock-user";
+import { useAuth } from "@/lib/auth-context";
+import { UserService, UserData } from "@/lib/user-service";
+import { VisitsService, Visit } from "@/lib/visits-service";
 import { StatsService, BillingStats } from "@/lib/stats-service";
 import { useMemo, useEffect, useState } from "react";
 
 export default function Home() {
-  console.log('🏠 Home component rendering...');
-  const user = getMockUser();
-  const [visits, setVisits] = useState<MockVisit[]>([]);
-  const [billingStats, setBillingStats] = useState<BillingStats | null>(null);
+  const { user: authUser, userData, visits, billingStats, loading: authLoading, userDataLoading, dataLoading, refreshAllData } = useAuth();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
-    const loadData = async () => {
-      console.log('🔄 Loading data...');
-      try {
-        setLoading(true);
-        
-        // Load visits and billing stats in parallel
-        const [visitData, statsData] = await Promise.all([
-          fetchMockVisits(),
-          StatsService.getBillingStats()
-        ]);
-        
-        console.log('📊 Setting visits:', visitData.length);
-        setVisits(visitData);
-        
-        console.log('📈 Setting stats:', statsData);
-        setBillingStats(statsData);
-        
-      } catch (err) {
-        console.error('❌ Error:', err);
-        setError('Failed to load data');
-      } finally {
-        console.log('✅ Setting loading to false');
-        setLoading(false);
-      }
-    };
+    console.log('📊 Dashboard useEffect - Current state:', {
+      authLoading,
+      userDataLoading,
+      dataLoading,
+      hasAuthUser: !!authUser,
+      hasUserData: !!userData,
+      visitsCount: visits.length,
+      hasStats: !!billingStats
+    });
     
-    loadData();
-  }, []);
+    // Data is already loaded in AuthContext, just set loading state
+    if (authLoading || userDataLoading || dataLoading || !authUser || !userData) {
+      console.log('📊 Dashboard - Still loading...');
+      setLoading(true);
+    } else {
+      console.log('📊 Dashboard - Data ready!', { visits: visits.length, stats: billingStats ? 'loaded' : 'null' });
+      setLoading(false);
+    }
+  }, [authUser, authLoading, userDataLoading, dataLoading, userData, visits, billingStats]);
 
   // Function to refresh data
   const refreshData = async () => {
+    if (!authUser || !userData) return;
+    
     setRefreshing(true);
     try {
-      // Load visits and billing stats in parallel
-      const [visitData, statsData] = await Promise.all([
-        fetchMockVisits(),
-        StatsService.getBillingStats()
-      ]);
-      
-      setVisits(visitData);
-      setBillingStats(statsData);
+      // Refresh all data through AuthContext
+      await refreshAllData();
     } catch (err) {
       console.error('❌ Error refreshing data:', err);
       setError('Failed to refresh data');
@@ -118,7 +104,7 @@ export default function Home() {
     return Array.from(patientMap.values()).slice(0, 3); // Show first 3 patients
   }, [visits]);
 
-  // Use real billing stats from RAMQ or fallback to calculated stats
+  // Use real billing stats from RAMQ or show N/D when not available
   const stats = useMemo(() => {
     if (billingStats) {
       return {
@@ -137,32 +123,29 @@ export default function Home() {
       };
     }
 
-    // Fallback to calculated stats if billing stats not available
-    const today = new Date().toISOString().split('T')[0];
-    const todayVisits = visits.filter(visit => visit.date === today);
-    const thisMonth = visits.filter(visit => 
-      visit.date.startsWith(new Date().toISOString().substring(0, 7))
-    );
-
-    const totalToday = todayVisits.length;
-    const totalThisMonth = thisMonth.length;
-    const refusalRate = visits.length > 0 ? 
-      (visits.filter(v => !v.validated).length / visits.length * 100) : 0;
-
+    // Show N/D (Not Available) when no billing stats available
     return {
-      today: { amount: totalToday * 150, variation: 6.0 }, // Mock amounts
-      month: { amount: totalThisMonth * 120, variation: 2.4 },
-      refusal: { rate: refusalRate, variation: 1.4 }
+      today: { amount: null, variation: null },
+      month: { amount: null, variation: null },
+      refusal: { rate: null, variation: null }
     };
-  }, [billingStats, visits]);
+  }, [billingStats]);
 
-  console.log('🔄 Current state:', { loading, error, visits: visits.length, stats: billingStats ? 'loaded' : 'null' });
-
-  if (loading) {
+  if (authLoading || userDataLoading || dataLoading || loading) {
     return (
       <div className="p-2 sm:p-4">
         <div className="flex items-center justify-center h-64">
           <div className="text-lg">Chargement...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!authUser) {
+    return (
+      <div className="p-2 sm:p-4">
+        <div className="flex items-center justify-center h-64">
+          <div className="text-lg">Veuillez vous connecter pour accéder au tableau de bord.</div>
         </div>
       </div>
     );
@@ -182,7 +165,7 @@ export default function Home() {
     <div className="p-2 sm:p-4">
       <HeaderRow
         title="Votre résumé"
-        subtitle={`Dr. ${user.personal_info.firstName} ${user.personal_info.lastName}`}
+        subtitle={userData ? UserService.getUserDisplayName(userData) : 'Chargement...'}
         actions={
           <div className="flex gap-2">
             <Button size="sm" variant="outline" onClick={refreshData} disabled={refreshing}>
@@ -199,21 +182,21 @@ export default function Home() {
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <StatCard 
           title="Aujourd'hui" 
-          value={`$${stats.today.amount.toFixed(2)}`} 
-          deltaText={`${stats.today.variation.toFixed(1)}% vs semaine dernière`} 
-          deltaPositive={stats.today.variation > 0} 
+          value={stats.today.amount !== null ? `$${stats.today.amount.toFixed(2)}` : 'N/D'} 
+          deltaText={stats.today.variation !== null ? `${stats.today.variation.toFixed(1)}% vs semaine dernière` : 'Données non disponibles'} 
+          deltaPositive={stats.today.variation !== null ? stats.today.variation > 0 : undefined} 
         />
         <StatCard 
           title="Facturé ce mois ci" 
-          value={`$${stats.month.amount.toFixed(2)}`} 
-          deltaText={`${stats.month.variation.toFixed(1)}% vs dernier mois`} 
-          deltaPositive={stats.month.variation > 0} 
+          value={stats.month.amount !== null ? `$${stats.month.amount.toFixed(2)}` : 'N/D'} 
+          deltaText={stats.month.variation !== null ? `${stats.month.variation.toFixed(1)}% vs dernier mois` : 'Données non disponibles'} 
+          deltaPositive={stats.month.variation !== null ? stats.month.variation > 0 : undefined} 
         />
         <StatCard 
           title="Pourcentage de refus" 
-          value={`${stats.refusal.rate.toFixed(1)}%`} 
-          deltaText={`${stats.refusal.variation.toFixed(1)}% vs dernier mois`} 
-          deltaPositive={stats.refusal.variation < 0} 
+          value={stats.refusal.rate !== null ? `${stats.refusal.rate.toFixed(1)}%` : 'N/D'} 
+          deltaText={stats.refusal.variation !== null ? `${stats.refusal.variation.toFixed(1)}% vs dernier mois` : 'Données non disponibles'} 
+          deltaPositive={stats.refusal.variation !== null ? stats.refusal.variation < 0 : undefined} 
         />
       </div>
 

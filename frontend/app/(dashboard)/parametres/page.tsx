@@ -8,9 +8,31 @@ import { ProfileSettings } from "@/components/features/settings/ProfileSettings"
 import { ShortcutsSettings } from "@/components/features/settings/ShortcutsSettings"
 import { NotificationsSettings } from "@/components/features/settings/NotificationsSettings"
 import { PaymentSettings } from "@/components/features/settings/PaymentSettings"
+import { useAuth } from "@/lib/auth-context"
 
 export default function SettingsPage() {
+  const { user: authUser, loading: authLoading } = useAuth()
   const [activeTab, setActiveTab] = React.useState("general")
+
+  if (authLoading) {
+    return (
+      <div className="p-2 sm:p-4">
+        <div className="flex items-center justify-center h-64">
+          <div className="text-lg">Chargement des paramètres...</div>
+        </div>
+      </div>
+    )
+  }
+
+  if (!authUser) {
+    return (
+      <div className="p-2 sm:p-4">
+        <div className="flex items-center justify-center h-64">
+          <div className="text-lg">Veuillez vous connecter pour accéder aux paramètres.</div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="p-2 sm:p-4">

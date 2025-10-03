@@ -4,72 +4,46 @@ import * as React from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { SettingsCard } from "@/components/ui/settings-card"
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3001/api";
-
-type CurrentUser = {
-  id: string
-  email: string
-  personalInfo?: { firstName?: string; lastName?: string; phone?: string }
-  professionalInfo?: { specialty?: string; licenseNumber?: string }
-}
+import { useAuth } from "@/lib/auth-context"
+import { UserService, UserData } from "@/lib/user-service"
 
 export function GeneralSettings() {
+  const { user: authUser, userData, loading: authLoading, userDataLoading, refreshUserData } = useAuth()
   const [firstName, setFirstName] = React.useState("")
   const [lastName, setLastName] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [isDirty, setIsDirty] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
 
-  // Load current user on mount
+  // Update form fields when userData changes
   React.useEffect(() => {
-    let cancelled = false
-    const token = typeof window !== 'undefined' ? window.localStorage.getItem('auth_token') : null
-
-    async function loadUser() {
-      try {
-        const res = await fetch(`${API_BASE_URL}/auth/me`, {
-          headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-          credentials: 'include'
-        })
-        const data = await res.json()
-        if (!cancelled && data && data.user) {
-          const u: CurrentUser = data.user
-          setEmail(u.email || "")
-          setFirstName(u.personalInfo?.firstName || "")
-          setLastName(u.personalInfo?.lastName || "")
-          setIsDirty(false)
-        }
-      } catch (_e) {
-        // swallow for now; a toast system can be added later
-      }
+    if (userData && authUser) {
+      console.log('GeneralSettings - User data updated:', userData)
+      setFirstName(userData.first_name || "")
+      setLastName(userData.last_name || "")
+      setEmail(authUser.email || "")
+      setIsDirty(false)
     }
-    loadUser()
-    return () => { cancelled = true }
-  }, [])
+  }, [userData, authUser])
 
   const onSave = async () => {
+    if (!userData) return
+    
     setIsLoading(true)
-    const token = typeof window !== 'undefined' ? window.localStorage.getItem('auth_token') : null
     try {
-      const res = await fetch(`${API_BASE_URL}/auth/profile`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token ? { Authorization: `Bearer ${token}` } : {})
-        },
-        body: JSON.stringify({
-          personalInfo: {
-            firstName: firstName || undefined,
-            lastName: lastName || undefined,
-          }
-        })
+      const updatedUser = await UserService.updateUser({
+        first_name: firstName || null,
+        last_name: lastName || null,
       })
-      if (!res.ok) {
-        // Best-effort error handling; production should surface a toast
-        return
+      
+      if (updatedUser) {
+        // Refresh user data in AuthContext
+        await refreshUserData()
+        setIsDirty(false)
+        console.log('GeneralSettings - User data saved and refreshed')
       }
-      setIsDirty(false)
+    } catch (error) {
+      console.error('Failed to update user:', error)
     } finally {
       setIsLoading(false)
     }

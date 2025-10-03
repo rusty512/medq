@@ -14,7 +14,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase-client";
+import { createClient } from "@/lib/supabase/client";
+
+const supabase = createClient();
 import { useRouter } from "next/navigation";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000/api";
@@ -41,11 +43,12 @@ export function LoginForm() {
         setError(error?.message || 'Invalid credentials');
         return;
       }
-      const token = data.session.access_token;
-      if (typeof window !== 'undefined') {
-        window.localStorage.setItem('auth_token', token);
-      }
-      await fetch('/api/me', { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
+      
+      // Sync user with backend database using the session token
+      await fetch('/api/me', { 
+        headers: { Authorization: `Bearer ${data.session.access_token}` }, 
+        cache: 'no-store' 
+      });
       
       // Check if there's pending onboarding data
       const pendingOnboarding = localStorage.getItem('pendingOnboarding');

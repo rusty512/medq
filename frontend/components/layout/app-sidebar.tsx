@@ -19,8 +19,8 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000/api";
+import { useAuth } from "@/lib/auth-context"
+import { UserService, UserData } from "@/lib/user-service"
 
 // Default placeholders used until real user is loaded
 const data = {
@@ -61,31 +61,25 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const [user, setUser] = React.useState(data.user)
+  const { user: authUser, userData, loading: authLoading, userDataLoading } = useAuth()
+  const loading = authLoading || userDataLoading
 
-  React.useEffect(() => {
-    let cancelled = false
-    const token = typeof window !== 'undefined' ? window.localStorage.getItem('auth_token') : null
-    async function load() {
-      try {
-        const res = await fetch(`${API_BASE_URL}/auth/me`, {
-          headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-          credentials: 'include'
-        })
-        const json = await res.json()
-        if (!cancelled && json?.user) {
-          const u = json.user
-          setUser({
-            name: [u.personalInfo?.firstName, u.personalInfo?.lastName].filter(Boolean).join(' ') || u.email,
-            email: u.email,
-            avatar: "/avatars/shadcn.jpg"
-          })
-        }
-      } catch {}
+  const sidebarUser = React.useMemo(() => {
+    if (loading || !authUser || !userData) {
+      return {
+        name: "Loading...",
+        email: "",
+        avatar: "/avatars/shadcn.jpg",
+      }
     }
-    load()
-    return () => { cancelled = true }
-  }, [])
+
+    const displayName = UserService.getUserDisplayName(userData)
+    return {
+      name: userData.professional_id ? `Dr. ${displayName}` : displayName,
+      email: authUser.email || "",
+      avatar: "/avatars/shadcn.jpg",
+    }
+  }, [authUser, userData, loading])
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -106,7 +100,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarFooter>
         {/* Account block at bottom like sidebar-07 */}
-        <NavUser user={user} />
+        <NavUser user={sidebarUser} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

@@ -12,6 +12,13 @@ router.get('/me', requireAuth, async (req, res) => {
 
     const firstName = user.user_metadata?.first_name || user.user_metadata?.firstName || null
     const lastName = user.user_metadata?.last_name || user.user_metadata?.lastName || null
+    
+    console.log('GET /me - Supabase user metadata:', {
+      user_metadata: user.user_metadata,
+      firstName,
+      lastName,
+      email: user.email
+    })
 
     const dbUser = await prisma.user.upsert({
       where: { supabase_uid: supabaseUid },
@@ -26,12 +33,25 @@ router.get('/me', requireAuth, async (req, res) => {
       }
     })
 
+    console.log('GET /me - User data:', {
+      id: dbUser.id,
+      first_name: dbUser.first_name,
+      last_name: dbUser.last_name,
+      phone: dbUser.phone,
+      professional_id: dbUser.professional_id,
+      specialty_code: dbUser.specialty_code,
+      specialty_name: dbUser.specialty_name
+    })
+
     return res.json({
       id: dbUser.id,
       supabase_uid: dbUser.supabase_uid,
       first_name: dbUser.first_name,
       last_name: dbUser.last_name,
-      specialty: dbUser.specialty,
+      phone: dbUser.phone,
+      professional_id: dbUser.professional_id,
+      specialty_code: dbUser.specialty_code,
+      specialty_name: dbUser.specialty_name,
       default_establishment_id: dbUser.default_establishment_id,
       created_at: dbUser.created_at,
       updated_at: dbUser.updated_at

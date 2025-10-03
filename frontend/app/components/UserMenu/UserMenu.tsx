@@ -2,7 +2,9 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { EllipsisVertical } from "lucide-react"
-import { getMockUser } from "@/lib/mock-user"
+import { useAuth } from "@/lib/auth-context"
+import { UserService, UserData } from "@/lib/user-service"
+import { Logout } from "@/app/components/Logout"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,11 +12,31 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useEffect, useState } from "react"
 
 export function UserMenu() {
-  const user = getMockUser();
+  const { user: authUser, userData, loading: authLoading, userDataLoading } = useAuth();
+  const loading = authLoading || userDataLoading;
 
-  const initials = user.personal_info.firstName.charAt(0) + user.personal_info.lastName.charAt(0);
+  if (loading) {
+    return (
+      <div className="flex items-center gap-3 p-2">
+        <Avatar>
+          <AvatarFallback>...</AvatarFallback>
+        </Avatar>
+        <div className="grid mr-auto">
+          <span className="truncate font-medium">Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!authUser || !userData) {
+    return null;
+  }
+
+  const displayName = UserService.getUserDisplayName(userData);
+  const initials = UserService.getUserInitials(userData);
 
   return (
     <DropdownMenu>
@@ -25,9 +47,9 @@ export function UserMenu() {
           </Avatar>
           <div className="grid mr-auto">
             <span className="truncate font-medium">
-              Dr. {user.personal_info.firstName} {user.personal_info.lastName}
+              {userData.professional_id ? 'Dr. ' : ''}{displayName}
             </span>
-            <span className="truncate text-xs">{user.email}</span>
+            <span className="truncate text-xs">{authUser.email}</span>
           </div>
           <EllipsisVertical className="h-4 w-4" />
         </div>
@@ -36,16 +58,18 @@ export function UserMenu() {
         <DropdownMenuItem>
           <div className="flex flex-col">
             <span className="font-medium">
-              Dr. {user.personal_info.firstName} {user.personal_info.lastName}
+              {userData.professional_id ? 'Dr. ' : ''}{displayName}
             </span>
-            <span className="text-xs text-muted-foreground">
-              {user.professional_info.specialty}
-            </span>
+            {userData.specialty_name && (
+              <span className="text-xs text-muted-foreground">
+                {userData.specialty_name}
+              </span>
+            )}
           </div>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-red-600">
-          Mode démo actif
+        <DropdownMenuItem asChild>
+          <Logout>Logout</Logout>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

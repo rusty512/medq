@@ -3,34 +3,29 @@
 import { HeaderRow } from "@/components/features/blocks/HeaderRow";
 import { DataTable } from "@/components/features/blocks/DataTable";
 import { Button } from "@/components/ui/button";
-import { getMockUser, fetchMockVisits, MockVisit } from "@/lib/mock-user";
+import { useAuth } from "@/lib/auth-context";
+import { UserService, UserData } from "@/lib/user-service";
+import { VisitsService, Visit } from "@/lib/visits-service";
 import { RAMQService } from "@/lib/ramq-service";
 import { useMemo, useEffect, useState } from "react";
 import { Download, Loader2, CheckCircle, XCircle } from "lucide-react";
 
 export default function FacturationPage() {
-  const user = getMockUser();
-  const [visits, setVisits] = useState<MockVisit[]>([]);
+  const { user: authUser, userData, visits, loading: authLoading, userDataLoading, dataLoading } = useAuth();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [exporting, setExporting] = useState(false);
   const [exportResults, setExportResults] = useState<{ success: number; failed: number; details: string[] } | null>(null);
 
   useEffect(() => {
-    const loadVisits = async () => {
-      try {
-        setLoading(true);
-        const visitData = await fetchMockVisits();
-        setVisits(visitData);
-      } catch (err) {
-        setError('Failed to load visits');
-      } finally {
-        setLoading(false);
-      }
-    };
-    
-    loadVisits();
-  }, []);
+    // Data is already loaded in AuthContext, just set loading state
+    if (authLoading || userDataLoading || dataLoading || !authUser || !userData) {
+      setLoading(true);
+    } else {
+      console.log('📊 Facturation data ready:', { visits: visits.length });
+      setLoading(false);
+    }
+  }, [authUser, authLoading, userDataLoading, dataLoading, userData, visits]);
 
   const handleExportToRAMQ = async () => {
     if (!visits.length) {
@@ -75,7 +70,7 @@ export default function FacturationPage() {
 
       // Refresh visits to get updated submission status
       if (successCount > 0) {
-        const visitData = await fetchMockVisits();
+        const visitData = await VisitsService.getVisits();
         setVisits(visitData);
       }
 
@@ -135,11 +130,21 @@ export default function FacturationPage() {
     return Array.from(patientMap.values()); // Show all patients for billing
   }, [visits]);
 
-  if (loading) {
+  if (authLoading || loading) {
     return (
       <div className="p-2 sm:p-4">
         <div className="flex items-center justify-center h-64">
           <div className="text-lg">Chargement des données de facturation...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!authUser) {
+    return (
+      <div className="p-2 sm:p-4">
+        <div className="flex items-center justify-center h-64">
+          <div className="text-lg">Veuillez vous connecter pour accéder à la facturation.</div>
         </div>
       </div>
     );
@@ -159,7 +164,7 @@ export default function FacturationPage() {
     <div>
       <HeaderRow
         title="Facturation"
-        subtitle={`Gérez vos factures et codes de facturation - ${user.professional_info.specialty}`}
+        subtitle={`Gérez vos factures et codes de facturation${userData?.specialty_name ? ` - ${userData.specialty_name}` : ''}`}
         actions={
           <div className="flex gap-2">
             <Button 

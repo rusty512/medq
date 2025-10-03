@@ -7,6 +7,7 @@ import morgan from 'morgan'
 import { connectDatabase } from './db.js'
 import meRouter from './routes/me.js'
 import establishmentsRouter from './routes/establishments.js'
+import statsRouter from './routes/stats.js'
 
 const app = express()
 
@@ -24,6 +25,7 @@ app.get('/health', (_req, res) => {
 // Routes
 app.use(meRouter)
 app.use(establishmentsRouter)
+app.use(statsRouter)
 
 const port = process.env.PORT || 4000
 

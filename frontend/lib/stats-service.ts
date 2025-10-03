@@ -2,7 +2,9 @@
  * Stats Service - Handles billing statistics from backend
  */
 
-const API_BASE_URL = 'http://localhost:3001/api';
+import { createClient } from './supabase/client';
+
+const API_BASE_URL = 'http://localhost:4000';
 
 export interface BillingStats {
   today: {
@@ -24,32 +26,43 @@ export interface BillingStats {
 }
 
 export class StatsService {
+  private static supabase = createClient();
+
   /**
    * Get billing statistics for dashboard
    */
-  static async getBillingStats(): Promise<BillingStats> {
+  static async getBillingStats(): Promise<BillingStats | null> {
     try {
-      const response = await fetch(`${API_BASE_URL}/stats/billing`);
+      const { data: { session } } = await this.supabase.auth.getSession();
+      
+      if (!session?.access_token) {
+        console.warn('No active session for fetching billing stats');
+        return null;
+      }
+
+      const response = await fetch(`${API_BASE_URL}/stats/billing`, {
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        cache: 'no-store',
+      });
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        console.warn(`Billing stats API returned ${response.status} - returning null`);
+        return null;
       }
       
       const result = await response.json();
       
       if (!result.success) {
-        throw new Error(result.error || 'Failed to fetch billing stats');
+        console.warn('Billing stats API returned error:', result.error);
+        return null;
       }
       
       return result.data;
     } catch (error) {
-      console.error('Error fetching billing stats:', error);
-      // Return default values on error
-      return {
-        today: { amount: 0, count: 0, variation: 0 },
-        month: { amount: 0, count: 0, variation: 0 },
-        refusal: { rate: 0, total: 0, refused: 0, approved: 0 }
-      };
+      console.warn('Error fetching billing stats:', error);
+      return null;
     }
   }
 }
