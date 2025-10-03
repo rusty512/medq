@@ -30,6 +30,14 @@ router.get('/me', requireAuth, async (req, res) => {
       update: {
         first_name: firstName ?? undefined,
         last_name: lastName ?? undefined
+      },
+      include: {
+        establishments: {
+          include: {
+            establishment: true
+          }
+        },
+        default_establishment: true
       }
     })
 
@@ -40,7 +48,8 @@ router.get('/me', requireAuth, async (req, res) => {
       phone: dbUser.phone,
       professional_id: dbUser.professional_id,
       specialty_code: dbUser.specialty_code,
-      specialty_name: dbUser.specialty_name
+      specialty_name: dbUser.specialty_name,
+      establishments_count: dbUser.establishments?.length || 0
     })
 
     return res.json({
@@ -53,6 +62,16 @@ router.get('/me', requireAuth, async (req, res) => {
       specialty_code: dbUser.specialty_code,
       specialty_name: dbUser.specialty_name,
       default_establishment_id: dbUser.default_establishment_id,
+      default_establishment: dbUser.default_establishment,
+      establishments: dbUser.establishments?.map(ue => ({
+        id: ue.id,
+        user_id: ue.user_id,
+        establishment_id: ue.establishment_id,
+        is_default: ue.is_default,
+        created_at: ue.created_at,
+        updated_at: ue.updated_at,
+        establishment: ue.establishment
+      })) || [],
       created_at: dbUser.created_at,
       updated_at: dbUser.updated_at
     })
@@ -228,6 +247,196 @@ router.put('/me/default-establishment', requireAuth, async (req, res) => {
 
     return res.json(updated)
   } catch (err) {
+    return res.status(500).json({ error: 'Failed to set default establishment' })
+  }
+})
+
+// POST /me/establishments - Add establishment to user
+router.post('/me/establishments', requireAuth, async (req, res) => {
+  try {
+    const user = req.supabaseUser
+    const supabaseUid = user.id
+    const { establishmentId } = req.body
+
+    if (!establishmentId) {
+      return res.status(400).json({ error: 'establishmentId is required' })
+    }
+
+    // Get user from database
+    const dbUser = await prisma.user.findUnique({
+      where: { supabase_uid: supabaseUid }
+    })
+
+    if (!dbUser) {
+      return res.status(404).json({ error: 'User not found' })
+    }
+
+    // Check if establishment exists
+    const establishment = await prisma.establishment.findUnique({
+      where: { id: establishmentId }
+    })
+
+    if (!establishment) {
+      return res.status(404).json({ error: 'Establishment not found' })
+    }
+
+    // Check if relationship already exists
+    const existingRelation = await prisma.userEstablishment.findUnique({
+      where: {
+        user_id_establishment_id: {
+          user_id: dbUser.id,
+          establishment_id: establishmentId
+        }
+      }
+    })
+
+    if (existingRelation) {
+      return res.status(400).json({ error: 'Establishment already added to user' })
+    }
+
+    // Create user-establishment relationship
+    const userEstablishment = await prisma.userEstablishment.create({
+      data: {
+        user_id: dbUser.id,
+        establishment_id: establishmentId,
+        is_default: false
+      },
+      include: {
+        establishment: true
+      }
+    })
+
+    return res.json({
+      id: userEstablishment.id,
+      user_id: userEstablishment.user_id,
+      establishment_id: userEstablishment.establishment_id,
+      is_default: userEstablishment.is_default,
+      establishment: userEstablishment.establishment
+    })
+  } catch (err) {
+    console.error('POST /me/establishments failed:', err)
+    return res.status(500).json({ error: 'Failed to add establishment' })
+  }
+})
+
+// DELETE /me/establishments/:id - Remove establishment from user
+router.delete('/me/establishments/:id', requireAuth, async (req, res) => {
+  try {
+    const user = req.supabaseUser
+    const supabaseUid = user.id
+    const establishmentId = parseInt(req.params.id)
+
+    if (isNaN(establishmentId)) {
+      return res.status(400).json({ error: 'Invalid establishment ID' })
+    }
+
+    // Get user from database
+    const dbUser = await prisma.user.findUnique({
+      where: { supabase_uid: supabaseUid }
+    })
+
+    if (!dbUser) {
+      return res.status(404).json({ error: 'User not found' })
+    }
+
+    // Find and delete the relationship
+    const userEstablishment = await prisma.userEstablishment.findUnique({
+      where: {
+        user_id_establishment_id: {
+          user_id: dbUser.id,
+          establishment_id: establishmentId
+        }
+      }
+    })
+
+    if (!userEstablishment) {
+      return res.status(404).json({ error: 'Establishment not found for user' })
+    }
+
+    await prisma.userEstablishment.delete({
+      where: {
+        user_id_establishment_id: {
+          user_id: dbUser.id,
+          establishment_id: establishmentId
+        }
+      }
+    })
+
+    // If this was the default establishment, clear it
+    if (dbUser.default_establishment_id === establishmentId) {
+      await prisma.user.update({
+        where: { id: dbUser.id },
+        data: { default_establishment_id: null }
+      })
+    }
+
+    return res.json({ success: true })
+  } catch (err) {
+    console.error('DELETE /me/establishments/:id failed:', err)
+    return res.status(500).json({ error: 'Failed to remove establishment' })
+  }
+})
+
+// PUT /me/establishments/default - Set default establishment
+router.put('/me/establishments/default', requireAuth, async (req, res) => {
+  try {
+    const user = req.supabaseUser
+    const supabaseUid = user.id
+    const { establishmentId } = req.body
+
+    if (!establishmentId) {
+      return res.status(400).json({ error: 'establishmentId is required' })
+    }
+
+    // Get user from database
+    const dbUser = await prisma.user.findUnique({
+      where: { supabase_uid: supabaseUid }
+    })
+
+    if (!dbUser) {
+      return res.status(404).json({ error: 'User not found' })
+    }
+
+    // Check if user has this establishment
+    const userEstablishment = await prisma.userEstablishment.findUnique({
+      where: {
+        user_id_establishment_id: {
+          user_id: dbUser.id,
+          establishment_id: establishmentId
+        }
+      }
+    })
+
+    if (!userEstablishment) {
+      return res.status(400).json({ error: 'User does not have this establishment' })
+    }
+
+    // Update all user establishments to not be default
+    await prisma.userEstablishment.updateMany({
+      where: { user_id: dbUser.id },
+      data: { is_default: false }
+    })
+
+    // Set the selected establishment as default
+    await prisma.userEstablishment.update({
+      where: {
+        user_id_establishment_id: {
+          user_id: dbUser.id,
+          establishment_id: establishmentId
+        }
+      },
+      data: { is_default: true }
+    })
+
+    // Update user's default establishment
+    await prisma.user.update({
+      where: { id: dbUser.id },
+      data: { default_establishment_id: establishmentId }
+    })
+
+    return res.json({ success: true })
+  } catch (err) {
+    console.error('PUT /me/establishments/default failed:', err)
     return res.status(500).json({ error: 'Failed to set default establishment' })
   }
 })

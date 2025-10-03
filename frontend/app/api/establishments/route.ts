@@ -1,7 +1,3 @@
-import { createClient } from '@/lib/supabase/client'
-
-const supabase = createClient()
-
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const search = searchParams.get('search') || ''
@@ -11,56 +7,44 @@ export async function GET(request: Request) {
   const offset = Math.max(parseInt(offsetParam, 10) || 0, 0)
   const limit = Math.min(Math.max(parseInt(limitParam, 10) || 100, 1), 500)
 
-  const hasSupabaseEnv = !!process.env.NEXT_PUBLIC_SUPABASE_URL && !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  try {
+    // Forward request to backend API
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:4000'
+    const queryParams = new URLSearchParams({
+      search,
+      offset: offset.toString(),
+      limit: limit.toString()
+    })
 
-  // Try Supabase first
-  if (hasSupabaseEnv) {
-    try {
-      const from = offset
-      const to = offset + limit - 1
+    const response = await fetch(`${backendUrl}/establishments?${queryParams}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
 
-      // Select shape expected by the UI
-      // NOTE: Supabase table is named with capital 'E' (Establishment)
-      let query = supabase
-        .from('Establishment')
-        .select(
-          'id, code, name, address, category, establishment_type, region_code, region_name, municipality, postal_code, is_active, codes'
-        )
-        .order('name', { ascending: true })
-        .range(from, to)
-
-      if (search) {
-        // Match on common text fields. Array matching for codes may vary by schema, so keep it simple.
-        query = query.or(
-          `name.ilike.%${search}%,address.ilike.%${search}%,code.ilike.%${search}%,region_name.ilike.%${search}%`
-        )
-      }
-
-      const { data, error } = await query
-      if (!error && Array.isArray(data)) {
-        return new Response(JSON.stringify(data), {
-          status: 200,
-          headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-data-source': 'supabase' },
-        })
-      }
-      if (error) {
-        return new Response(JSON.stringify({ error: error.message }), {
-          status: 500,
-          headers: { 'content-type': 'application/json', 'x-data-source': 'supabase', 'x-error': 'supabase-query-failed' },
-        })
-      }
-    } catch (e: any) {
-      return new Response(JSON.stringify({ error: e?.message || 'Unexpected error' }), {
-        status: 500,
-        headers: { 'content-type': 'application/json', 'x-data-source': 'supabase', 'x-error': 'supabase-exception' },
-      })
+    if (!response.ok) {
+      throw new Error(`Backend API error: ${response.status} ${response.statusText}`)
     }
-  }
 
-  // No Supabase config; explicitly return an error instead of localhost fallback on Vercel
-  return new Response(JSON.stringify({ error: 'Supabase not configured and no backend available' }), {
-    status: 500,
-    headers: { 'content-type': 'application/json', 'x-data-source': 'none' },
-  })
+    const data = await response.json()
+    
+    return new Response(JSON.stringify(data), {
+      status: 200,
+      headers: { 
+        'content-type': 'application/json', 
+        'cache-control': 'no-store',
+        'x-data-source': 'backend'
+      },
+    })
+  } catch (error) {
+    console.error('Failed to fetch establishments from backend:', error)
+    return new Response(JSON.stringify({ 
+      error: error instanceof Error ? error.message : 'Failed to fetch establishments' 
+    }), {
+      status: 500,
+      headers: { 'content-type': 'application/json', 'x-data-source': 'backend-error' },
+    })
+  }
 }
 

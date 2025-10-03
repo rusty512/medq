@@ -1,38 +1,63 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-// Sidebar removed to allow a fresh shadcn navbar to be added
-import "../globals.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+"use client";
+
 import { AppSidebar } from "@/components/layout/app-sidebar";
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import { Separator } from "@/components/ui/separator";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { useAuth } from "@/lib/auth-context";
+import { Skeleton } from "@/components/ui/skeleton";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const { loading } = useAuth();
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+  if (loading) {
+    return (
+      <div className="flex h-screen">
+        <div className="w-64 border-r bg-background">
+          <div className="p-4">
+            <Skeleton className="h-8 w-32" />
+          </div>
+          <div className="p-4 space-y-2">
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-3/4" />
+            <Skeleton className="h-4 w-1/2" />
+          </div>
+        </div>
+        <div className="flex-1 p-4">
+          <Skeleton className="h-8 w-64 mb-4" />
+          <Skeleton className="h-64 w-full" />
+        </div>
+      </div>
+    );
+  }
 
-export const metadata: Metadata = {
-  title: "RAMQ-SCAN-APP",
-  description: "helps doctors pay bills without messing around",
-};
-
-export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="flex-1 relative">
-        <div className="sticky top-0 z-50 flex items-center gap-2 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-3 py-2">
-          <SidebarTrigger className="h-8 w-8" />
-          <span className="text-sm font-medium">RAMQ Scan</span>
-        </div>
-        <div className="p-4 sm:p-6 lg:p-8 mx-auto w-full max-w-[1200px]">
+      <SidebarInset>
+        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem className="hidden md:block">
+                <BreadcrumbLink href="/">
+                  Tableau de bord
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Accueil</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </header>
+        <div className="flex flex-1 flex-col gap-4 p-4">
           {children}
         </div>
-      </main>
+      </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

@@ -14,16 +14,7 @@ export default function SettingsPage() {
   const { user: authUser, loading: authLoading } = useAuth()
   const [activeTab, setActiveTab] = React.useState("general")
 
-  if (authLoading) {
-    return (
-      <div className="p-2 sm:p-4">
-        <div className="flex items-center justify-center h-64">
-          <div className="text-lg">Chargement des paramètres...</div>
-        </div>
-      </div>
-    )
-  }
-
+  // Loading state is handled by the dashboard layout
   if (!authUser) {
     return (
       <div className="p-2 sm:p-4">

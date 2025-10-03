@@ -7,11 +7,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { SettingsCard } from "@/components/ui/settings-card"
 import { Badge } from "@/components/ui/badge"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { IconPlus, IconEdit, IconTrash, IconStar, IconChevronsDown, IconCheck } from "@tabler/icons-react"
 import { useAuth } from "@/lib/auth-context"
-import { UserService, UserData } from "@/lib/user-service"
+import { UserService, UserData, Establishment as UserEstablishment } from "@/lib/user-service"
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
@@ -22,17 +21,6 @@ interface Specialty {
   isActive: boolean;
 }
 
-interface Establishment {
-  id: string
-  name: string
-  address: string
-  code: string
-  category: string
-  type: string
-  regionCode: string
-  isDefault: boolean
-}
-
 export function ProfileSettings() {
   const { user: authUser, userData, loading: authLoading, userDataLoading, refreshUserData } = useAuth()
   const [specialtyCode, setSpecialtyCode] = useState("")
@@ -41,16 +29,18 @@ export function ProfileSettings() {
   const [specialtiesLoading, setSpecialtiesLoading] = useState(true)
   const [isDirty, setIsDirty] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [establishmentsLoading, setEstablishmentsLoading] = useState(false)
 
-  // Establishment management state
-  const [establishments, setEstablishments] = useState<Establishment[]>([
-    { id: "1", name: "CHUM – Hôpital", address: "1051 rue Sanguinet, Montréal", code: "00443-03", category: "CM", type: "CAB", regionCode: "06", isDefault: true },
-    { id: "2", name: "CLSC Plateau-Mont-Royal", address: "4659 rue Saint-Denis, Montréal", code: "00123-01", category: "CM", type: "CLSC", regionCode: "06", isDefault: false },
-    { id: "3", name: "Clinique Privée", address: "1234 rue Sherbrooke, Montréal", code: "00999-05", category: "CM", type: "CAB", regionCode: "06", isDefault: false },
-  ])
+  // Establishment management state - will be populated from userData
+  const [establishments, setEstablishments] = useState<UserEstablishment[]>([])
+  
+  // Local state for pending changes
+  const [pendingEstablishments, setPendingEstablishments] = useState<UserEstablishment[]>([])
+  const [pendingDefaultId, setPendingDefaultId] = useState<number | null>(null)
+  const [establishmentsDirty, setEstablishmentsDirty] = useState(false)
 
   const [results, setResults] = useState<any[]>([])
-  const [modalOpen, setModalOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const [searchValue, setSearchValue] = useState("")
 
   // Load establishments with search
@@ -77,55 +67,72 @@ export function ProfileSettings() {
   }, [searchValue]);
 
   // Close dropdown when clicking outside
-  // Reset search when modal closes
   useEffect(() => {
-    if (!modalOpen) {
-      setSearchValue("");
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('[data-dropdown]')) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
     }
-  }, [modalOpen]);
+  }, [open]);
 
   const handleAddEstablishment = (establishment: any) => {
-    const normalized = {
-      id: String(establishment.id),
-      name: establishment.name ?? "",
-      address: establishment.address ?? "",
-      code: establishment.code ?? "",
-      category: establishment.category ?? "",
-      type: establishment.type ?? establishment.establishment_type ?? "",
-      regionCode: establishment.regionCode ?? "",
-      isDefault: false,
+    // Check if already added
+    const isAlreadyAdded = pendingEstablishments.find(ue => ue.establishment.id === establishment.id);
+    if (isAlreadyAdded) return;
+
+    // Create a mock UserEstablishment object for local state
+    const newUserEstablishment: UserEstablishment = {
+      id: Date.now(), // Temporary ID for local state
+      user_id: userData?.id || 0,
+      establishment_id: establishment.id,
+      is_default: false,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      establishment: {
+        id: establishment.id,
+        code: establishment.code || '',
+        name: establishment.name,
+        address: establishment.address,
+        category: establishment.category,
+        establishment_type: establishment.establishment_type,
+        region_code: establishment.region_code,
+        region_name: establishment.region_name,
+        municipality: establishment.municipality,
+        postal_code: establishment.postal_code,
+        is_active: establishment.is_active || true,
+        codes: establishment.codes || [],
+        created_at: establishment.created_at || new Date().toISOString(),
+        updated_at: establishment.updated_at || new Date().toISOString(),
+      }
     };
-    if (!establishments.find((est) => est.id === normalized.id)) {
-      setEstablishments(prev => [...prev, normalized]);
-    }
-    // Reset search and close modal after adding
+
+    setPendingEstablishments(prev => [...prev, newUserEstablishment]);
+    setEstablishmentsDirty(true);
     setSearchValue("");
-    setModalOpen(false);
+    setOpen(false);
   };
 
-  const handleRemoveEstablishment = (id: string) => {
-    const updatedEstablishments = establishments.filter((est) => est.id !== id);
-    // If removing the default, set the first remaining as default
-    if (establishments.find(est => est.id === id)?.isDefault && updatedEstablishments.length > 0) {
-      updatedEstablishments[0].isDefault = true;
+  const handleRemoveEstablishment = (establishmentId: number) => {
+    setPendingEstablishments(prev => prev.filter(ue => ue.establishment.id !== establishmentId));
+    
+    // If removing the pending default, clear it
+    if (pendingDefaultId === establishmentId) {
+      setPendingDefaultId(null);
     }
-    setEstablishments(updatedEstablishments);
+    
+    setEstablishmentsDirty(true);
   };
 
-  const handleSetDefault = (id: string) => {
-    setEstablishments(prev => 
-      prev.map(est => ({ ...est, isDefault: est.id === id }))
-    );
+  const handleSetDefault = (establishmentId: number) => {
+    setPendingDefaultId(establishmentId);
+    setEstablishmentsDirty(true);
   };
-
-  // Auto-set default if only one establishment
-  useEffect(() => {
-    if (establishments.length === 1 && !establishments[0].isDefault) {
-      setEstablishments(prev => 
-        prev.map(est => ({ ...est, isDefault: true }))
-      );
-    }
-  }, [establishments.length]);
 
   // Load specialties from API
   useEffect(() => {
@@ -156,15 +163,20 @@ export function ProfileSettings() {
       console.log('ProfileSettings - User data updated:', userData)
       setSpecialtyCode(userData.specialty_code || "")
       setProfessionalId(userData.professional_id || "")
+      setEstablishments(userData.establishments || [])
+      setPendingEstablishments(userData.establishments || [])
+      setPendingDefaultId(userData.default_establishment?.id || null)
       setIsDirty(false)
+      setEstablishmentsDirty(false)
     }
   }, [userData])
 
-  const onSave = async () => {
+  const onSaveSpecialty = async () => {
     if (!userData) return
     
     setIsLoading(true)
     try {
+      // Save specialty and professional ID changes only
       const specialty = specialties.find(s => s.code === specialtyCode)
       const updatedUser = await UserService.updateUser({
         specialty_code: specialtyCode || null,
@@ -176,12 +188,77 @@ export function ProfileSettings() {
         // Refresh user data in AuthContext
         await refreshUserData()
         setIsDirty(false)
-        console.log('ProfileSettings - User data saved and refreshed')
+        console.log('ProfileSettings - Specialty data saved and refreshed')
       }
     } catch (error) {
       console.error('Failed to update user:', error)
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const onSaveEstablishments = async () => {
+    if (!userData) return
+    
+    setEstablishmentsLoading(true)
+    try {
+      // Save establishment changes only
+      await saveEstablishmentChanges()
+      
+      // Refresh user data in AuthContext
+      await refreshUserData()
+      setEstablishmentsDirty(false)
+      console.log('ProfileSettings - Establishment data saved and refreshed')
+    } catch (error) {
+      console.error('Failed to save establishment changes:', error)
+    } finally {
+      setEstablishmentsLoading(false)
+    }
+  }
+
+  const saveEstablishmentChanges = async () => {
+    if (!userData) return
+
+    try {
+      // Get current establishments from server
+      const currentEstablishments = establishments
+      const currentDefaultId = userData.default_establishment?.id || null
+
+      // Find establishments to add
+      const toAdd = pendingEstablishments.filter(pending => 
+        !currentEstablishments.find(current => current.establishment.id === pending.establishment.id)
+      )
+
+      // Find establishments to remove
+      const toRemove = currentEstablishments.filter(current => 
+        !pendingEstablishments.find(pending => pending.establishment.id === current.establishment.id)
+      )
+
+      // Add new establishments
+      for (const establishment of toAdd) {
+        await UserService.addEstablishment(establishment.establishment.id)
+      }
+
+      // Remove establishments
+      for (const establishment of toRemove) {
+        await UserService.removeEstablishment(establishment.establishment.id)
+      }
+
+      // Set default establishment if changed
+      if (pendingDefaultId !== currentDefaultId) {
+        if (pendingDefaultId) {
+          await UserService.setDefaultEstablishment(pendingDefaultId)
+        }
+      }
+
+      console.log('Establishment changes saved:', {
+        added: toAdd.length,
+        removed: toRemove.length,
+        defaultChanged: pendingDefaultId !== currentDefaultId
+      })
+    } catch (error) {
+      console.error('Failed to save establishment changes:', error)
+      throw error
     }
   }
 
@@ -197,7 +274,7 @@ export function ProfileSettings() {
       <SettingsCard
         title="Spécialité & identifiants"
         description="Vos informations professionnelles RAMQ"
-        onSave={onSave}
+        onSave={onSaveSpecialty}
         isDirty={isDirty}
         isLoading={isLoading}
       >
@@ -241,135 +318,124 @@ export function ProfileSettings() {
       <SettingsCard
         title="Établissement"
         description="Gérez vos établissements de pratique"
+        onSave={onSaveEstablishments}
+        isDirty={establishmentsDirty}
+        isLoading={establishmentsLoading}
       >
-        <div className="space-y-3">
+        <div className="space-y-4">
+          {/* Establishment Search */}
           <div className="space-y-2">
-            {establishments.map((establishment) => (
-              <div 
-                key={establishment.id} 
-                className="group flex items-center justify-between p-3 border border-border/50 rounded-lg bg-background/30 hover:bg-background/50 transition-colors"
+            <Label>Ajouter un établissement</Label>
+            <div className="relative" data-dropdown>
+              <Input
+                placeholder="Rechercher un établissement..."
+                value={searchValue}
+                onChange={(e) => {
+                  setSearchValue(e.target.value);
+                  setOpen(true);
+                }}
+                onFocus={() => setOpen(true)}
+                className="w-full"
+              />
+              <Button
+                variant="ghost"
+                size="sm"
+                className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                onClick={() => setOpen(!open)}
               >
-                <div className="flex items-center gap-3 flex-1">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <p className="text-sm font-medium truncate">{establishment.name}</p>
-                      {establishment.isDefault && (
-                        <Badge variant="secondary" className="text-xs">
-                          <IconStar className="w-3 h-3 mr-1 fill-current" />
-                          Défaut
-                        </Badge>
-                      )}
+                <IconChevronsDown className="h-4 w-4" />
+              </Button>
+              
+              {/* Dropdown Results */}
+              {open && (
+                <div className="absolute z-50 w-full mt-1 bg-white border rounded-md shadow-lg max-h-96 overflow-auto">
+                  {results.length === 0 ? (
+                    <div className="p-4 text-sm text-muted-foreground text-center">
+                      {isLoading ? "Recherche en cours..." : searchValue ? "Aucun établissement trouvé" : "Commencez à taper pour rechercher"}
                     </div>
-                    <p className="text-xs text-muted-foreground truncate mb-1">{establishment.address}</p>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <span>Code: {establishment.code}</span>
-                      <span>Cat: {establishment.category}</span>
-                      <span>Type: {establishment.type}</span>
-                      <span>Région: {establishment.regionCode}</span>
+                  ) : (
+                    <div className="p-1">
+                      {results.map((establishment) => {
+                        const isAlreadyAdded = pendingEstablishments.find(ue => ue.establishment.id === establishment.id);
+                        return (
+                          <div
+                            key={establishment.id}
+                            onClick={() => !isAlreadyAdded && handleAddEstablishment(establishment)}
+                            className={cn(
+                              "flex items-start justify-between gap-3 p-3 rounded-sm cursor-pointer hover:bg-accent hover:text-accent-foreground",
+                              isAlreadyAdded && "opacity-50 cursor-not-allowed"
+                            )}
+                          >
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center">
+                                {isAlreadyAdded && (
+                                  <IconCheck className="mr-2 h-4 w-4 shrink-0" />
+                                )}
+                                <span className="font-medium truncate">{establishment.name}</span>
+                              </div>
+                              <span className="text-xs text-muted-foreground block truncate">{establishment.address}</span>
+                              {establishment.codes && establishment.codes.length > 0 && (
+                                <div className="flex gap-1 mt-1">
+                                  {establishment.codes.map((code: string, index: number) => (
+                                    <Badge key={index} variant="outline" className="text-[10px] px-1 py-0">
+                                      {code}
+                                    </Badge>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {!establishment.isDefault && (
-                    <Tooltip>
-                      <TooltipTrigger asChild>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-8 w-8 p-0 hover:bg-yellow-50 hover:text-yellow-600"
-                          onClick={() => handleSetDefault(establishment.id)}
-                        >
-                          <IconStar className="w-4 h-4" />
-                        </Button>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Définir comme établissement par défaut</p>
-                      </TooltipContent>
-                    </Tooltip>
                   )}
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="h-8 w-8 p-0 hover:bg-red-50 hover:text-red-600"
-                        onClick={() => handleRemoveEstablishment(establishment.id)}
-                      >
-                        <IconTrash className="w-4 h-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Supprimer cet établissement</p>
-                    </TooltipContent>
-                  </Tooltip>
                 </div>
-              </div>
-            ))}
+              )}
+            </div>
           </div>
           
-          <Dialog open={modalOpen} onOpenChange={setModalOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline" className="w-full">
-                <IconPlus className="w-4 h-4 mr-2" />
-                Ajouter un établissement
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px]">
-              <DialogHeader>
-                <DialogTitle>Ajouter un établissement</DialogTitle>
-              </DialogHeader>
-              <div className="mt-4">
-                <Command className="rounded-lg border shadow-md">
-                  <CommandInput
-                    placeholder="Rechercher un établissement..."
-                    value={searchValue}
-                    onValueChange={setSearchValue}
-                  />
-                  <CommandList>
-                    <CommandEmpty>
-                      {isLoading ? "Recherche en cours..." : searchValue ? "Aucun établissement trouvé" : "Commencez à taper pour rechercher"}
-                    </CommandEmpty>
-                    {results.length > 0 && (
-                      <CommandGroup>
-                        {results.map((establishment) => {
-                          const isAlreadyAdded = establishments.find(est => est.id === String(establishment.id));
-                          return (
-                            <CommandItem
-                              key={establishment.id}
-                              onSelect={() => !isAlreadyAdded && handleAddEstablishment(establishment)}
-                              disabled={isAlreadyAdded}
-                              className={cn(
-                                "flex items-center justify-between p-3 cursor-pointer",
-                                isAlreadyAdded && "opacity-50 cursor-not-allowed"
-                              )}
-                            >
-                              <div className="flex items-center gap-3 flex-1 min-w-0">
-                                <div className="flex-1 min-w-0">
-                                  <div className="flex items-center gap-2 mb-1">
-                                    <p className="text-sm font-medium truncate">{establishment.name}</p>
-                                  </div>
-                                  <p className="text-xs text-muted-foreground truncate mb-1">{establishment.address}</p>
-                                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                                    <span>Code: {establishment.code || 'N/A'}</span>
-                                    <span>Cat: {establishment.category || 'N/A'}</span>
-                                    <span>Type: {establishment.type || 'N/A'}</span>
-                                    <span>Région: {establishment.regionCode || 'N/A'}</span>
-                                  </div>
-                                </div>
-                              </div>
-                              {isAlreadyAdded && (
-                                <IconCheck className="w-4 h-4 text-green-600" />
-                              )}
-                            </CommandItem>
-                          );
-                        })}
-                      </CommandGroup>
-                    )}
-                  </CommandList>
-                </Command>
+          {/* Selected establishments */}
+          {pendingEstablishments.length > 0 && (
+            <div className="space-y-2">
+              <Label>Établissements sélectionnés</Label>
+              <div className="rounded-md border divide-y">
+                {pendingEstablishments.map((userEstablishment) => (
+                  <div key={userEstablishment.id} className="flex items-start justify-between px-4 py-3 hover:bg-muted/50">
+                    <div className="min-w-0">
+                      <div className="truncate font-semibold text-sm">{userEstablishment.establishment.name}</div>
+                      <div className="truncate text-xs text-muted-foreground">{userEstablishment.establishment.address}</div>
+                      {pendingDefaultId === userEstablishment.establishment.id && (
+                        <div className="text-[10px] text-muted-foreground mt-0.5">Établissement par défaut</div>
+                      )}
+                    </div>
+                    <div className="flex items-start gap-2 pl-4 shrink-0">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-6 w-6 mt-0.5"
+                        onClick={() => handleSetDefault(userEstablishment.establishment.id)}
+                      >
+                        <IconStar 
+                          className={cn(
+                            "h-4 w-4",
+                            pendingDefaultId === userEstablishment.establishment.id ? "text-primary fill-primary" : "text-muted-foreground"
+                          )}
+                        />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-6 w-6 mt-0.5 text-muted-foreground hover:text-destructive"
+                        onClick={() => handleRemoveEstablishment(userEstablishment.establishment.id)}
+                      >
+                        <IconTrash className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </DialogContent>
-          </Dialog>
+            </div>
+          )}
         </div>
       </SettingsCard>
       </div>

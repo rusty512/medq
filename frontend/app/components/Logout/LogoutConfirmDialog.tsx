@@ -69,10 +69,10 @@ export function LogoutConfirmDialog({ open, onOpenChange }: LogoutConfirmDialogP
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <LogOut className="h-5 w-5" />
-            Confirm Logout
+            Confirmer la déconnexion
           </DialogTitle>
           <DialogDescription>
-            Are you sure you want to log out? You will need to sign in again to access your account.
+            Êtes-vous sûr de vouloir vous déconnecter ? Vous devrez vous reconnecter pour accéder à votre compte.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -81,7 +81,7 @@ export function LogoutConfirmDialog({ open, onOpenChange }: LogoutConfirmDialogP
             onClick={() => onOpenChange(false)}
             disabled={isLoggingOut}
           >
-            Cancel
+            Annuler
           </Button>
           <Button 
             variant="destructive" 
@@ -90,7 +90,7 @@ export function LogoutConfirmDialog({ open, onOpenChange }: LogoutConfirmDialogP
             className="flex items-center gap-2"
           >
             <LogOut className="h-4 w-4" />
-            {isLoggingOut ? "Logging out..." : "Logout"}
+            {isLoggingOut ? "Déconnexion..." : "Se déconnecter"}
           </Button>
         </DialogFooter>
       </DialogContent>

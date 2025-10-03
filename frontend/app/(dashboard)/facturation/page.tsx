@@ -7,25 +7,17 @@ import { useAuth } from "@/lib/auth-context";
 import { UserService, UserData } from "@/lib/user-service";
 import { VisitsService, Visit } from "@/lib/visits-service";
 import { RAMQService } from "@/lib/ramq-service";
-import { useMemo, useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { Download, Loader2, CheckCircle, XCircle } from "lucide-react";
 
 export default function FacturationPage() {
   const { user: authUser, userData, visits, loading: authLoading, userDataLoading, dataLoading } = useAuth();
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [exporting, setExporting] = useState(false);
   const [exportResults, setExportResults] = useState<{ success: number; failed: number; details: string[] } | null>(null);
 
-  useEffect(() => {
-    // Data is already loaded in AuthContext, just set loading state
-    if (authLoading || userDataLoading || dataLoading || !authUser || !userData) {
-      setLoading(true);
-    } else {
-      console.log('📊 Facturation data ready:', { visits: visits.length });
-      setLoading(false);
-    }
-  }, [authUser, authLoading, userDataLoading, dataLoading, userData, visits]);
+  // Data is already loaded in AuthContext, no need for local loading state
+  const loading = authLoading || userDataLoading || dataLoading;
 
   const handleExportToRAMQ = async () => {
     if (!visits.length) {

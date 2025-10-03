@@ -2,6 +2,33 @@
 
 import { createClient } from './supabase/client';
 
+export interface Establishment {
+  id: number;
+  code: string;
+  name: string;
+  address: string | null;
+  category: string | null;
+  establishment_type: string | null;
+  region_code: string | null;
+  region_name: string | null;
+  municipality: string | null;
+  postal_code: string | null;
+  is_active: boolean;
+  codes: string[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UserEstablishment {
+  id: number;
+  user_id: number;
+  establishment_id: number;
+  is_default: boolean;
+  created_at: string;
+  updated_at: string;
+  establishment: Establishment;
+}
+
 export interface UserData {
   id: number;
   supabase_uid: string;
@@ -12,6 +39,8 @@ export interface UserData {
   specialty_code: string | null;
   specialty_name: string | null;
   default_establishment_id: number | null;
+  default_establishment: Establishment | null;
+  establishments: UserEstablishment[];
   created_at: string;
   updated_at: string;
 }
@@ -120,5 +149,105 @@ export class UserService {
     const lastInitial = user.last_name?.charAt(0)?.toUpperCase() || '';
     
     return (firstInitial + lastInitial) || 'U';
+  }
+
+  /**
+   * Add establishment to user
+   */
+  static async addEstablishment(establishmentId: number): Promise<boolean> {
+    try {
+      const { data: { session } } = await this.supabase.auth.getSession();
+      
+      console.log('UserService - Session check:', {
+        hasSession: !!session,
+        hasAccessToken: !!session?.access_token,
+        tokenLength: session?.access_token?.length,
+        establishmentId
+      });
+      
+      if (!session?.access_token) {
+        throw new Error('No active session');
+      }
+
+      const response = await fetch('/api/me/establishments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ establishmentId }),
+        cache: 'no-store',
+      });
+
+      console.log('UserService - Response:', {
+        ok: response.ok,
+        status: response.status,
+        statusText: response.statusText
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.log('UserService - Error response:', errorText);
+      }
+
+      return response.ok;
+    } catch (error) {
+      console.error('Error adding establishment:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Remove establishment from user
+   */
+  static async removeEstablishment(establishmentId: number): Promise<boolean> {
+    try {
+      const { data: { session } } = await this.supabase.auth.getSession();
+      
+      if (!session?.access_token) {
+        throw new Error('No active session');
+      }
+
+      const response = await fetch(`/api/me/establishments/${establishmentId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        cache: 'no-store',
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error('Error removing establishment:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Set default establishment for user
+   */
+  static async setDefaultEstablishment(establishmentId: number): Promise<boolean> {
+    try {
+      const { data: { session } } = await this.supabase.auth.getSession();
+      
+      if (!session?.access_token) {
+        throw new Error('No active session');
+      }
+
+      const response = await fetch('/api/me/establishments/default', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ establishmentId }),
+        cache: 'no-store',
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error('Error setting default establishment:', error);
+      return false;
+    }
   }
 }

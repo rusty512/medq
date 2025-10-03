@@ -10,34 +10,14 @@ import { useAuth } from "@/lib/auth-context";
 import { UserService, UserData } from "@/lib/user-service";
 import { VisitsService, Visit } from "@/lib/visits-service";
 import { StatsService, BillingStats } from "@/lib/stats-service";
-import { useMemo, useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
 export default function Home() {
   const { user: authUser, userData, visits, billingStats, loading: authLoading, userDataLoading, dataLoading, refreshAllData } = useAuth();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
 
-  useEffect(() => {
-    console.log('📊 Dashboard useEffect - Current state:', {
-      authLoading,
-      userDataLoading,
-      dataLoading,
-      hasAuthUser: !!authUser,
-      hasUserData: !!userData,
-      visitsCount: visits.length,
-      hasStats: !!billingStats
-    });
-    
-    // Data is already loaded in AuthContext, just set loading state
-    if (authLoading || userDataLoading || dataLoading || !authUser || !userData) {
-      console.log('📊 Dashboard - Still loading...');
-      setLoading(true);
-    } else {
-      console.log('📊 Dashboard - Data ready!', { visits: visits.length, stats: billingStats ? 'loaded' : 'null' });
-      setLoading(false);
-    }
-  }, [authUser, authLoading, userDataLoading, dataLoading, userData, visits, billingStats]);
+  // Data is already loaded in AuthContext, no need for local loading state
+  const loading = authLoading || userDataLoading || dataLoading;
 
   // Function to refresh data
   const refreshData = async () => {
