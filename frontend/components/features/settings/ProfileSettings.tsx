@@ -81,35 +81,20 @@ export function ProfileSettings() {
     }
   }, [open]);
 
-  const handleAddEstablishment = (establishment: any) => {
+  const handleAddEstablishment = (selectedEstablishment: any) => {
     // Check if already added
-    const isAlreadyAdded = pendingEstablishments.find(ue => ue.establishment.id === establishment.id);
+    const isAlreadyAdded = pendingEstablishments.find((ue: any) => ue.establishment?.id === selectedEstablishment.id);
     if (isAlreadyAdded) return;
 
     // Create a mock UserEstablishment object for local state
     const newUserEstablishment: UserEstablishment = {
       id: Date.now(), // Temporary ID for local state
       user_id: userData?.id || 0,
-      establishment_id: establishment.id,
+      establishment_id: selectedEstablishment.id,
       is_default: false,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
-      establishment: {
-        id: establishment.id,
-        code: establishment.code || '',
-        name: establishment.name,
-        address: establishment.address,
-        category: establishment.category,
-        establishment_type: establishment.establishment_type,
-        region_code: establishment.region_code,
-        region_name: establishment.region_name,
-        municipality: establishment.municipality,
-        postal_code: establishment.postal_code,
-        is_active: establishment.is_active || true,
-        codes: establishment.codes || [],
-        created_at: establishment.created_at || new Date().toISOString(),
-        updated_at: establishment.updated_at || new Date().toISOString(),
-      }
+      establishment: selectedEstablishment
     };
 
     setPendingEstablishments(prev => [...prev, newUserEstablishment]);

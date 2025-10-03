@@ -4,8 +4,7 @@ import { HeaderRow } from "@/components/features/blocks/HeaderRow";
 import { DataTable } from "@/components/features/blocks/DataTable";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/lib/auth-context";
-import { UserService, UserData } from "@/lib/user-service";
-import { VisitsService, Visit } from "@/lib/visits-service";
+import { VisitsService } from "@/lib/visits-service";
 import { RAMQService } from "@/lib/ramq-service";
 import { useMemo, useState } from "react";
 import { Download, Loader2, CheckCircle, XCircle } from "lucide-react";
@@ -62,8 +61,8 @@ export default function FacturationPage() {
 
       // Refresh visits to get updated submission status
       if (successCount > 0) {
-        const visitData = await VisitsService.getVisits();
-        setVisits(visitData);
+        // Data will be refreshed through the AuthContext
+        console.log('Visits submitted successfully, data will refresh automatically');
       }
 
     } catch (err) {

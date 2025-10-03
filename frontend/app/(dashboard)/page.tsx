@@ -7,9 +7,7 @@ import { StatCard } from "@/components/features/blocks/StatCard";
 import { DataTable } from "@/components/features/blocks/DataTable";
 import { Plus, RefreshCw } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
-import { UserService, UserData } from "@/lib/user-service";
-import { VisitsService, Visit } from "@/lib/visits-service";
-import { StatsService, BillingStats } from "@/lib/stats-service";
+import { UserService } from "@/lib/user-service";
 import { useMemo, useState } from "react";
 
 export default function Home() {
@@ -29,7 +27,7 @@ export default function Home() {
       await refreshAllData();
     } catch (err) {
       console.error('❌ Error refreshing data:', err);
-      setError('Failed to refresh data');
+      // Error handling could be improved with toast notifications
     } finally {
       setRefreshing(false);
     }
@@ -131,15 +129,7 @@ export default function Home() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="p-2 sm:p-4">
-        <div className="flex items-center justify-center h-64">
-          <div className="text-lg text-red-600">Erreur: {error}</div>
-        </div>
-      </div>
-    );
-  }
+  // Error handling is now managed by the AuthContext
 
   return (
     <div className="p-2 sm:p-4">

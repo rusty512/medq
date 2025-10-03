@@ -11,7 +11,7 @@ import { PaymentSettings } from "@/components/features/settings/PaymentSettings"
 import { useAuth } from "@/lib/auth-context"
 
 export default function SettingsPage() {
-  const { user: authUser, loading: authLoading } = useAuth()
+  const { user: authUser } = useAuth()
   const [activeTab, setActiveTab] = React.useState("general")
 
   // Loading state is handled by the dashboard layout

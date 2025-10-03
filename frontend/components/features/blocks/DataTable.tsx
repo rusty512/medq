@@ -569,56 +569,9 @@ const createColumns = (
   {
     accessorKey: "patientName",
     header: "Patient",
-    cell: ({ row, table }) => {
-      const [isModalOpen, setIsModalOpen] = React.useState(false)
-      
-      const handleAssociate = (patient: { name: string; nam: string }) => {
-        // Update the data in the table
-        const currentData = table.getRowModel().rows.map(r => r.original)
-        const updatedData = currentData.map(p => 
-          p.id === row.original.id 
-            ? { ...p, patientName: patient.name, nam: patient.nam }
-            : p
-        )
-        // This would typically update the parent state
-        console.log('Associating patient:', patient)
-        toast.success("Patient associé avec succès")
-      }
-
+    cell: ({ row }) => {
       return (
-        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogTrigger asChild>
-            <button 
-              className="text-left hover:underline cursor-pointer group whitespace-nowrap"
-              onClick={(e) => {
-                e.stopPropagation()
-                setIsModalOpen(true)
-              }}
-            >
-              <div className="space-y-0.5">
-                <div className="font-medium text-foreground group-hover:text-foreground/80 transition-colors text-sm whitespace-nowrap">
-                  {row.original.patientName}
-                </div>
-                <div className="text-xs text-muted-foreground whitespace-nowrap">
-                  {row.original.nam}
-                </div>
-              </div>
-            </button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Associer un patient</DialogTitle>
-              <DialogDescription>
-                Recherchez et sélectionnez le bon patient dans la base de données RAMQ
-              </DialogDescription>
-            </DialogHeader>
-            <PatientSearchModal
-              currentPatient={row.original}
-              onAssociate={handleAssociate}
-              onClose={() => setIsModalOpen(false)}
-            />
-          </DialogContent>
-        </Dialog>
+        <PatientCell patient={row.original} />
       )
     },
     enableHiding: false,
@@ -893,6 +846,53 @@ const createColumns = (
   },
 ]
 
+// PatientCell component for handling patient association
+function PatientCell({ patient }: { patient: any }) {
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
+  
+  const handleAssociate = (selectedPatient: { name: string; nam: string }) => {
+    // This would typically update the parent state
+    console.log('Associating patient:', selectedPatient)
+    toast.success("Patient associé avec succès")
+    setIsModalOpen(false)
+  }
+
+  return (
+    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+      <DialogTrigger asChild>
+        <button 
+          className="text-left hover:underline cursor-pointer group whitespace-nowrap"
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsModalOpen(true)
+          }}
+        >
+          <div className="space-y-0.5">
+            <div className="font-medium text-foreground group-hover:text-foreground/80 transition-colors text-sm whitespace-nowrap">
+              {patient.patientName}
+            </div>
+            <div className="text-xs text-muted-foreground whitespace-nowrap">
+              {patient.nam}
+            </div>
+          </div>
+        </button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>Associer un patient</DialogTitle>
+          <DialogDescription>
+            Recherchez et sélectionnez le bon patient dans la base de données RAMQ
+          </DialogDescription>
+        </DialogHeader>
+        <PatientSearchModal
+          currentPatient={patient}
+          onAssociate={handleAssociate}
+          onClose={() => setIsModalOpen(false)}
+        />
+      </DialogContent>
+    </Dialog>
+  )
+}
 
 export function DataTable({
   data: initialData,

@@ -5,7 +5,7 @@ const supabase = createClient()
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Extract the authorization header from the request
@@ -18,7 +18,8 @@ export async function DELETE(
       })
     }
 
-    const establishmentId = parseInt(params.id)
+    const { id } = await params
+    const establishmentId = parseInt(id)
     
     if (isNaN(establishmentId)) {
       return new Response(JSON.stringify({ error: 'Invalid establishment ID' }), {
