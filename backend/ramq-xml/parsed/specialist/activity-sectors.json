@@ -1,338 +1,354 @@
-[
-  {
-    "sectorCode": "01",
-    "sectorName": "Clinique externe",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      },
-      {
-        "category": "CLSC",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
+{
+  "metadata": {
+    "source_file": "secteurActivite_Specialiste_V257_20250613.xml",
+    "extraction_date": "2025-10-04T00:01:34.543Z",
+    "total_sectors": 19,
+    "version": "1.0",
+    "description": "Secteurs d'activité RAMQ pour la validation des actes de spécialistes"
   },
-  {
-    "sectorCode": "02",
-    "sectorName": "Section gériatrique",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
+  "activity_sectors": [
+    {
+      "no_sect_activ": 1,
+      "des_sect_activ": "Clinique externe",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "CLSC",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 2,
+      "des_sect_activ": "Section gériatrique",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "9",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 3,
+      "des_sect_activ": "Unité de soins généraux et spéc.",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "PE",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 4,
+      "des_sect_activ": "Unité soins longue durée(prolongés)",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CA",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 5,
+      "des_sect_activ": "Unité soins longue durée (héberg.)",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CA",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 8,
+      "des_sect_activ": "Section psychiatrique",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CA",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 15,
+      "des_sect_activ": "Unité coronarienne",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "9",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 16,
+      "des_sect_activ": "Unité de soins intensifs",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "9",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 17,
+      "des_sect_activ": "Réadaptation en déficience physique",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CA",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "1970-01-01",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 31,
+      "des_sect_activ": "Service d'urgence CLSC réseau garde",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "L",
+          "dd_effec_catg_etab": "9",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "S",
+          "dd_effec_catg_etab": "8",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "8",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 35,
+      "des_sect_activ": "Clinique d'urgence",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "9",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 43,
+      "des_sect_activ": "Centre des grands brûlés",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "9",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 49,
+      "des_sect_activ": "Unité de réadaptation lourde",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "2",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "0",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 52,
+      "des_sect_activ": "Unité de médecine familiale",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "1999-09-01",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "CLSC",
+          "dd_effec_catg_etab": "1999-09-01",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 53,
+      "des_sect_activ": "Centre de douleur chronique",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "9",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 54,
+      "des_sect_activ": "Unité de soins de néonatalogie",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "2",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "0",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 55,
+      "des_sect_activ": "Unité d'hépatologie",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "2",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "H",
+          "dd_effec_catg_etab": "0",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 56,
+      "des_sect_activ": "Autre secteur CLSC",
+      "dd_effec_sect_activ": "2016-04-01",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "2",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "L",
+          "dd_effec_catg_etab": "0",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "S",
+          "dd_effec_catg_etab": "1",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "C",
+          "dd_effec_catg_etab": "7",
+          "df_effec_catg_etab": null
+        }
+      ]
+    },
+    {
+      "no_sect_activ": 57,
+      "des_sect_activ": "Groupe méd. famille universitaire",
+      "dd_effec_sect_activ": "2018-12-10",
+      "liste_catg_etab": [
+        {
+          "catg_etab": "CH",
+          "dd_effec_catg_etab": "2018-12-10",
+          "df_effec_catg_etab": null
+        },
+        {
+          "catg_etab": "CLSC",
+          "dd_effec_catg_etab": "2018-12-10",
+          "df_effec_catg_etab": null
+        }
+      ]
     }
-  },
-  {
-    "sectorCode": "03",
-    "sectorName": "Unité de soins généraux et spéc.",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      },
-      {
-        "category": "PE",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "04",
-    "sectorName": "Unité soins longue durée(prolongés)",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CA",
-        "effectiveDate": ""
-      },
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "05",
-    "sectorName": "Unité soins longue durée (héberg.)",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CA",
-        "effectiveDate": ""
-      },
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "08",
-    "sectorName": "Section psychiatrique",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CA",
-        "effectiveDate": ""
-      },
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "15",
-    "sectorName": "Unité coronarienne",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "16",
-    "sectorName": "Unité de soins intensifs",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "17",
-    "sectorName": "Réadaptation en déficience physique",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CA",
-        "effectiveDate": ""
-      },
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "31",
-    "sectorName": "Service d'urgence CLSC réseau garde",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CLSC",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "35",
-    "sectorName": "Clinique d'urgence",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "43",
-    "sectorName": "Centre des grands brûlés",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "49",
-    "sectorName": "Unité de réadaptation lourde",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "52",
-    "sectorName": "Unité de médecine familiale",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      },
-      {
-        "category": "CLSC",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "53",
-    "sectorName": "Centre de douleur chronique",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "54",
-    "sectorName": "Unité de soins de néonatalogie",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "55",
-    "sectorName": "Unité d'hépatologie",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "56",
-    "sectorName": "Autre secteur CLSC",
-    "effectiveDate": "2016-04-01",
-    "establishmentCategories": [
-      {
-        "category": "CLSC",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  },
-  {
-    "sectorCode": "57",
-    "sectorName": "Groupe méd. famille universitaire",
-    "effectiveDate": "2018-12-10",
-    "establishmentCategories": [
-      {
-        "category": "CH",
-        "effectiveDate": ""
-      },
-      {
-        "category": "CLSC",
-        "effectiveDate": ""
-      }
-    ],
-    "isActive": true,
-    "metadata": {
-      "sourceFile": "secteurActivite_Specialiste_V257_20250613.xml",
-      "lastUpdated": "2025-09-09T19:51:24.319Z"
-    }
-  }
-]
+  ]
+}

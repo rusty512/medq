@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "extraction_date": "2025-10-04T00:01:36.778Z",
+    "version": "1.0",
+    "description": "Résumé de l'extraction complète des données RAMQ pour la facturation des médecins spécialistes (RFP)"
+  },
+  "files_processed": {
+    "activity_sectors": 19,
+    "billing_codes": 7352,
+    "context_elements": 224,
+    "explanatory_messages": 2685,
+    "diagnostic_codes": 0,
+    "location_codes": 0
+  },
+  "total_records": 10280
+}

@@ -17,7 +17,7 @@ model User {
   first_name              String?
   last_name               String?
   phone                   String?
-  professional_id         String?       // 6-digit professional ID
+  professional_id         String?       @unique // 6-digit professional ID
   specialty_code          String?       // RAMQ specialty code
   specialty_name          String?       // Human-readable specialty name
   default_establishment_id Int?
@@ -28,22 +28,29 @@ model User {
 }
 
 model Establishment {
-  id         Int       @id @default(autoincrement())
-  code       String    @unique
-  name       String
-  address    String?
-  codes      String[]
-  category   String?
-  establishment_type String?
-  region_code String?
-  region_name String?
-  municipality String?
-  postal_code String?
-  is_active  Boolean   @default(true)
-  default_users User[] @relation("UserDefaultEstablishment")
-  user_establishments UserEstablishment[] @relation("EstablishmentUsers")
-  created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
+  id                        Int       @id @default(autoincrement())
+  
+  // Champs RAMQ/RFP (extraits des fichiers XML)
+  id_lieu_phys              String?   @unique // Identifiant principal du lieu physique (RAMQ)
+  nom_etab                  String?   // Nom de l'établissement
+  adresse                   String?   // Adresse de l'établissement
+  liste_no_etab_alternatifs String[]  // Liste des numéros d'établissement alternatifs
+  catg_etab                 String?   // Catégorie d'établissement (CM, CH, CLSC, etc.)
+  typ_etab                  String?   // Type d'établissement (ETAB ou CAB) - critique pour validation RFP
+  cod_rss                   String?   // Code RSS
+  nom_rss                   String?   // Nom RSS
+  municipalite              String?   // Municipalité
+  cod_pos                   String?   // Code postal
+  dd_lieu_phys              DateTime? @db.Date // Date de début d'effectivité du lieu physique
+  df_lieu_phys              DateTime? @db.Date // Date de fin d'effectivité du lieu physique
+  calen_jour_ferie          Json?     // Calendrier des jours fériés (JSON complexe pour majorations)
+  
+  // Champs système
+  is_active                 Boolean   @default(true)
+  default_users             User[]    @relation("UserDefaultEstablishment")
+  user_establishments       UserEstablishment[] @relation("EstablishmentUsers")
+  created_at                DateTime  @default(now())
+  updated_at                DateTime  @updatedAt
 }
 
 // Junction table for many-to-many relationship between User and Establishment
@@ -59,6 +66,52 @@ model UserEstablishment {
   establishment  Establishment @relation("EstablishmentUsers", fields: [establishment_id], references: [id], onDelete: Cascade)
   
   @@unique([user_id, establishment_id])
+}
+
+// Modèle pour les codes de facturation RAMQ
+model BillingCode {
+  id                    Int       @id @default(autoincrement())
+  
+  // Champs principaux du code de facturation
+  cod_fact              Int       @unique // Code de facturation
+  des_cod_fact          String?   // Description du code de facturation
+  typ_cod_fact          String?   // Type de code de facturation
+  dd_effec_cod_fact     DateTime? @db.Date // Date de début d'effet du code de facturation
+  df_effec_cod_fact     DateTime? @db.Date // Date de fin d'effet du code de facturation
+  
+  // Liste des attributs (liste_attri)
+  en_cab_seulm          Json?     // Attribut en cabinet seulement
+  en_etab_seulm         Json?     // Attribut en établissement seulement
+  ind_no_autor_req      Boolean?  // Indicateur numéro d'autorisation requis
+  
+  // Liste des éléments mesurables (liste_elm_mesur)
+  liste_elm_mesur       Json?     // Array d'éléments mesurables
+  
+  // Liste des rôles spécialisés (liste_role_spec)
+  liste_role_spec       Json?     // Array de rôles spécialisés
+  
+  // Liste des périodes d'âge (liste_perio_age)
+  liste_perio_age       Json?     // Array de périodes d'âge
+  
+  created_at            DateTime  @default(now())
+  updated_at            DateTime  @updatedAt
+}
+
+// Modèle pour les éléments de contexte RAMQ
+model ContextElement {
+  id                    Int       @id @default(autoincrement())
+  
+  // Champs principaux de l'élément de contexte
+  cod_elm_contx         Int       @unique // Code de l'élément de contexte
+  txt_elm_contx         String?   // Texte de l'élément de contexte
+  cod_niv               String?   // Code niveau
+  dd_effec_elm_contx    DateTime? @db.Date // Date de début d'effet de l'élément de contexte
+  
+  // Liste des utilisations de l'élément de contexte (liste_util_elm_contx)
+  liste_util_elm_contx  Json?     // Array des utilisations avec codes de facturation liés
+  
+  created_at            DateTime  @default(now())
+  updated_at            DateTime  @updatedAt
 }
 
 
